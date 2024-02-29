@@ -1,9 +1,10 @@
 import './App.css';
+import { Home } from './pages/home';
 
 function App() {
   return (
     <>
-      <h1>APP</h1>
+      <Home />
     </>
   );
 }
