@@ -1,12 +1,12 @@
-import { ChangeEvent, useEffect, useReducer, useState } from "react";
-import { Button } from "../../components/global/button";
-import { Inputs } from "../../components/global/inputs";
-import { Logo } from "../../components/layout/logo";
-import "./signup.css";
-import { ActionForm, Form, Action } from "../../utils/interfaces/form";
-import { User } from "../../utils/interfaces/user";
-import { getUsers } from "../../utils/functions";
-import { useNavigate } from "react-router-dom";
+import { ChangeEvent, useEffect, useReducer, useState } from 'react';
+import { Button } from '../../components/global/button';
+import { Inputs } from '../../components/global/inputs';
+import { Logo } from '../../components/layout/logo';
+import './signup.css';
+import { ActionForm, Form, Action } from '../../utils/interfaces/form';
+import { User } from '../../utils/interfaces/user';
+import { getUsers } from '../../utils/functions';
+import { useNavigate } from 'react-router-dom';
 
 function reducer(data: Form, action: ActionForm) {
   switch (action.type) {
@@ -31,11 +31,11 @@ function reducer(data: Form, action: ActionForm) {
 }
 
 const initialState: Form = {
-  username: "",
-  name: "",
-  lastname: "",
-  email: "",
-  password: "",
+  username: '',
+  name: '',
+  lastname: '',
+  email: '',
+  password: '',
 };
 
 export default function SignUp() {
@@ -50,18 +50,18 @@ export default function SignUp() {
       return element.username === dataForm.username;
     });
     if (userFound) {
-      console.log("MAL");
+      console.log('MAL');
     } else {
-      fetch("http://localhost:3000/user", {
-        method: "POST",
+      fetch('http://localhost:3000/user', {
+        method: 'POST',
         body: JSON.stringify({
           ...dataForm,
           profilePicture:
-            "https://robohash.org/suntvoluptasnisi.png?size=50x50&set=set1",
+            'https://robohash.org/suntvoluptasnisi.png?size=50x50&set=set1',
           myFavorites: [],
         }),
       });
-      navigate("/");
+      navigate('/');
     }
   }
 
@@ -99,7 +99,7 @@ export default function SignUp() {
             dispatch({ type: Action.changeLastname, value: ev.target.value });
           }}
           name="lastname"
-          placeholder="lastname"
+          placeholder="last name"
         />
         <Inputs
           handleChange={(ev: ChangeEvent<HTMLInputElement>) => {
@@ -117,7 +117,7 @@ export default function SignUp() {
           type="password"
           placeholder="password"
         />
-        <Button style="btn-yellow" >SIGN UP</Button>
+        <Button style="btn-yellow">SIGN UP</Button>
       </form>
     </section>
   );
