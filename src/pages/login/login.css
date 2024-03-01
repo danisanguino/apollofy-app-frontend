@@ -1,0 +1,18 @@
+.login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    gap: 5rem;
+}
+
+.login .login-contents .login-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+    gap: 2rem;
+}
+
+
