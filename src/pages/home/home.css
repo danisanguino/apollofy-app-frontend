@@ -1,0 +1,42 @@
+
+.home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: row wrap;
+    height: 100vh;
+}
+
+.home .home-contents {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+    gap: 5rem;
+    width: 80%;
+}
+
+.home .home-contents h1 {
+    color: var(--white);
+    font-size: 2.8rem;
+    text-align: center;
+    font-weight: 900;
+}
+
+.home .home-contents .home-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+    gap: 2rem;
+}
+
+.home p {
+    color: var(--white);
+    font-size: 1.1rem;
+    position: fixed;
+    bottom: 3rem;
+}
+
+
+

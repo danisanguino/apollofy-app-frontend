@@ -117,7 +117,7 @@ export default function SignUp() {
           type="password"
           placeholder="password"
         />
-        <Button>SIGN UP</Button>
+        <Button style="btn-yellow" >SIGN UP</Button>
       </form>
     </section>
   );

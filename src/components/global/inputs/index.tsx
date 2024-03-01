@@ -10,13 +10,6 @@ type Props = {
 
 export const Inputs = (props: Props) => {
   return (
-    <input
-      onChange={props.handleChange}
-      type={props.type}
-      name={props.name}
-      placeholder={props.placeholder}
-      className="input"
-      required
-    />
-  );
-};
+    <input type={props.type} name={props.name} placeholder={props.placeholder} className="input" onChange={props.handleChange} required />
+  )
+}
