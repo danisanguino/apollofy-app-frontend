@@ -1,0 +1,13 @@
+.btn {
+  border: none;
+  background-color: #e7c929;
+  border-radius: 2rem;
+  color: white;
+  padding: 1rem;
+  width: 20rem;
+  font-weight: 600;
+}
+
+.btn:active {
+  background: #d1b92e99;
+}
