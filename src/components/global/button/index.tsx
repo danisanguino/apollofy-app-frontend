@@ -1,7 +1,10 @@
+import { ReactNode } from "react";
 import "./button.css";
 
-type Props = {};
+type Props = {
+  children: ReactNode;
+};
 
-export function Buttons({}: Props) {
-  return <button className="btn">BUTTONS</button>;
+export function Button(props: Props) {
+  return <button className="btn">{props.children}</button>;
 }
