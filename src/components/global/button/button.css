@@ -1,8 +1,8 @@
 .btn {
   border: none;
-  background-color: #e7c929;
+  background-color: var(--primary);
   border-radius: 2rem;
-  color: white;
+  color: var(--white);
   padding: 1rem;
   width: 20rem;
   font-weight: 600;
