@@ -1,11 +1,11 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
-import SignUp from '../pages/signup';
-import { Home } from '../pages/home';
-import { Login } from '../pages/login';
-import { UserContextProvider } from '../context/useUserContext';
-import { Welcome } from '../pages/welcome';
-import { ProtectedRoutes } from '../components/protectedRoutes';
-import { Profile } from '../pages/profile';
+import { Routes, Route, Navigate } from "react-router-dom";
+import SignUp from "../pages/signup";
+import { Home } from "../pages/home";
+import { Login } from "../pages/login";
+import { UserContextProvider } from "../context/useUserContext";
+import { Welcome } from "../pages/welcome";
+import { ProtectedRoutes } from "../components/protectedRoutes";
+import { Profile } from "../pages/profile";
 
 const AppRoutes = () => {
   return (
@@ -22,8 +22,6 @@ const AppRoutes = () => {
           path="/profile"
           element={<ProtectedRoutes component={Profile} />}
         />
-        {/* <Route path="/song" element={<Song />} /> */}
-        {/* <Route path="/playlist" element={<Playlist />} /> */}
         <Route path="*" element={<Navigate to="/home" />} />
       </Routes>
     </UserContextProvider>
