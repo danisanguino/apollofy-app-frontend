@@ -1,7 +1,14 @@
+import { ReactNode } from "react";
 import "./button.css";
 
-type Props = {};
+type Props = {
+  children?: ReactNode,
+  style: string,
+  handleClick?: () => void,
+  value?: string
 
-export function Buttons({}: Props) {
-  return <button className="btn">BUTTONS</button>;
+};
+
+export function Button(props: Props) {
+  return <button className={props.style} value={props.value} onClick={props.handleClick}>{props.children}</button>;
 }
