@@ -1,5 +1,14 @@
+import Page from "../../components/layout/page";
+
+
 type Props = {};
 
 export function Welcome(props: Props) {
-  return <h2>Welcome page</h2>;
+  return (
+  
+  <Page> 
+  <h2>Welcome page</h2>
+  </Page>
+  
+  )
 }
