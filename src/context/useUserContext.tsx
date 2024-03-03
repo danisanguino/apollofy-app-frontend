@@ -1,15 +1,8 @@
-import {
-  ReactNode,
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-} from 'react';
+import { ReactNode, createContext, useContext, useState } from 'react';
 import { User } from '../utils/interfaces/user';
-import { getUsers } from '../utils/functions';
 
 interface UserContextType {
-  user: User | null;
+  user: User;
   setUser: Function;
 }
 
@@ -20,19 +13,19 @@ interface IUserContextProps {
 const UserContext = createContext({} as UserContextType);
 
 export function UserContextProvider(props: IUserContextProps) {
-  const usernameLocalStorage = localStorage.getItem('user');
-  const [users, setUsers] = useState([] as User[]);
-  const foundUser =
-    users.find((u) => u.username === usernameLocalStorage) ?? null;
-  const [user, setUser] = useState<User | null>(foundUser);
+  const usernameLocalStorage = localStorage.getItem('user')!;
+  // const [users, setUsers] = useState([] as User[]);
+  // const foundUser = users.find((u) => u.username === usernameLocalStorage)!;
+  const [user, setUser] = useState<User>(JSON.parse(usernameLocalStorage));
 
-  useEffect(() => {
-    async function getUsersAPI() {
-      const users = await getUsers();
-      setUsers(users);
-    }
-    getUsersAPI();
-  }, []);
+  // useEffect(() => {
+  //   console.log('render use effect');
+  //   async function getUsersAPI() {
+  //     const users = await getUsers();
+  //     setUsers(users);
+  //   }
+  //   getUsersAPI();
+  // }, []);
 
   return (
     <UserContext.Provider value={{ user, setUser }}>

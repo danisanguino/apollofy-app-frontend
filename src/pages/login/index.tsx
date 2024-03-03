@@ -32,7 +32,8 @@ export function Login({}: Props) {
     const foundUser = users.find((user) => user.email === userEmail);
     if (foundUser) {
       if (foundUser.password === userPass) {
-        localStorage.setItem('user', foundUser.username);
+        localStorage.setItem('user', JSON.stringify(foundUser));
+        // localStorage.setItem('user', foundUser.username);
         user.setUser(foundUser);
         navigate('/welcome');
       } else {
