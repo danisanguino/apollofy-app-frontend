@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import { useUserContext } from '../../../context/useUserContext';
-import './header.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { useState } from "react";
+import { useUserContext } from "../../../context/useUserContext";
+import "./header.css";
+import { Link, useNavigate } from "react-router-dom";
 
 type Props = {};
 
@@ -15,8 +15,8 @@ export function Header({}: Props) {
   }
 
   function handleClickLogOut() {
-    localStorage.removeItem('user');
-    navigate('/');
+    localStorage.removeItem("user");
+    navigate("/");
   }
 
   return (
@@ -31,7 +31,7 @@ export function Header({}: Props) {
           <input type="checkbox" onClick={handleClick} />
         </label>
       </header>
-      <nav className={`nav ${isChecked ? 'show' : 'hide'}`}>
+      <nav className={`nav ${isChecked ? "show" : "hide"}`}>
         <ul>
           <li>
             <Link to="/welcome">Home</Link>
@@ -39,7 +39,6 @@ export function Header({}: Props) {
           <li>
             <Link to="/profile">Profile</Link>
           </li>
-          <hr />
           <li>
             <button onClick={handleClickLogOut}>Log Out</button>
           </li>
