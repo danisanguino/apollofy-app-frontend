@@ -31,7 +31,7 @@ export function Header({}: Props) {
           <input type="checkbox" onClick={handleClick} />
         </label>
       </header>
-      <nav className={isChecked ? 'nav show' : 'nav hide'}>
+      <nav className={`nav ${isChecked ? 'show' : 'hide'}`}>
         <ul>
           <li>
             <Link to="/welcome">Home</Link>

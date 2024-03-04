@@ -1,17 +1,15 @@
-import { useEffect, useState } from "react";
-import Page from "../../components/layout/page";
-import { useUserContext } from "../../context/useUserContext";
-import "./welcome.css";
-import { Track } from "../../utils/interfaces/track";
-import { getTracks } from "../../utils/functions";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/free-mode";
-import "swiper/css/pagination";
+import { useEffect, useState } from 'react';
+import Page from '../../components/layout/page';
+import { useUserContext } from '../../context/useUserContext';
+import './welcome.css';
+import { Track } from '../../utils/interfaces/track';
+import { getTracks } from '../../utils/functions';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/free-mode';
+import 'swiper/css/pagination';
 
-type Props = {};
-
-export function Welcome(props: Props) {
+export function Welcome() {
   const user = useUserContext();
   const [track, setTrack] = useState([] as Track[]);
 

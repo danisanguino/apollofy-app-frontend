@@ -36,16 +36,19 @@
 
 .nav {
   position: absolute;
-  transition: right 0.4s ease;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
 }
 
 .hide {
-  right: -100%;
-  display: none;
+  right: 0;
+  opacity: 0;
 }
 
 .show {
   right: 0;
+  opacity: 1;
+  visibility: visible;
 }
 
 .nav ul {
