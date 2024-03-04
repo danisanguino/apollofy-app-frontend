@@ -22,6 +22,8 @@
   bottom: 0;
   display: none;
   margin-top: 0.2rem;
+  width: 0.7rem;
+  margin-bottom: 0.2rem;
 }
 
 .active .point {
