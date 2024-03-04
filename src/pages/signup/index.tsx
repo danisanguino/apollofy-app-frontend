@@ -45,23 +45,36 @@ export default function SignUp() {
 
   function onSubmit(e: ChangeEvent<HTMLFormElement>) {
     e.preventDefault();
-    console.log(dataForm);
-    const userFound = users.find((element) => {
+    const userFoundUsername = users.find((element) => {
       return element.username === dataForm.username;
     });
-    if (userFound) {
-      console.log('MAL');
+    const userFoundEmail = users.find((element) => {
+      return element.email === dataForm.email;
+    });
+    if (userFoundUsername) {
+      console.log('mismo username');
+    } else if (userFoundEmail) {
+      console.log('mismo email');
     } else {
       fetch('http://localhost:3000/user', {
         method: 'POST',
         body: JSON.stringify({
           ...dataForm,
           profilePicture:
-            'https://robohash.org/suntvoluptasnisi.png?size=50x50&set=set1',
+            'https://res.cloudinary.com/dqm1upnhh/image/upload/v1709542929/avata-apollofy.jpg',
           myFavorites: [],
         }),
       });
-      navigate('/');
+      navigate('/welcome');
+      localStorage.setItem(
+        'user',
+        JSON.stringify({
+          ...dataForm,
+          profilePicture:
+            'https://res.cloudinary.com/dqm1upnhh/image/upload/v1709542929/avata-apollofy.jpg',
+          myFavorites: [],
+        })
+      );
     }
   }
 

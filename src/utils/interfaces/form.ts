@@ -4,11 +4,12 @@ export interface ActionForm {
 }
 
 export enum Action {
-  changeUsername = "ch_username",
-  changeName = "ch_name",
-  changeLastname = "ch_lastname",
-  changeEmail = "ch_email",
-  changePassword = "ch_pass",
+  changeUsername = 'ch_username',
+  changeName = 'ch_name',
+  changeLastname = 'ch_lastname',
+  changeEmail = 'ch_email',
+  changePassword = 'ch_pass',
+  changeConfirmPassword = 'ch_confirmpass',
 }
 
 export interface Form {
@@ -17,4 +18,5 @@ export interface Form {
   lastname: string;
   email: string;
   password: string;
+  confirmPassword?: string;
 }

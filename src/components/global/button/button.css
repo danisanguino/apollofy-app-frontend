@@ -10,12 +10,22 @@
 }
 
 .btn:active {
-  background: #d1b92e99;
+  background: var(--primaryActive);
 }
-
 
 .btn-white {
   border: 1px solid var(--primary);
+  background-color: transparent;
+  border-radius: 2rem;
+  color: white;
+  padding: 1rem 0 1rem 0;
+  width: 30rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.btn-red {
+  border: 1px solid var(--red);
   background-color: transparent;
   border-radius: 2rem;
   color: white;

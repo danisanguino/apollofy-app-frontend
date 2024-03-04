@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
-html{
+html {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   /* default html font-size browser value: 16px = 100% --> 1rem */
   /* our custom value: 10px = 62.5% --> 1rem */
@@ -34,7 +34,21 @@ section {
   font: inherit;
 }
 
-h1, h2, h3, h4, h5, h6, p, span, a, strong, blockquote, i, b, u, em {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+strong,
+blockquote,
+i,
+b,
+u,
+em {
   font-size: 1rem;
   font-weight: inherit;
   font-style: inherit;
@@ -47,8 +61,11 @@ a {
   color: inherit;
   font-size: inherit;
 }
-  
+
 li {
   list-style-type: none;
 }
-  
+
+button {
+  cursor: pointer;
+}

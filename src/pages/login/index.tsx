@@ -32,7 +32,8 @@ export function Login({}: Props) {
     const foundUser = users.find((user) => user.email === userEmail);
     if (foundUser) {
       if (foundUser.password === userPass) {
-        localStorage.setItem('user', foundUser.username);
+        localStorage.setItem('user', JSON.stringify(foundUser));
+        // localStorage.setItem('user', foundUser.username);
         user.setUser(foundUser);
         navigate('/welcome');
       } else {
@@ -44,6 +45,10 @@ export function Login({}: Props) {
       setPassError(false);
     }
   };
+
+  function handleClickSignUp() {
+    navigate('/signup');
+  }
 
   return (
     <div className="login">
@@ -73,6 +78,12 @@ export function Login({}: Props) {
         )}
         <Button style="btn-yellow">LOG IN</Button>
       </form>
+      <section>
+        <p>Don't have an account?</p>
+        <Button handleClick={handleClickSignUp} style="btn-white">
+          SIGN UP
+        </Button>
+      </section>
     </div>
   );
 }

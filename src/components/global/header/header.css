@@ -1,0 +1,64 @@
+.header {
+  position: relative;
+  background-color: var(--gray-primary);
+  display: flex;
+  align-items: center;
+  padding: 1rem 2rem 1rem 2rem;
+  justify-content: space-between;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+}
+
+.container .avatar {
+  width: 5rem;
+  border-radius: 100%;
+}
+
+.container p {
+  color: var(--white);
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.menu {
+  background-color: transparent;
+  border: none;
+}
+
+.menu input {
+  display: none;
+}
+
+.nav {
+  position: absolute;
+  transition: right 0.4s ease;
+}
+
+.hide {
+  right: -100%;
+}
+
+.show {
+  right: 0;
+}
+
+.nav ul {
+  background-color: var(--gray-primary);
+  padding: 0 2rem 1rem 2rem;
+  color: var(--white);
+  font-size: 1.2rem;
+  text-align: right;
+}
+
+.nav button {
+  border: none;
+  background-color: transparent;
+  color: var(--white);
+  font-size: 1.2rem;
+  padding: 0;
+}
