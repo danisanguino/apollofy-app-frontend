@@ -1,31 +1,37 @@
 .login {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    height: 100vh;
-    gap: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  gap: 5rem;
 }
 
 .login-buttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-flow: column wrap;
-    gap: 2rem;
-    position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column wrap;
+  gap: 2rem;
+  position: relative;
 }
 
 .message-error {
-    color: red;
-    position: absolute;
-    font-size: 1.2rem;
+  color: red;
+  position: absolute;
+  font-size: 1.2rem;
 }
 
 .email {
-    top: 3.7rem;
+  top: 3.7rem;
 }
 
 .password {
-    top: 9.1rem;
+  top: 9.1rem;
+}
+
+.login p {
+  color: var(--white);
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
 }
