@@ -98,6 +98,7 @@
       "artist": "The Eyes",
       "url": "https://res.cloudinary.com/dmkdsujzh/video/upload/v1644583924/tracks-dev/Rxbyn_-_better_off_alone_fvhwp8.mp3",
       "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709488618/the-eyes-folder_n4iqk0.jpg",
+      "new": false,
       "genre": "metal",
       "liked": false
     },
@@ -107,6 +108,7 @@
       "artist": "T Rex",
       "url": "https://res.cloudinary.com/dqm1upnhh/video/upload/v1709489335/02_T-Rex-i_love_to_boogie.mp3",
       "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709489523/02_T-Rex.jpg",
+      "new": true,
       "genre": "rock'n roll",
       "liked": false
     },
@@ -116,6 +118,7 @@
       "artist": "Txarango",
       "url": "https://res.cloudinary.com/dqm1upnhh/video/upload/v1709489703/03_Txarango-Una_Lluna_A_L_Aigua.mp3",
       "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709489706/03_Txarango.jpg",
+      "new": false,
       "genre": "rumba",
       "liked": false
     },
@@ -125,6 +128,7 @@
       "artist": "Fair to Mindland",
       "url": "https://res.cloudinary.com/dqm1upnhh/video/upload/v1709489847/04_Fair_to_Midland-Rikki_Tivi_Tavi.mp3",
       "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709489845/04_Fair_To_Midland.jpg",
+      "new": true,
       "genre": "metal",
       "liked": false
     },
@@ -134,6 +138,7 @@
       "artist": "Sigur Rós",
       "url": "https://res.cloudinary.com/dqm1upnhh/video/upload/v1709490127/05_Sigur_Ros-Hopipolla.mp3",
       "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709490120/05_Sigur_Ros.jpg",
+      "new": true,
       "genre": "post-rock",
       "liked": false
     },
@@ -143,6 +148,37 @@
       "artist": "Bad Bunny",
       "url": "https://res.cloudinary.com/dqm1upnhh/video/upload/v1709490105/06_%20Bad%20Bunny%20-%20Ojitos%20Lindos.mp3",
       "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709490267/06_Bad%20Bunny-%20Un%20verano%20sin%20ti.jpg",
+      "new": true,
+      "genre": "trap latino",
+      "liked": false
+    },
+    {
+      "id": "7",
+      "name": "Yonaguni",
+      "artist": "Bad Bunny",
+      "url": "https://res.cloudinary.com/dqm1upnhh/video/upload/v1709553947/07_%20Bad%20Bunny%20-%20Yonaguni.mp3",
+      "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709554068/07_Bad%20Bunny%20-%20Yonaguni.jpg",
+      "new": true,
+      "genre": "trap latino",
+      "liked": false
+    },
+    {
+      "id": "8",
+      "name": "Pienso en tu mirá",
+      "artist": "Rosalía",
+      "url": "https://res.cloudinary.com/dqm1upnhh/video/upload/v1709554139/08_%20Rosal%C3%ADa%20%20-%20Pienso%20en%20tu%20mir%C3%A1.mp3",
+      "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709554114/08_%20Rosal%C3%ADa%20-%20Pienso%20en%20tu%20mir%C3%A1.jpg",
+      "new": true,
+      "genre": "trap latino",
+      "liked": false
+    },
+    {
+      "id": "9",
+      "name": "Ingobernable",
+      "artist": "C tangana",
+      "url": "https://res.cloudinary.com/dqm1upnhh/video/upload/v1709554227/09_%20C%20tangana%20-%20Ingobernable.mp3",
+      "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709554240/09_%20C%20tangana%20-%20Ingobernable.jpg",
+      "new": true,
       "genre": "trap latino",
       "liked": false
     }
