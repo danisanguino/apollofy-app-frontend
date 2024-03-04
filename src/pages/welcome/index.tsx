@@ -22,8 +22,8 @@ export function Welcome() {
   }, []);
   return (
     <Page>
-      <h1 className="welcomeTitle">{`Welcome ${user.user.name} ${user.user.lastname}!`}</h1>
-
+      <h1 className="welcomeTitle">Welcome</h1>
+      <h1 className="welcome-user">{`${user.user.name} ${user.user.lastname}!`}</h1>
       <h3 className="newIn">New in this week!</h3>
       <section className="newInSection">
         {track

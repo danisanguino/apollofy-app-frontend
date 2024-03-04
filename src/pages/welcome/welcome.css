@@ -1,5 +1,12 @@
 .welcomeTitle {
-  padding: 4rem;
+  padding-top: 4rem;
+  color: var(--white);
+  font-size: 3.2rem;
+  font-weight: 600;
+}
+
+.welcome-user {
+  padding-bottom: 4rem;
   color: var(--white);
   font-size: 3.2rem;
   font-weight: 600;
@@ -31,6 +38,7 @@
   width: 10.5rem;
   height: 10.5rem;
   object-fit: cover;
+  border-radius: 0.6rem;
 }
 
 .newInSection .albumCard .albumTitle {
@@ -54,4 +62,5 @@
   width: 6rem;
   height: 6rem;
   object-fit: cover;
+  border-radius: 0.4rem;
 }

@@ -6,6 +6,7 @@ import { UserContextProvider } from '../context/useUserContext';
 import { Welcome } from '../pages/welcome';
 import { ProtectedRoutes } from '../components/protectedRoutes';
 import { Profile } from '../pages/profile';
+import { Favourites } from '../pages/favourites';
 
 const AppRoutes = () => {
   return (
@@ -21,6 +22,10 @@ const AppRoutes = () => {
         <Route
           path="/profile"
           element={<ProtectedRoutes component={Profile} />}
+        />
+        <Route
+          path="/favourites"
+          element={<ProtectedRoutes component={Favourites} />}
         />
         <Route path="*" element={<Navigate to="/welcome" />} />
       </Routes>

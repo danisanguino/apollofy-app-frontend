@@ -1,0 +1,43 @@
+.favourite-title {
+    color: var(--white);
+    font-size: 3.2rem;
+    text-align: left;
+    font-weight: 600;
+    padding: 2rem;
+}
+
+.favourites-songs {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 2rem 1rem 2rem;
+    gap: 1.5rem;
+    background-color: var(--black);
+    padding-bottom: 6rem;
+}
+
+.favourites-songs .img-song {
+    width: 7rem;
+    height: 7rem;
+    border-radius: 0.4rem;
+}
+
+.favourites-songs .song-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    color: var(--white);
+}
+.favourites-songs .song-card .song-info {
+    padding-left: 1rem;
+}
+
+.favourites-songs .song-card .song-info h3{
+    font-size: 1.6rem ;
+    font-weight: 600;
+}
+
+.favourites-songs .song-card .song-info p{
+    font-size: 1.4rem ;
+    color: var(--gray-secondary);
+}
