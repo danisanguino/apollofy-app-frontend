@@ -1,0 +1,57 @@
+.welcomeTitle {
+  padding: 4rem;
+  color: var(--white);
+  font-size: 3.2rem;
+  font-weight: 600;
+}
+
+.newIn {
+  display: flex;
+  justify-content: left;
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: var(--white);
+  padding: 2rem;
+}
+
+.newInSection {
+  display: flex;
+  justify-content: center;
+  align-items: top;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.newInSection .albumCard {
+  width: 10.5rem;
+}
+
+.newInSection .albumCard .albumPhoto {
+  width: 10.5rem;
+  height: 10.5rem;
+  object-fit: cover;
+}
+
+.newInSection .albumCard .albumTitle {
+  color: var(--white);
+  font-size: 1.2rem;
+  text-align: left;
+  padding: 0.5rem;
+}
+
+.favouriteList {
+  display: flex;
+  justify-content: center;
+  align-items: top;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.favouriteList .albumFav {
+  width: 6rem;
+  height: 6rem;
+  object-fit: cover;
+}
