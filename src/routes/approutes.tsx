@@ -22,9 +22,7 @@ const AppRoutes = () => {
           path="/profile"
           element={<ProtectedRoutes component={Profile} />}
         />
-        {/* <Route path="/song" element={<Song />} /> */}
-        {/* <Route path="/playlist" element={<Playlist />} /> */}
-        <Route path="*" element={<Navigate to="/home" />} />
+        <Route path="*" element={<Navigate to="/welcome" />} />
       </Routes>
     </UserContextProvider>
   );
