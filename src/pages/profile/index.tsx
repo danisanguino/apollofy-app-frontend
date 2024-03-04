@@ -5,6 +5,7 @@ import { Inputs } from '../../components/global/inputs';
 import { useUserContext } from '../../context/useUserContext';
 import { ChangeEvent, useReducer } from 'react';
 import { Action, ActionForm, Form } from '../../utils/interfaces/form';
+import { NavBar } from '../../components/global/navBar';
 
 const initialState: Form = {
   username: '',
@@ -196,6 +197,7 @@ export function Profile() {
           DELETE USER
         </button>
       </section>
+      <NavBar />
     </section>
   );
 }
