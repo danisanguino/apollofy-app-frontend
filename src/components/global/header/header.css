@@ -41,6 +41,7 @@
 
 .hide {
   right: -100%;
+  display: none;
 }
 
 .show {
