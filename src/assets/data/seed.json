@@ -178,7 +178,7 @@
       "name": "Sigo aqui",
       "artist": "La paloma",
       "url": "https://res.cloudinary.com/dqm1upnhh/video/upload/v1709650068/10__La_Paloma_-_Sigo_aqui_fjahj0.mp3",
-      "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709650124/10__La_Paloma_-_Sigo_aqui_vcngtg.jpg",
+      "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709673289/10__La_Paloma_-_Sigo_aqui_vcngtg-media_lib_thumb_dg6ofy.jpg",
       "new": true,
       "genre": "Metal"
     },
@@ -251,7 +251,7 @@
       "artist": "Bad gyal",
       "url": "https://res.cloudinary.com/dqm1upnhh/video/upload/v1709651369/18__Bad_Gyal_-_Blin_Blin_rwg9pq.mp3",
       "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709651366/18__Bad_Gyal_-_Blin_Blin_eae82u.jpg",
-      "new": true,
+      "new": false,
       "genre": "Trap"
     },
     {
