@@ -8,15 +8,17 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
+import { useSongContext } from '../../context/useSongContext';
 
 export function Welcome() {
   const user = useUserContext();
-  const [track, setTrack] = useState([] as Track[]);
-
+  const {setCurrentSong, setIsPlaying} = useSongContext();
+  const [tracks, setTracks] = useState([] as Track[]);
+  const slidesPerView = user.user.myFavorites.length / 1.5 + 0.5;
   useEffect(() => {
     async function setTracksAPI() {
       const TracksAPI = await getTracks();
-      setTrack(TracksAPI);
+      setTracks(TracksAPI);
     }
     setTracksAPI();
   }, []);
@@ -26,19 +28,24 @@ export function Welcome() {
       <h1 className="welcome-user">{`${user.user.name} ${user.user.lastname}!`}</h1>
       <h3 className="newIn">New in this week!</h3>
       <section className="newInSection">
-        {track
-          .filter((tracks) => tracks.new)
+        {tracks
+          .filter((track) => track.new)
           .slice(0, 6)
-          .map((tracks) => {
+          .map((track) => {
             return (
-              <div key={tracks.id} className="albumCard">
-                <img
-                  className="albumPhoto"
-                  src={tracks.thumbnail}
-                  alt={tracks.artist}
-                />
-                <p className="albumTitle">{tracks.artist}</p>
-              </div>
+              <button key={track.id} onClick={()=>{
+                setCurrentSong(track);
+                setIsPlaying(true);
+                }}>
+                <div className="albumCard">
+                  <img
+                    className="albumPhoto"
+                    src={track.thumbnail}
+                    alt={track.artist}
+                  />
+                  <p className="albumTitle">{track.artist}</p>
+                </div>
+              </button>
             );
           })}
       </section>
@@ -46,19 +53,23 @@ export function Welcome() {
       <h3 className="newIn">My favourites</h3>
       <section className="favouriteList">
         <Swiper
-          slidesPerView={5}
-          spaceBetween={16}
+          slidesPerView={slidesPerView}
           freeMode={true}
           pagination={{
             clickable: true,
           }}
-          // modules={[FreeMode, Pagination]}
           className="mySwiper"
         >
-          {track.map((tracks) => {
+          {user.user.myFavorites.map((track) => {
+            const showSong = tracks.find((t) => {
+              return t.id === track;
+            });
+
             return (
-              <SwiperSlide key={tracks.id}>
-                <img className="albumFav" src={tracks.thumbnail} />
+              <SwiperSlide key={track}>
+                <button >
+                  <img className="albumFav" src={showSong?.thumbnail} />
+                </button>
               </SwiperSlide>
             );
           })}

@@ -1,9 +1,7 @@
 import './navBar.css';
 import { NavLink } from 'react-router-dom';
 
-type Props = {};
-
-export function NavBar(props: Props) {
+export function NavBar() {
   return (
     <section className="navbar">
       <NavLink to="/welcome">

@@ -6,5 +6,5 @@ export interface User {
   email: string;
   password: string;
   profilePicture: string;
-  myFavorites: any[];
+  myFavorites: string[];
 }
