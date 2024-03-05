@@ -96,9 +96,9 @@
       "id": "1",
       "name": "Crucified Lie",
       "artist": "The Eyes",
-      "url": "https://res.cloudinary.com/dmkdsujzh/video/upload/v1644583924/tracks-dev/Rxbyn_-_better_off_alone_fvhwp8.mp3",
+      "url": "https://res.cloudinary.com/dqm1upnhh/video/upload/v1709488318/01_-_Crucified_Lie_o3ihfq.mp3",
       "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709488618/01_the-eyes-folder_n4iqk0.jpg",
-      "new": false,
+      "new": true,
       "genre": "metal"
     },
     {
@@ -292,7 +292,7 @@
       "email": "mariacidoncha@gmail.com",
       "password": "maria",
       "profilePicture": "src/assets/images/cidoncha.png",
-      "myFavorites": ["3", "4", "7"]
+      "myFavorites": ["3", "4", "7", "1"]
     },
     {
       "id": "ddc5",
@@ -322,7 +322,7 @@
       "email": "danishootman@example.com",
       "password": "123456",
       "profilePicture": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709542929/avata-apollofy.jpg",
-      "myFavorites": []
+      "myFavorites": ["1", "2", "3", "10", "11", "14"]
     },
     {
       "id": "1ab2",
