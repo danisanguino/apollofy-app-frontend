@@ -1,13 +1,13 @@
-import { ChangeEvent, useEffect, useReducer, useState } from "react";
-import { Button } from "../../components/global/button";
-import { Inputs } from "../../components/global/inputs";
-import { Logo } from "../../components/layout/logo";
-import "./signup.css";
-import { ActionForm, Form, Action } from "../../utils/interfaces/form";
-import { User } from "../../utils/interfaces/user";
-import { getUsers } from "../../utils/functions";
-import { useNavigate } from "react-router-dom";
-import { useUserContext } from "../../context/useUserContext";
+import { ChangeEvent, useEffect, useReducer, useState } from 'react';
+import { Button } from '../../components/global/button';
+import { Inputs } from '../../components/global/inputs';
+import { Logo } from '../../components/layout/logo';
+import './signup.css';
+import { ActionForm, Form, Action } from '../../utils/interfaces/form';
+import { User } from '../../utils/interfaces/user';
+import { getUsers } from '../../utils/functions';
+import { useNavigate } from 'react-router-dom';
+import { useUserContext } from '../../context/useUserContext';
 
 function reducer(data: Form, action: ActionForm) {
   switch (action.type) {
@@ -32,11 +32,11 @@ function reducer(data: Form, action: ActionForm) {
 }
 
 const initialState: Form = {
-  username: "",
-  name: "",
-  lastname: "",
-  email: "",
-  password: "",
+  username: '',
+  name: '',
+  lastname: '',
+  email: '',
+  password: '',
 };
 
 export default function SignUp() {
@@ -54,23 +54,23 @@ export default function SignUp() {
       return element.email === dataForm.email;
     });
     if (userFoundUsername) {
-      console.log("mismo username");
+      console.log('mismo username');
     } else if (userFoundEmail) {
-      console.log("mismo email");
+      console.log('mismo email');
     } else {
-      const newUser = await fetch("http://localhost:3000/user", {
-        method: "POST",
+      const newUser = await fetch('http://localhost:3000/user', {
+        method: 'POST',
         body: JSON.stringify({
           ...dataForm,
           profilePicture:
-            "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709542929/avata-apollofy.jpg",
+            'https://res.cloudinary.com/dqm1upnhh/image/upload/v1709542929/avata-apollofy.jpg',
           myFavorites: [],
         }),
       });
       const JSONNewUser = await newUser.json();
-      localStorage.setItem("user", JSON.stringify(JSONNewUser));
+      localStorage.setItem('user', JSON.stringify(JSONNewUser));
       user.setUser(JSONNewUser);
-      navigate("/welcome");
+      navigate('/welcome');
     }
   }
 
@@ -82,8 +82,19 @@ export default function SignUp() {
     setUsersAPI();
   }, []);
 
+  function handleClickBack() {
+    navigate(-1);
+  }
+
   return (
     <section className="signup">
+      <section className="profile-header">
+        <img
+          onClick={handleClickBack}
+          src="src/assets/images/left-arrow.svg"
+          alt="go back icon"
+        />
+      </section>
       <Logo />
       <strong className="welcomeText">
         Register to start diving into new music
