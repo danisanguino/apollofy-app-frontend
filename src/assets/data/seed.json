@@ -172,6 +172,105 @@
       "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709554240/09_%20C%20tangana%20-%20Ingobernable.jpg",
       "new": false,
       "genre": "trap latino"
+    },
+    {
+      "id": "10",
+      "name": "Sigo aqui",
+      "artist": "La paloma",
+      "url": "https://res.cloudinary.com/dqm1upnhh/video/upload/v1709650068/10__La_Paloma_-_Sigo_aqui_fjahj0.mp3",
+      "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709650124/10__La_Paloma_-_Sigo_aqui_vcngtg.jpg",
+      "new": true,
+      "genre": "Metal"
+    },
+    {
+      "id": "11",
+      "name": "Benvolgut",
+      "artist": "Manel",
+      "url": "https://res.cloudinary.com/dqm1upnhh/video/upload/v1709651369/11__Manel_-_Benvolgut_mvrqul.mp3",
+      "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709651367/11__Manel_-_Benvolgut_qnjdqt.jpg",
+      "new": true,
+      "genre": "Pop"
+    },
+    {
+      "id": "12",
+      "name": "Un beso y una flor",
+      "artist": "Nino Bravo",
+      "url": "https://res.cloudinary.com/dqm1upnhh/video/upload/v1709651368/12__Nino_Bravo_-_Un_Beso_Y_Una_Flor_cd0qf3.mp3",
+      "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709651367/12__Nino_Bravo_-_Un_Beso_Y_Una_Flor_wefous.jpg",
+      "new": true,
+      "genre": "Balada"
+    },
+    {
+      "id": "13",
+      "name": "La culpa",
+      "artist": "Yarea",
+      "url": "https://res.cloudinary.com/dqm1upnhh/video/upload/v1709651369/13__Yarea_-_La_Culpa_gby12c.mp3",
+      "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709651366/13__Yarea_-_La_Culpa_npvlzv.jpg",
+      "new": false,
+      "genre": "Pop"
+    },
+    {
+      "id": "14",
+      "name": "Flow 2000",
+      "artist": "Bad gyal",
+      "url": "https://res.cloudinary.com/dqm1upnhh/video/upload/v1709651368/14__Bad_Gyal_-_Flow_2000_exka5c.mp3",
+      "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709651366/14__Bad_Gyal_-_Flow_2000_j3gw9e.jpg",
+      "new": true,
+      "genre": "Trap"
+    },
+    {
+      "id": "15",
+      "name": "Como camaron",
+      "artist": "Estopa",
+      "url": "https://res.cloudinary.com/dqm1upnhh/video/upload/v1709651367/15__Estopa_-_Como_Camar%C3%B3n_zp1g8p.mp3",
+      "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709651366/15__Estopa_-_Como_Camar%C3%B3n_padmlt.jpg",
+      "new": false,
+      "genre": "Pop"
+    },
+    {
+      "id": "16",
+      "name": "Viva la vida",
+      "artist": "Coldplay",
+      "url": "https://res.cloudinary.com/dqm1upnhh/video/upload/v1709651368/16__Coldplay_-_Viva_La_Vida_ff0mi0.mp3",
+      "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709651366/16__Coldplay_-_Viva_La_Vida_wjeost.jpg",
+      "new": false,
+      "genre": "Pop-rock"
+    },
+    {
+      "id": "17",
+      "name": "S91",
+      "artist": "KAROL G",
+      "url": "https://res.cloudinary.com/dqm1upnhh/video/upload/v1709651368/17__KAROL_G_-_S91_sdbmcw.mp3",
+      "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709651366/17__KAROL_G_-_S91_lavjms.jpg",
+      "new": true,
+      "genre": "Regueton"
+    },
+    {
+      "id": "18",
+      "name": "Blin blin",
+      "artist": "Bad gyal",
+      "url": "https://res.cloudinary.com/dqm1upnhh/video/upload/v1709651369/18__Bad_Gyal_-_Blin_Blin_rwg9pq.mp3",
+      "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709651366/18__Bad_Gyal_-_Blin_Blin_eae82u.jpg",
+      "new": true,
+      "genre": "Trap"
+    },
+    {
+      "id": "19",
+      "name": "Duki: Bzrp music sessions, vol.50",
+      "artist": "Duki - Bzrp",
+      "url": "https://res.cloudinary.com/dqm1upnhh/video/upload/v1709653987/19__Duki_-_Bzrp_Music_Sessions_Vol._50_m69nhc.mp3",
+      "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709653986/19__Duki_-_Bzrp_Music_Sessions_Vol._50_dgtrvw.jpg",
+      "new": false,
+      "genre": "Musica electronica"
+    },
+    {
+      "id": "20",
+      "name": "Dile",
+      "artist": "Don Omar",
+      "url": "https://res.cloudinary.com/dqm1upnhh/video/upload/v1709653986/20__Don_Omar_-_Dile_qlnasc.mp3",
+      "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709653986/20__Don_Omar_-_Dile_ymjchj.jpg",
+      "new": true,
+      "genre": "Regueton"
     }
   ],
   "user": [

@@ -9,6 +9,7 @@ import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
 import { useSongContext } from '../../context/useSongContext';
+import Search from '../../components/layout/search';
 
 export function Welcome() {
   const user = useUserContext();
@@ -24,6 +25,7 @@ export function Welcome() {
   }, []);
   return (
     <Page>
+      <Search/>
       <h1 className="welcomeTitle">Welcome</h1>
       <h1 className="welcome-user">{`${user.user.name} ${user.user.lastname}!`}</h1>
       <h3 className="newIn">New in this week!</h3>
