@@ -1,8 +1,7 @@
 import './playerBar.css';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { Outlet } from 'react-router-dom';
-
-type Props = {};
+import { useSongContext } from '../../../context/useSongContext';
 
 const Play = () => (
   <svg
@@ -39,7 +38,7 @@ const Pause = () => (
 );
 
 export function PlayerBar() {
-  const [isPlaying, setIsPlaying] = useState(false);
+  const {isPlaying, setIsPlaying, currentSong} = useSongContext();
   const audioRef = useRef<HTMLAudioElement>(null);
   function handleClick() {
     setIsPlaying(!isPlaying);
@@ -47,11 +46,10 @@ export function PlayerBar() {
 
   useEffect(() => {
     if (audioRef.current) {
-      const src =
-        'https://res.cloudinary.com/dqm1upnhh/video/upload/v1709489335/02_T-Rex-i_love_to_boogie.mp3';
-      audioRef.current.src = src;
+      audioRef.current.src = currentSong.url;
+      audioRef.current.play();
     }
-  }, []);
+  }, [currentSong]);
 
   useEffect(() => {
     if (audioRef.current) {
@@ -61,24 +59,24 @@ export function PlayerBar() {
   return (
     <>
       <Outlet />
-      <section className="player-bar">
+      {currentSong.name &&  <section className="player-bar">
         <div className="song">
           <picture>
             <img
-              src="https://res.cloudinary.com/dqm1upnhh/image/upload/v1709489845/04_Fair_To_Midland.jpg"
-              alt=""
+              src= {currentSong.thumbnail}
+              alt= {currentSong.name}
             />
           </picture>
           <div>
-            <h3>Rikki Tikki Tavi</h3>
-            <p>Fair to midland</p>
+            <h3>{currentSong.name}</h3>
+            <p>{currentSong.artist}</p>
           </div>
         </div>
         <button className="player-btn" onClick={handleClick}>
           {isPlaying ? <Pause /> : <Play />}
         </button>
         <audio ref={audioRef}></audio>
-      </section>
+      </section>}
     </>
   );
 }

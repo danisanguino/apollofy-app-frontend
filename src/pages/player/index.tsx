@@ -1,34 +1,22 @@
-import { useEffect, useState } from 'react';
 import Page from '../../components/layout/page';
 import './player.css';
-import { useParams } from 'react-router-dom';
-import { getTracks } from '../../utils/functions';
-import { Track } from '../../utils/interfaces/track';
+import { useSongContext } from '../../context/useSongContext';
 
 type Props = {};
 
 export function Player({}: Props) {
-  const { id } = useParams();
-  const [tracks, setTracks] = useState([] as Track[]);
-  const currentTrack = tracks.find((t) => t.id === id);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const {isPlaying, setIsPlaying, currentSong} = useSongContext();
   function handleClickPlay() {
     setIsPlaying(!isPlaying);
   }
-  useEffect(() => {
-    async function setTracksAPI() {
-      const TracksAPI = await getTracks();
-      setTracks(TracksAPI);
-    }
-    setTracksAPI();
-  }, []);
+
   return (
     <Page>
       <section className="player-section">
         <section className="songCard">
-          <img className="songPhoto" src={currentTrack?.thumbnail} />
-          <h2 className="songInfoTitle">{currentTrack?.name}</h2>
-          <p className="songInfoArtist">{currentTrack?.artist}</p>
+          <img className="songPhoto" src={currentSong.thumbnail} />
+          <h2 className="songInfoTitle">{currentSong.name}</h2>
+          <p className="songInfoArtist">{currentSong.artist}</p>
         </section>
         <section className="playerSection">
           <button>
@@ -39,9 +27,9 @@ export function Player({}: Props) {
           </button>
           <button onClick={handleClickPlay}>
             {isPlaying ? (
-              <img src="src/assets/images/player/play.svg" />
-            ) : (
               <img src="src/assets/images/player/pause.svg" />
+            ) : (
+              <img src="src/assets/images/player/play.svg" />
             )}
           </button>
           <button>

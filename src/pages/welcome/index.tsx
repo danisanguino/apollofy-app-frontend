@@ -8,10 +8,11 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
-import { Link } from 'react-router-dom';
+import { useSongContext } from '../../context/useSongContext';
 
 export function Welcome() {
   const user = useUserContext();
+  const {setCurrentSong, setIsPlaying} = useSongContext();
   const [tracks, setTracks] = useState([] as Track[]);
   const slidesPerView = user.user.myFavorites.length / 1.5 + 0.5;
   useEffect(() => {
@@ -32,7 +33,10 @@ export function Welcome() {
           .slice(0, 6)
           .map((track) => {
             return (
-              <Link key={track.id} to={`/${track.id}`}>
+              <button key={track.id} onClick={()=>{
+                setCurrentSong(track);
+                setIsPlaying(true);
+                }}>
                 <div className="albumCard">
                   <img
                     className="albumPhoto"
@@ -41,7 +45,7 @@ export function Welcome() {
                   />
                   <p className="albumTitle">{track.artist}</p>
                 </div>
-              </Link>
+              </button>
             );
           })}
       </section>
@@ -60,11 +64,12 @@ export function Welcome() {
             const showSong = tracks.find((t) => {
               return t.id === track;
             });
+
             return (
-              <SwiperSlide key={showSong?.id}>
-                <Link to={`/${showSong?.id}`}>
+              <SwiperSlide key={track}>
+                <button >
                   <img className="albumFav" src={showSong?.thumbnail} />
-                </Link>
+                </button>
               </SwiperSlide>
             );
           })}
