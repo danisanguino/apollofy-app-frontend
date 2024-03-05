@@ -1,5 +1,7 @@
 .header {
-  position: relative;
+  position: fixed;
+  top: 0;
+  width: calc(100% - 4rem);
   background-color: var(--gray-primary);
   display: flex;
   align-items: center;
@@ -26,6 +28,7 @@
 }
 
 .menu {
+  position: relative;
   background-color: transparent;
   border: none;
 }
@@ -42,11 +45,13 @@
 
 .hide {
   right: 0;
+  top: 7rem;
   opacity: 0;
 }
 
 .show {
   right: 0;
+  top: 7rem;
   opacity: 1;
   visibility: visible;
 }

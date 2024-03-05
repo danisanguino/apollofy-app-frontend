@@ -38,7 +38,7 @@ const Pause = () => (
   </svg>
 );
 
-export function PlayerBar(props: Props) {
+export function PlayerBar() {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
   function handleClick() {
@@ -62,7 +62,18 @@ export function PlayerBar(props: Props) {
     <>
       <Outlet />
       <section className="player-bar">
-        <div>Current song...</div>
+        <div className="song">
+          <picture>
+            <img
+              src="https://res.cloudinary.com/dqm1upnhh/image/upload/v1709489845/04_Fair_To_Midland.jpg"
+              alt=""
+            />
+          </picture>
+          <div>
+            <h3>Rikki Tikki Tavi</h3>
+            <p>Fair to midland</p>
+          </div>
+        </div>
         <button className="player-btn" onClick={handleClick}>
           {isPlaying ? <Pause /> : <Play />}
         </button>

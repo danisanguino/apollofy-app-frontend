@@ -36,3 +36,7 @@
   background-color: transparent;
   border: none;
 }
+
+.player-section ~ .player-bar {
+  display: none;
+}
