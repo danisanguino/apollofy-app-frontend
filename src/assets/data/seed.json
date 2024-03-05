@@ -100,19 +100,17 @@
       "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709488618/01_the-eyes-folder_n4iqk0.jpg",
       "new": false,
       "genre": "metal",
-      "liked": false,
-      "new": true
+      "liked": false
     },
     {
       "id": "2",
-      "name": "I love to boggie",
+      "name": "I love to booggie",
       "artist": "T Rex",
       "url": "https://res.cloudinary.com/dqm1upnhh/video/upload/v1709489335/02_T-Rex-i_love_to_boogie.mp3",
       "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709489523/02_T-Rex.jpg",
       "new": true,
       "genre": "rock'n roll",
-      "liked": false,
-      "new": true
+      "liked": false
     },
     {
       "id": "3",
@@ -122,8 +120,7 @@
       "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709489706/03_Txarango.jpg",
       "new": false,
       "genre": "rumba",
-      "liked": false,
-      "new": true
+      "liked": false
     },
     {
       "id": "4",
@@ -133,8 +130,7 @@
       "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709489845/04_Fair_To_Midland.jpg",
       "new": true,
       "genre": "metal",
-      "liked": false,
-      "new": true
+      "liked": false
     },
     {
       "id": "5",
@@ -144,8 +140,7 @@
       "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709490120/05_Sigur_Ros.jpg",
       "new": true,
       "genre": "post-rock",
-      "liked": false,
-      "new": true
+      "liked": false
     },
     {
       "id": "6",
@@ -185,8 +180,7 @@
       "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709554240/09_%20C%20tangana%20-%20Ingobernable.jpg",
       "new": true,
       "genre": "trap latino",
-      "liked": false,
-      "new": true
+      "liked": false
     }
   ],
   "user": [
