@@ -32,6 +32,7 @@ export function Player({}: Props) {
       }),
     });
     setIsFav(!isFav);
+    localStorage.setItem('user', JSON.stringify(user.user));
     console.log(user.user.myFavorites);
   }
 
