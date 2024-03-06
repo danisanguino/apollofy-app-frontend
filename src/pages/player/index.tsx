@@ -59,7 +59,7 @@ export function Player({}: Props) {
           max={100}
           min={0}
           className="slider"
-          onValueChange={(value) => {
+          onValueChange={(value: number[]) => {
             const [newVol] = value;
             setVolume(newVol / 100);
           }}
