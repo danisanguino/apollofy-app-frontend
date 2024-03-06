@@ -39,3 +39,12 @@
 .song p {
   font-weight: 200;
 }
+
+.song-info {
+  display: flex;
+  gap: 1rem;
+}
+
+.heart {
+  width: 2rem;
+}
