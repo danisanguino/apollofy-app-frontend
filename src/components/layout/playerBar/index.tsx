@@ -77,6 +77,11 @@ export function PlayerBar() {
   }, [currentSong]);
 
   useEffect(() => {
+    const fav = user.user.myFavorites.includes(currentSong.id);
+    setIsFav(fav);
+  }, [user.user.myFavorites.length]);
+
+  useEffect(() => {
     if (audioRef.current) {
       isPlaying ? audioRef.current.play() : audioRef.current.pause();
     }
