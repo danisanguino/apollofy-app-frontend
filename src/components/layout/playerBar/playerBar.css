@@ -4,14 +4,11 @@
   width: calc(100% - 4rem);
   margin: 0 1rem 5.2rem 1rem;
   border-radius: 1rem 1rem 0 0;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 1rem;
-
   background-color: var(--primaryOpacity);
-
   z-index: 2;
 }
 
@@ -32,6 +29,7 @@
 .song img {
   width: 4rem;
   height: 4rem;
+  object-fit: cover;
 }
 
 .song h3 {

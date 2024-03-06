@@ -84,24 +84,23 @@ export function Welcome() {
 
           <h3 className="newIn">My favourites</h3>
           <section className="favouriteList">
-            <Swiper
+            <Swiper 
               slidesPerView={slidesPerView}
               freeMode={true}
               pagination={{
                 clickable: true,
               }}
-              className="mySwiper"
             >
               {user.user.myFavorites.map((track) => {
                 const showSong = tracks.find((t) => {
                   return t.id === track;
                 });
-
                 return (
-                  <SwiperSlide key={track}>
-                    <button>
+                  <SwiperSlide key={track} onClick={() => {
+                    setCurrentSong(showSong);
+                      setIsPlaying(true);
+                    }}>
                       <img className="albumFav" src={showSong?.thumbnail} />
-                    </button>
                   </SwiperSlide>
                 );
               })}
@@ -111,20 +110,20 @@ export function Welcome() {
         </>
       ) : (
         <>
-          <h3 className="newIn">Artists</h3>
+          {showSearch.artists.length > 0 && (<><h3 className="newIn">Artists</h3>
           {showSearch.artists.map((artist) => (
-            <div className="searchContainer">
+            <div key={artist.id} className="searchContainer">
               <img src={artist.photoUrl} />
-              <p key={artist.id}>{artist.name}</p>
+              <p>{artist.name}</p>
             </div>
-          ))}
-          <h3 className="newIn">Tracks</h3>
+          ))}</>)}
+          {showSearch.tracks.length > 0 && (<><h3 className="newIn">Tracks</h3>
           {showSearch.tracks.map((track) => (
-            <div className="searchContainer">
+            <div key={track.id} className="searchContainer">
               <img src={track.thumbnail} />
-              <p key={track.id}>{track.name}</p>
+              <p>{track.name}</p>
             </div>
-          ))}
+          ))}</>)}
         </>
       )}
     </Page>

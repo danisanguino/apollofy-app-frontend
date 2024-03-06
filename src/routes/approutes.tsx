@@ -29,7 +29,7 @@ const AppRoutes = () => {
             path="/favourites"
             element={<ProtectedRoutes component={Favourites} />}
           />
-          <Route path="/:id" element={<ProtectedRoutes component={Player} />} />
+          <Route path="/player" element={<ProtectedRoutes component={Player} />} />
         </Route>
         <Route path="*" element={<Navigate to="/welcome" />} />
       </Routes>

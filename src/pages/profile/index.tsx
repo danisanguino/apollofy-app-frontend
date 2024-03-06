@@ -6,6 +6,7 @@ import { useUserContext } from '../../context/useUserContext';
 import { ChangeEvent, useReducer } from 'react';
 import { Action, ActionForm, Form } from '../../utils/interfaces/form';
 import { NavBar } from '../../components/global/navBar';
+import { useSongContext } from '../../context/useSongContext';
 
 const initialState: Form = {
   username: '',
@@ -44,10 +45,12 @@ function reducer(data: Form, action: ActionForm) {
 export function Profile() {
   const navigate = useNavigate();
   const user = useUserContext();
+  const {setCurrentSong} = useSongContext();
   const [data, dispatch] = useReducer(reducer, initialState);
   function handleClickLogOut() {
     localStorage.removeItem('user');
     navigate('/');
+    setCurrentSong({})
   }
   function handleClickBack() {
     navigate(-1);

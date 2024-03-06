@@ -1,19 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Page from '../../components/layout/page';
 import './favourites.css';
 import { Track } from '../../utils/interfaces/track';
 import { getTracks } from '../../utils/functions';
-import { Link } from 'react-router-dom';
+import { useUserContext } from '../../context/useUserContext';
+import { useSongContext } from '../../context/useSongContext';
 
 type Props = {};
 
 export function Favourites({}: Props) {
-  const [track, setTrack] = useState([] as Track[]);
+  const [tracks, setTracks] = useState([] as Track[]);
+  const user = useUserContext();
+  const {setCurrentSong, setIsPlaying} = useSongContext();
+
 
   useEffect(() => {
     async function setTracksAPI() {
       const TracksAPI = await getTracks();
-      setTrack(TracksAPI);
+      setTracks(TracksAPI);
     }
     setTracksAPI();
   }, []);
@@ -22,17 +26,21 @@ export function Favourites({}: Props) {
     <Page>
       <section className="favourites-songs">
         <h2 className="favourite-title">I love them</h2>
-        {track.map((tracks) => {
+        {user.user.myFavorites.map((track) => {
+          const favTrack = tracks.find((t) => t.id === track) 
           return (
-            <Link key={tracks.id} to={`/${tracks.id}`}>
+            <button key={track} onClick={() => {
+              setCurrentSong(favTrack);
+                setIsPlaying(true);
+              }}>
               <div className="song-card">
-                <img className="img-song" src={tracks.thumbnail} />
+                <img className="img-song" src={favTrack?.thumbnail} />
                 <div className="song-info">
-                  <h3>{tracks.name}</h3>
-                  <p>{tracks.artist}</p>
+                  <h3>{favTrack?.name}</h3>
+                  <p>{favTrack?.artist}</p>
                 </div>
               </div>
-            </Link>
+            </button>
           );
         })}
       </section>

@@ -1,6 +1,6 @@
 import './playerBar.css';
 import { useEffect, useRef } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import { useSongContext } from '../../../context/useSongContext';
 
 const Play = () => (
@@ -60,7 +60,7 @@ export function PlayerBar() {
     <>
       <Outlet />
       {currentSong.name &&  <section className="player-bar">
-        <div className="song">
+        <Link to={'/player'}><div className="song">
           <picture>
             <img
               src= {currentSong.thumbnail}
@@ -71,7 +71,7 @@ export function PlayerBar() {
             <h3>{currentSong.name}</h3>
             <p>{currentSong.artist}</p>
           </div>
-        </div>
+        </div></Link>
         <button className="player-btn" onClick={handleClick}>
           {isPlaying ? <Pause /> : <Play />}
         </button>

@@ -2,11 +2,13 @@ import { useState } from 'react';
 import { useUserContext } from '../../../context/useUserContext';
 import './header.css';
 import { Link, useNavigate } from 'react-router-dom';
+import { useSongContext } from '../../../context/useSongContext';
 
 type Props = {};
 
 export function Header({}: Props) {
   const user = useUserContext();
+  const {setCurrentSong} = useSongContext();
   const navigate = useNavigate();
   const [isChecked, setIsChecked] = useState(false);
 
@@ -17,6 +19,7 @@ export function Header({}: Props) {
   function handleClickLogOut() {
     localStorage.removeItem('user');
     navigate('/');
+    setCurrentSong({});
   }
 
   return (

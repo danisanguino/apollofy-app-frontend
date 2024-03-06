@@ -4,18 +4,29 @@
   align-items: center;
   flex-direction: column;
   padding: 2rem;
+  margin-top: 5rem;
   color: var(--white);
 }
 
 .songCard .songPhoto {
   margin-top: 6rem;
-  border-radius: 2rem;
+  border-radius: 1rem;
   object-fit: cover;
   width: 30rem;
   height: 30rem;
   margin-bottom: 2rem;
 }
 
+.songCard .songInfo {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  text-align: left;
+}
+
+.songCard .songInfo img {
+  width: 2rem;
+}
 .songCard .songInfoTitle {
   font-weight: 600;
   font-size: 2rem;
