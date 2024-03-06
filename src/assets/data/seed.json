@@ -307,7 +307,12 @@
       "email": "jusanchis@example.com",
       "password": "123456",
       "profilePicture": "src/assets/images/avatarjulai.png",
-      "myFavorites": []
+      "myFavorites": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ]
     },
     {
       "id": "0149",
