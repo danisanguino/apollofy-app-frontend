@@ -45,12 +45,12 @@ function reducer(data: Form, action: ActionForm) {
 export function Profile() {
   const navigate = useNavigate();
   const user = useUserContext();
-  const {setCurrentSong} = useSongContext();
+  const { setCurrentSong } = useSongContext();
   const [data, dispatch] = useReducer(reducer, initialState);
   function handleClickLogOut() {
     localStorage.removeItem('user');
     navigate('/');
-    setCurrentSong({})
+    setCurrentSong({});
   }
   function handleClickBack() {
     navigate(-1);
@@ -113,7 +113,7 @@ export function Profile() {
       <section className="profile-header">
         <img
           onClick={handleClickBack}
-          src="src/assets/images/left-arrow.svg"
+          src="/images/left-arrow.svg"
           alt="go back icon"
         />
       </section>

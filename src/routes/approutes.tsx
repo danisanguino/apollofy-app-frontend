@@ -11,28 +11,30 @@ import { PlayerBar } from '../components/layout/playerBar';
 
 const AppRoutes = () => {
   return (
-    
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/login" element={<Login />} />
-        <Route element={<PlayerBar />}>
-          <Route
-            path="/welcome"
-            element={<ProtectedRoutes component={Welcome} />}
-          />
-          <Route
-            path="/profile"
-            element={<ProtectedRoutes component={Profile} />}
-          />
-          <Route
-            path="/favourites"
-            element={<ProtectedRoutes component={Favourites} />}
-          />
-          <Route path="/player" element={<ProtectedRoutes component={Player} />} />
-        </Route>
-        <Route path="*" element={<Navigate to="/welcome" />} />
-      </Routes>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/signup" element={<SignUp />} />
+      <Route path="/login" element={<Login />} />
+      <Route element={<PlayerBar />}>
+        <Route
+          path="/welcome"
+          element={<ProtectedRoutes component={Welcome} />}
+        />
+        <Route
+          path="/profile"
+          element={<ProtectedRoutes component={Profile} />}
+        />
+        <Route
+          path="/favourites"
+          element={<ProtectedRoutes component={Favourites} />}
+        />
+        <Route
+          path="/player"
+          element={<ProtectedRoutes component={Player} />}
+        />
+      </Route>
+      <Route path="*" element={<Navigate to="/welcome" />} />
+    </Routes>
   );
 };
 

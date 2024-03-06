@@ -8,7 +8,7 @@ type Props = {};
 
 export function Header({}: Props) {
   const user = useUserContext();
-  const {setCurrentSong} = useSongContext();
+  const { setCurrentSong } = useSongContext();
   const navigate = useNavigate();
   const [isChecked, setIsChecked] = useState(false);
 
@@ -30,7 +30,7 @@ export function Header({}: Props) {
           <p>Hola, {user.user.name}!</p>
         </div>
         <label className="menu">
-          <img src="src/assets/images/menu-mobile.svg" alt="menu" />
+          <img src="/images/menu-mobile.svg" alt="menu" />
           <input type="checkbox" onClick={handleClick} />
         </label>
         <nav className={`nav ${isChecked ? 'show' : 'hide'}`}>

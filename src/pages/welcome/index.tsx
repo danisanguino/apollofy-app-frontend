@@ -1,16 +1,16 @@
-import { useEffect, useState } from "react";
-import Page from "../../components/layout/page";
-import { useUserContext } from "../../context/useUserContext";
-import "./welcome.css";
-import { Track } from "../../utils/interfaces/track";
-import { getArtist, getTracks } from "../../utils/functions";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/free-mode";
-import "swiper/css/pagination";
-import { useSongContext } from "../../context/useSongContext";
-import Search from "../../components/layout/search";
-import { Artist } from "../../utils/interfaces/artist";
+import { useEffect, useState } from 'react';
+import Page from '../../components/layout/page';
+import { useUserContext } from '../../context/useUserContext';
+import './welcome.css';
+import { Track } from '../../utils/interfaces/track';
+import { getArtist, getTracks } from '../../utils/functions';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/free-mode';
+import 'swiper/css/pagination';
+import { useSongContext } from '../../context/useSongContext';
+import Search from '../../components/layout/search';
+import { Artist } from '../../utils/interfaces/artist';
 
 export function Welcome() {
   const [showSearch, setShowSearch] = useState({
@@ -46,7 +46,6 @@ export function Welcome() {
       artists: resultsSearchArtist,
     });
   }
-  console.log(showSearch);
 
   return (
     <Page>
@@ -84,7 +83,7 @@ export function Welcome() {
 
           <h3 className="newIn">My favourites</h3>
           <section className="favouriteList">
-            <Swiper 
+            <Swiper
               slidesPerView={slidesPerView}
               freeMode={true}
               pagination={{
@@ -96,11 +95,14 @@ export function Welcome() {
                   return t.id === track;
                 });
                 return (
-                  <SwiperSlide key={track} onClick={() => {
-                    setCurrentSong(showSong);
+                  <SwiperSlide
+                    key={track}
+                    onClick={() => {
+                      setCurrentSong(showSong);
                       setIsPlaying(true);
-                    }}>
-                      <img className="albumFav" src={showSong?.thumbnail} />
+                    }}
+                  >
+                    <img className="albumFav" src={showSong?.thumbnail} />
                   </SwiperSlide>
                 );
               })}
@@ -110,20 +112,28 @@ export function Welcome() {
         </>
       ) : (
         <>
-          {showSearch.artists.length > 0 && (<><h3 className="newIn">Artists</h3>
-          {showSearch.artists.map((artist) => (
-            <div key={artist.id} className="searchContainer">
-              <img src={artist.photoUrl} />
-              <p>{artist.name}</p>
-            </div>
-          ))}</>)}
-          {showSearch.tracks.length > 0 && (<><h3 className="newIn">Tracks</h3>
-          {showSearch.tracks.map((track) => (
-            <div key={track.id} className="searchContainer">
-              <img src={track.thumbnail} />
-              <p>{track.name}</p>
-            </div>
-          ))}</>)}
+          {showSearch.artists.length > 0 && (
+            <>
+              <h3 className="newIn">Artists</h3>
+              {showSearch.artists.map((artist) => (
+                <div key={artist.id} className="searchContainer">
+                  <img src={artist.photoUrl} />
+                  <p>{artist.name}</p>
+                </div>
+              ))}
+            </>
+          )}
+          {showSearch.tracks.length > 0 && (
+            <>
+              <h3 className="newIn">Tracks</h3>
+              {showSearch.tracks.map((track) => (
+                <div key={track.id} className="searchContainer">
+                  <img src={track.thumbnail} />
+                  <p>{track.name}</p>
+                </div>
+              ))}
+            </>
+          )}
         </>
       )}
     </Page>

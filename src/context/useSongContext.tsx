@@ -8,6 +8,8 @@ interface SongContextType {
   setCurrentSong: Function;
   volume: number;
   setVolume: Function;
+  audio: HTMLAudioElement | null;
+  setAudio: Function;
 }
 
 interface Props {
@@ -22,6 +24,7 @@ export function SongContextProvider(props: Props) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentSong, setCurrentSong] = useState({} as Track);
   const [volume, setVolume] = useState(0.6);
+  const [audio, setAudio] = useState(null);
 
   return (
     <SongContext.Provider
@@ -32,6 +35,8 @@ export function SongContextProvider(props: Props) {
         setCurrentSong,
         volume,
         setVolume,
+        audio,
+        setAudio,
       }}
     >
       {props.children}

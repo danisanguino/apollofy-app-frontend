@@ -38,12 +38,15 @@ const Pause = () => (
 );
 
 export function PlayerBar() {
-  const { isPlaying, setIsPlaying, currentSong, volume } = useSongContext();
+  const { isPlaying, setIsPlaying, currentSong, volume, setAudio } =
+    useSongContext();
   const audioRef = useRef<HTMLAudioElement>(null);
   function handleClick() {
     setIsPlaying(!isPlaying);
   }
-
+  useEffect(() => {
+    setAudio(audioRef.current);
+  });
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.src = currentSong.url;

@@ -55,3 +55,12 @@
 .slider {
   width: 95px;
 }
+
+.audio-slider {
+  width: 40rem;
+  margin: 2rem;
+}
+
+.duration {
+  color: white;
+}
