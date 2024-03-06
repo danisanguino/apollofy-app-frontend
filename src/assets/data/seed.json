@@ -308,7 +308,13 @@
       "email": "jusanchis@example.com",
       "password": "123456",
       "profilePicture": "/images/avatarjulai.png",
-      "myFavorites": []
+      "myFavorites": [
+        "3",
+        "4",
+        "5",
+        "2",
+        "1"
+      ]
     },
     {
       "id": "0149",
