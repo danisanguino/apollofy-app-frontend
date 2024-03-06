@@ -64,3 +64,23 @@
   object-fit: cover;
   border-radius: 0.4rem;
 }
+
+.searchContainer {
+  display: flex;
+  flex-direction: row;
+  margin: 1rem;
+}
+
+.searchContainer p {
+  margin: 1rem;
+  text-align: left;
+  color: var(--white);
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+.searchContainer img {
+  width: 4rem;
+  height: 4rem;
+  object-fit: cover;
+}
