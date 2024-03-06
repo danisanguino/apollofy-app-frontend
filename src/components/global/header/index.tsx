@@ -27,7 +27,7 @@ export function Header({}: Props) {
       <header className="header">
         <div className="container">
           <img className="avatar" src={user.user.profilePicture} alt="avatar" />
-          <p>Hola, {user.user.name}!</p>
+          <p>Hello, {user.user.name}!</p>
         </div>
         <label className="menu">
           <img src="/images/menu-mobile.svg" alt="menu" />

@@ -21,7 +21,8 @@ export function Welcome() {
   const { setCurrentSong, setIsPlaying } = useSongContext();
   const [tracks, setTracks] = useState([] as Track[]);
   const [artists, setArtists] = useState([] as Artist[]);
-  const slidesPerView = user.user.myFavorites.length / 1.5 + 0.5;
+  const slidesPerView =
+    user.user.myFavorites.length < 3 ? user.user.myFavorites.length : 3.5;
 
   useEffect(() => {
     async function setDataAPI() {
