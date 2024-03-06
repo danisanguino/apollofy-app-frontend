@@ -1,6 +1,5 @@
 import { ChangeEvent, useState } from "react";
 import "./search.css";
-import React from "react";
 
 type Props = {
   param: Function;

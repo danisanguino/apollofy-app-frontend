@@ -291,13 +291,8 @@
       "lastname": "Cidoncha",
       "email": "mariacidoncha@gmail.com",
       "password": "maria",
-      "profilePicture": "src/assets/images/cidoncha.png",
-      "myFavorites": [
-        "3",
-        "4",
-        "7",
-        "1"
-      ]
+      "profilePicture": "/images/cidoncha.png",
+      "myFavorites": ["3", "4", "7", "1", "13"]
     },
     {
       "id": "ddc5",
@@ -306,13 +301,8 @@
       "lastname": "Sanchis",
       "email": "jusanchis@example.com",
       "password": "123456",
-      "profilePicture": "src/assets/images/avatarjulai.png",
-      "myFavorites": [
-        "2",
-        "3",
-        "4",
-        "5"
-      ]
+      "profilePicture": "/images/avatarjulai.png",
+      "myFavorites": ["3", "4", "5", "2", "1"]
     },
     {
       "id": "0149",
@@ -322,12 +312,7 @@
       "email": "josemari@example.com",
       "password": "123456",
       "profilePicture": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709542929/avata-apollofy.jpg",
-      "myFavorites": [
-        "5",
-        "6",
-        "3",
-        "4"
-      ]
+      "myFavorites": ["5", "6", "3", "4"]
     },
     {
       "id": "d341",
@@ -337,14 +322,7 @@
       "email": "danishootman@example.com",
       "password": "123456",
       "profilePicture": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709542929/avata-apollofy.jpg",
-      "myFavorites": [
-        "1",
-        "2",
-        "3",
-        "10",
-        "11",
-        "14"
-      ]
+      "myFavorites": ["1", "2", "3", "10", "11", "14"]
     },
     {
       "id": "1ab2",
@@ -483,21 +461,14 @@
     {
       "id": "1",
       "name": "Kim Cesarion",
-      "genres": [
-        "swedish pop",
-        "swedish soul"
-      ],
+      "genres": ["swedish pop", "swedish soul"],
       "popularity": 38,
       "photoUrl": "https://i.scdn.co/image/ab6761610000e5eb842fae710a21f648e26dd910"
     },
     {
       "id": "2",
       "name": "C.Gambino",
-      "genres": [
-        "swedish gangsta rap",
-        "swedish hip hop",
-        "swedish trap pop"
-      ],
+      "genres": ["swedish gangsta rap", "swedish hip hop", "swedish trap pop"],
       "popularity": 56,
       "photoUrl": "https://i.scdn.co/image/ab6761610000e5eb9fb2b5ff325f43536a2a4ae2"
     },
@@ -556,9 +527,7 @@
     {
       "id": "7",
       "name": "Rasmus Hultgren",
-      "genres": [
-        "swedish pop rap"
-      ],
+      "genres": ["swedish pop rap"],
       "popularity": 31,
       "photoUrl": "https://i.scdn.co/image/ab6761610000e5eb470a02669d59859a21676ed0"
     },
@@ -579,39 +548,28 @@
     {
       "id": "9",
       "name": "Hemliga Klubben",
-      "genres": [
-        "swedish pop"
-      ],
+      "genres": ["swedish pop"],
       "popularity": 34,
       "photoUrl": "https://i.scdn.co/image/ab6761610000e5eb014c22b80be73cee9c7835b1"
     },
     {
       "id": "10",
       "name": "Steph K",
-      "genres": [
-        "swedish trap pop"
-      ],
+      "genres": ["swedish trap pop"],
       "popularity": 37,
       "photoUrl": "https://i.scdn.co/image/ab6761610000e5ebf913a1de42e743a6f462dfe1"
     },
     {
       "id": "11",
       "name": "Romeo",
-      "genres": [
-        "swedish hip hop",
-        "swedish trap pop"
-      ],
+      "genres": ["swedish hip hop", "swedish trap pop"],
       "popularity": 44,
       "photoUrl": "https://i.scdn.co/image/ab6761610000e5eb6dca4eb1f2347310b27c3000"
     },
     {
       "id": "12",
       "name": "SINAN",
-      "genres": [
-        "swedish gangsta rap",
-        "swedish hip hop",
-        "swedish trap pop"
-      ],
+      "genres": ["swedish gangsta rap", "swedish hip hop", "swedish trap pop"],
       "popularity": 44,
       "photoUrl": "https://i.scdn.co/image/ab6761610000e5eb5c1a2d5e3c93fe46ff18878d"
     },
@@ -649,9 +607,7 @@
     {
       "id": "16",
       "name": "Karim Alger",
-      "genres": [
-        "swedish trap pop"
-      ],
+      "genres": ["swedish trap pop"],
       "popularity": 24,
       "photoUrl": "https://i.scdn.co/image/ab6761610000e5eb5c33b372d2ef6275ed536450"
     },
@@ -665,11 +621,7 @@
     {
       "id": "18",
       "name": "Ken Ring",
-      "genres": [
-        "swedish gangsta rap",
-        "swedish hip hop",
-        "swedish trap pop"
-      ],
+      "genres": ["swedish gangsta rap", "swedish hip hop", "swedish trap pop"],
       "popularity": 41,
       "photoUrl": "https://i.scdn.co/image/ab6761610000e5ebd093354b1da8c7c55c4cee9f"
     },

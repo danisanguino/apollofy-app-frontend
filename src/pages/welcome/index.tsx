@@ -11,7 +11,6 @@ import "swiper/css/pagination";
 import { useSongContext } from "../../context/useSongContext";
 import Search from "../../components/layout/search";
 import { Artist } from "../../utils/interfaces/artist";
-import React from "react";
 
 export function Welcome() {
   const [showSearch, setShowSearch] = useState({
@@ -109,7 +108,6 @@ export function Welcome() {
                 );
               })}
             </Swiper>
-            ;
           </section>
         </>
       ) : (
@@ -118,10 +116,10 @@ export function Welcome() {
             <>
               <h3 className="newIn">Artists</h3>
               {showSearch.artists.map((artist) => (
-                <div key={artist.id} className="searchContainer">
+                <button key={artist.id} className="searchContainer">
                   <img src={artist.photoUrl} />
                   <p>{artist.name}</p>
-                </div>
+                </button>
               ))}
             </>
           )}
@@ -129,10 +127,17 @@ export function Welcome() {
             <>
               <h3 className="newIn">Tracks</h3>
               {showSearch.tracks.map((track) => (
-                <div key={track.id} className="searchContainer">
+                <button
+                  onClick={() => {
+                    setCurrentSong(track);
+                    setIsPlaying(true);
+                  }}
+                  key={track.id}
+                  className="searchContainer"
+                >
                   <img src={track.thumbnail} />
                   <p>{track.name}</p>
-                </div>
+                </button>
               ))}
             </>
           )}
