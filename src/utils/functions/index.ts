@@ -11,3 +11,9 @@ export async function getTracks() {
   const JSONdata = await data.json();
   return JSONdata;
 }
+
+export async function getArtist() {
+  const data = await fetch("http://localhost:3000/artists");
+  const JSONdata = await data.json();
+  return JSONdata;
+}
