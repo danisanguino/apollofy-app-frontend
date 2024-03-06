@@ -1,40 +1,25 @@
-import { useState } from 'react'
-import './search.css'
-import { getTracks } from '../../../utils/functions'
+import { ChangeEvent, useState } from "react";
+import "./search.css";
 
-// type Props = {
-//   setResults: string
-//   artist: string
-//   value: string
-// }
+type Props = {
+  param: Function;
+};
 
-export function Search({setResults}: Props) {
+export default function Search(props: Props) {
+  const [searched, setSearched] = useState("");
 
-  const [input, setInput] = useState("")
-
-  const searchFetchMusicData =  (value) => {
-    fetch("http://localhost:3000/tracks")
-    .then((response)=> response.json())
-    .then((json) => {
-      const results =json.filter((artist) => {
-        return artist && artist.artist && artist.artist.toLowerCase().includes(value)
-      });
-    setResults(results) 
-    })
-  }
-
-  const handleChange = (value) => {
-    setInput(value)
-    searchFetchMusicData(value)
-  }
+  const handleChange = (ev: ChangeEvent<HTMLInputElement>) => {
+    ev.preventDefault();
+    setSearched(ev.target.value);
+    props.param(ev.target.value);
+  };
 
   return (
     <input
-      type="text"
       className="search"
       placeholder="Search"
-      value={input}
-      onChange={(e) => handleChange(e.target.value)}
+      value={searched}
+      onChange={handleChange}
     />
-  )
+  );
 }
