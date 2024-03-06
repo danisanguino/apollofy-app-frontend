@@ -38,7 +38,7 @@ const Pause = () => (
 );
 
 export function PlayerBar() {
-  const {isPlaying, setIsPlaying, currentSong} = useSongContext();
+  const { isPlaying, setIsPlaying, currentSong, volume } = useSongContext();
   const audioRef = useRef<HTMLAudioElement>(null);
   function handleClick() {
     setIsPlaying(!isPlaying);
@@ -56,27 +56,34 @@ export function PlayerBar() {
       isPlaying ? audioRef.current.play() : audioRef.current.pause();
     }
   }, [isPlaying]);
+
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.volume = volume;
+    }
+  }, [volume]);
   return (
     <>
       <Outlet />
-      {currentSong.name &&  <section className="player-bar">
-        <Link to={'/player'}><div className="song">
-          <picture>
-            <img
-              src= {currentSong.thumbnail}
-              alt= {currentSong.name}
-            />
-          </picture>
-          <div>
-            <h3>{currentSong.name}</h3>
-            <p>{currentSong.artist}</p>
-          </div>
-        </div></Link>
-        <button className="player-btn" onClick={handleClick}>
-          {isPlaying ? <Pause /> : <Play />}
-        </button>
-        <audio ref={audioRef}></audio>
-      </section>}
+      {currentSong.name && (
+        <section className="player-bar">
+          <Link to={'/player'}>
+            <div className="song">
+              <picture>
+                <img src={currentSong.thumbnail} alt={currentSong.name} />
+              </picture>
+              <div>
+                <h3>{currentSong.name}</h3>
+                <p>{currentSong.artist}</p>
+              </div>
+            </div>
+          </Link>
+          <button className="player-btn" onClick={handleClick}>
+            {isPlaying ? <Pause /> : <Play />}
+          </button>
+          <audio ref={audioRef}></audio>
+        </section>
+      )}
     </>
   );
 }
