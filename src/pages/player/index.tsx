@@ -1,9 +1,9 @@
-import Page from '../../components/layout/page';
-import './player.css';
-import { useSongContext } from '../../context/useSongContext';
-import { useUserContext } from '../../context/useUserContext';
-import { useState } from 'react';
-import { Slider } from '@/components/ui/slider';
+import Page from "../../components/layout/page";
+import "./player.css";
+import { useSongContext } from "../../context/useSongContext";
+import { useUserContext } from "../../context/useUserContext";
+import { useState } from "react";
+import { Slider } from "@/components/ui/slider";
 
 type Props = {};
 
@@ -26,7 +26,7 @@ export function Player({}: Props) {
       favs.push(currentSong.id);
     }
     fetch(`http://localhost:3000/user/${user.user.id}`, {
-      method: 'PATCH',
+      method: "PATCH",
       body: JSON.stringify({
         myFavorites: favs,
       }),
@@ -54,16 +54,6 @@ export function Player({}: Props) {
             </button>
           </div>
         </section>
-        <Slider
-          defaultValue={[volume * 100]}
-          max={100}
-          min={0}
-          className="slider"
-          onValueChange={(value: number[]) => {
-            const [newVol] = value;
-            setVolume(newVol / 100);
-          }}
-        />
         <section className="playerSection">
           <button>
             <img src="/images/player/back.svg" />
@@ -85,6 +75,18 @@ export function Player({}: Props) {
             <img src="/images/player/next.svg" />
           </button>
         </section>
+        <div className="sliderContainer">
+          <Slider
+            defaultValue={[volume * 100]}
+            max={100}
+            min={0}
+            className="slider"
+            onValueChange={(value: number[]) => {
+              const [newVol] = value;
+              setVolume(newVol / 100);
+            }}
+          />
+        </div>
       </section>
     </Page>
   );
