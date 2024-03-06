@@ -47,9 +47,9 @@ export function Player({}: Props) {
             </div>
             <button onClick={handleHeart}>
               {isFav ? (
-                <img src="src\assets\images\heart-icon-2.svg" />
+                <img src="/images/heart-icon-2.svg" />
               ) : (
-                <img src="src\assets\images\heart-icon-1.svg" />
+                <img src="/images/heart-icon-1.svg" />
               )}
             </button>
           </div>
@@ -66,23 +66,23 @@ export function Player({}: Props) {
         />
         <section className="playerSection">
           <button>
-            <img src="src/assets/images/player/back.svg" />
+            <img src="/images/player/back.svg" />
           </button>
           <button>
-            <img src="src/assets/images/player/rewind.svg" />
+            <img src="/images/player/rewind.svg" />
           </button>
           <button onClick={handleClickPlay}>
             {isPlaying ? (
-              <img src="src/assets/images/player/pause.svg" />
+              <img src="/images/player/pause.svg" />
             ) : (
-              <img src="src/assets/images/player/play.svg" />
+              <img src="/images/player/play.svg" />
             )}
           </button>
           <button>
-            <img src="src/assets/images/player/forward.svg" />
+            <img src="/images/player/forward.svg" />
           </button>
           <button>
-            <img src="src/assets/images/player/next.svg" />
+            <img src="/images/player/next.svg" />
           </button>
         </section>
       </section>

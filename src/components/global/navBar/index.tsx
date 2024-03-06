@@ -5,16 +5,16 @@ export function NavBar() {
   return (
     <section className="navbar">
       <NavLink to="/welcome">
-        <img src="src/assets/images/home.svg" alt="home icon" />
-        <img className="point" src="src/assets/images/ellipse.svg" />
+        <img src="/images/home.svg" alt="home icon" />
+        <img className="point" src="/images/ellipse.svg" />
       </NavLink>
       <NavLink to="/favourites">
-        <img src="src/assets/images/favs.svg" alt="fav music icon" />
-        <img className="point" src="src/assets/images/ellipse.svg" />
+        <img src="/images/favs.svg" alt="fav music icon" />
+        <img className="point" src="/images/ellipse.svg" />
       </NavLink>
       <NavLink to="/profile">
-        <img src="src/assets/images/user.svg" alt="profile icon" />
-        <img className="point" src="src/assets/images/ellipse.svg" />
+        <img src="/images/user.svg" alt="profile icon" />
+        <img className="point" src="/images/ellipse.svg" />
       </NavLink>
     </section>
   );
