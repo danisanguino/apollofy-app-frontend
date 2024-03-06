@@ -63,6 +63,7 @@ export function PlayerBar() {
       }),
     });
     setIsFav(!isFav);
+    localStorage.setItem('user', JSON.stringify(user.user));
     console.log(user.user.myFavorites);
   }
 
