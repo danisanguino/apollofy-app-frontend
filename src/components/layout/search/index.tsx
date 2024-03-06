@@ -1,5 +1,6 @@
 import { ChangeEvent, useState } from "react";
 import "./search.css";
+import React from "react";
 
 type Props = {
   param: Function;
@@ -16,6 +17,7 @@ export default function Search(props: Props) {
 
   return (
     <input
+      type="search"
       className="search"
       placeholder="Search"
       value={searched}
