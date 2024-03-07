@@ -91,7 +91,7 @@ export default function SignUp() {
       <section className="profile-header">
         <img
           onClick={handleClickBack}
-          src="src/assets/images/left-arrow.svg"
+          src="/images/left-arrow.svg"
           alt="go back icon"
         />
       </section>

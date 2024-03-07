@@ -1,7 +1,8 @@
 import './playerBar.css';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { useSongContext } from '../../../context/useSongContext';
+import { useUserContext } from '@/context/useUserContext';
 
 const Play = () => (
   <svg
@@ -38,10 +39,32 @@ const Pause = () => (
 );
 
 export function PlayerBar() {
-  const {isPlaying, setIsPlaying, currentSong} = useSongContext();
+  const user = useUserContext();
+  const { isPlaying, setIsPlaying, currentSong, volume } = useSongContext();
+  const fav = user.user.myFavorites.includes(currentSong.id);
+  const [isFav, setIsFav] = useState(fav);
   const audioRef = useRef<HTMLAudioElement>(null);
   function handleClick() {
     setIsPlaying(!isPlaying);
+  }
+
+  function handleHeart() {
+    const favs = user.user.myFavorites;
+    if (isFav) {
+      const index = user.user.myFavorites.indexOf(currentSong.id);
+      favs.splice(index, 1);
+    } else {
+      favs.push(currentSong.id);
+    }
+    fetch(`http://localhost:3000/user/${user.user.id}`, {
+      method: 'PATCH',
+      body: JSON.stringify({
+        myFavorites: favs,
+      }),
+    });
+    setIsFav(!isFav);
+    localStorage.setItem('user', JSON.stringify(user.user));
+    console.log(user.user.myFavorites);
   }
 
   useEffect(() => {
@@ -49,34 +72,58 @@ export function PlayerBar() {
       audioRef.current.src = currentSong.url;
       audioRef.current.play();
     }
+    const fav = user.user.myFavorites.includes(currentSong.id);
+    setIsFav(fav);
   }, [currentSong]);
+
+  useEffect(() => {
+    const fav = user.user.myFavorites.includes(currentSong.id);
+    setIsFav(fav);
+  }, [user.user.myFavorites.length]);
 
   useEffect(() => {
     if (audioRef.current) {
       isPlaying ? audioRef.current.play() : audioRef.current.pause();
     }
   }, [isPlaying]);
+
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.volume = volume;
+    }
+  }, [volume]);
+
   return (
     <>
       <Outlet />
-      {currentSong.name &&  <section className="player-bar">
-        <Link to={'/player'}><div className="song">
-          <picture>
-            <img
-              src= {currentSong.thumbnail}
-              alt= {currentSong.name}
-            />
-          </picture>
-          <div>
-            <h3>{currentSong.name}</h3>
-            <p>{currentSong.artist}</p>
+      {currentSong.name && (
+        <section className="player-bar">
+          <div className="song-info">
+            <Link to={'/player'}>
+              <div className="song">
+                <picture>
+                  <img src={currentSong.thumbnail} alt={currentSong.name} />
+                </picture>
+                <div>
+                  <h3>{currentSong.name}</h3>
+                  <p>{currentSong.artist}</p>
+                </div>
+              </div>
+            </Link>
+            <button onClick={handleHeart}>
+              {isFav ? (
+                <img className="heart" src="/images/heart-icon-2.svg" />
+              ) : (
+                <img className="heart" src="/images/heart-icon-1.svg" />
+              )}
+            </button>
           </div>
-        </div></Link>
-        <button className="player-btn" onClick={handleClick}>
-          {isPlaying ? <Pause /> : <Play />}
-        </button>
-        <audio ref={audioRef}></audio>
-      </section>}
+          <button className="player-btn" onClick={handleClick}>
+            {isPlaying ? <Pause /> : <Play />}
+          </button>
+          <audio ref={audioRef}></audio>
+        </section>
+      )}
     </>
   );
 }

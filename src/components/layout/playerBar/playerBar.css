@@ -24,6 +24,7 @@
   gap: 1rem;
   margin: 1rem 0;
   color: var(--white);
+  text-align: left;
 }
 
 .song img {
@@ -38,4 +39,13 @@
 
 .song p {
   font-weight: 200;
+}
+
+.song-info {
+  display: flex;
+  gap: 1rem;
+}
+
+.heart {
+  width: 2rem;
 }

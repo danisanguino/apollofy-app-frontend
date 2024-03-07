@@ -291,12 +291,14 @@
       "lastname": "Cidoncha",
       "email": "mariacidoncha@gmail.com",
       "password": "maria",
-      "profilePicture": "src/assets/images/cidoncha.png",
+      "profilePicture": "/images/cidoncha.png",
       "myFavorites": [
         "3",
         "4",
         "7",
-        "1"
+        "1",
+        "6",
+        "5"
       ]
     },
     {
@@ -306,8 +308,14 @@
       "lastname": "Sanchis",
       "email": "jusanchis@example.com",
       "password": "123456",
-      "profilePicture": "src/assets/images/avatarjulai.png",
-      "myFavorites": []
+      "profilePicture": "/images/avatarjulai.png",
+      "myFavorites": [
+        "3",
+        "4",
+        "5",
+        "2",
+        "1"
+      ]
     },
     {
       "id": "0149",

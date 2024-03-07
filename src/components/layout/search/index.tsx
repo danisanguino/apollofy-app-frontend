@@ -1,12 +1,12 @@
-import { ChangeEvent, useState } from "react";
-import "./search.css";
+import { ChangeEvent, useState } from 'react';
+import './search.css';
 
 type Props = {
   param: Function;
 };
 
 export default function Search(props: Props) {
-  const [searched, setSearched] = useState("");
+  const [searched, setSearched] = useState('');
 
   const handleChange = (ev: ChangeEvent<HTMLInputElement>) => {
     ev.preventDefault();
@@ -16,6 +16,7 @@ export default function Search(props: Props) {
 
   return (
     <input
+      type="search"
       className="search"
       placeholder="Search"
       value={searched}

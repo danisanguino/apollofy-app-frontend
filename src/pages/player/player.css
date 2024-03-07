@@ -51,3 +51,7 @@
 .player-section ~ .player-bar {
   display: none;
 }
+
+.slider {
+  width: 95px;
+}
