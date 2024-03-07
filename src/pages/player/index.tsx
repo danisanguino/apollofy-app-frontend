@@ -8,8 +8,10 @@ import { Slider } from '@/components/ui/slider';
 type Props = {};
 
 export function Player({}: Props) {
-  const { isPlaying, setIsPlaying, currentSong, volume, setVolume } =
+  const { isPlaying, setIsPlaying, currentSong, volume, setVolume, audio } =
     useSongContext();
+  const [currentTime, setCurrentTime] = useState(0);
+  const duration = audio?.duration ?? 0;
   const user = useUserContext();
   const favUser = user.user.myFavorites.includes(currentSong.id);
   const [isFav, setIsFav] = useState(favUser);
@@ -54,6 +56,20 @@ export function Player({}: Props) {
             </button>
           </div>
         </section>
+        <span>{currentTime}</span>
+        <Slider
+          max={audio?.duration}
+          min={0}
+          value={[currentTime]}
+          onValueChange={(value) => {
+            const [newValue] = value;
+            if (audio) {
+              audio.currentTime = newValue;
+            }
+            setCurrentTime(newValue);
+          }}
+        />
+        <span>{duration}</span>
         <section className="playerSection">
           <button>
             <img src="/images/player/back.svg" />

@@ -56,8 +56,16 @@
   width: 10rem;
 }
 
+.tracker {
+  width: 26rem;
+}
+
 .sliderContainer {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.player-section span {
+  color: var(--white);
 }
