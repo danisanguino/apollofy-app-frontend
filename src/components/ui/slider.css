@@ -1,18 +1,18 @@
 .slider1 {
   position: relative;
   display: flex;
+  align-items: center;
   touch-action: none;
   user-select: none;
-  align-items: center;
 }
 
 .slider2 {
   position: relative;
-  height: 1rem;
+  height: 0.3rem;
   width: 100%;
   flex-grow: 1;
   overflow: hidden;
-  border-radius: 9999px; /* Esto es para lograr un efecto de borde redondeado completo */
+  border-radius: 2rem; /* Esto es para lograr un efecto de borde redondeado completo */
   background-color: var(--white);
 }
 
@@ -24,8 +24,8 @@
 
 .slider4 {
   display: block;
-  height: 1.25rem; /* Equivalente a 5px si estás usando el tamaño base de 16px en Tailwind */
-  width: 1.25rem; /* Equivalente a 5px si estás usando el tamaño base de 16px en Tailwind */
+  height: 0.7rem; /* Equivalente a 5px si estás usando el tamaño base de 16px en Tailwind */
+  width: 0.7rem; /* Equivalente a 5px si estás usando el tamaño base de 16px en Tailwind */
   border-radius: 50%;
   border-width: 2px;
   border-color: var(

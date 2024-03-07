@@ -1,16 +1,16 @@
-import { useEffect, useState } from 'react';
-import Page from '../../components/layout/page';
-import { useUserContext } from '../../context/useUserContext';
-import './welcome.css';
-import { Track } from '../../utils/interfaces/track';
-import { getArtist, getTracks } from '../../utils/functions';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/free-mode';
-import 'swiper/css/pagination';
-import { useSongContext } from '../../context/useSongContext';
-import Search from '../../components/layout/search';
-import { Artist } from '../../utils/interfaces/artist';
+import { useEffect, useState } from "react";
+import Page from "../../components/layout/page";
+import { useUserContext } from "../../context/useUserContext";
+import "./welcome.css";
+import { Track } from "../../utils/interfaces/track";
+import { getArtist, getTracks } from "../../utils/functions";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/pagination";
+import { useSongContext } from "../../context/useSongContext";
+import Search from "../../components/layout/search";
+import { Artist } from "../../utils/interfaces/artist";
 
 export function Welcome() {
   const [showSearch, setShowSearch] = useState({
