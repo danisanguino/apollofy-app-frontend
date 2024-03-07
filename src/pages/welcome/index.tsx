@@ -11,7 +11,6 @@ import 'swiper/css/pagination';
 import { useSongContext } from '../../context/useSongContext';
 import Search from '../../components/layout/search';
 import { Artist } from '../../utils/interfaces/artist';
-import { Square } from 'lucide-react';
 import { SquareCard } from '@/components/global/squareCard';
 import { SmallCard } from '@/components/global/smallCard';
 
@@ -25,7 +24,7 @@ export function Welcome() {
   const [tracks, setTracks] = useState([] as Track[]);
   const [artists, setArtists] = useState([] as Artist[]);
   const slidesPerView =
-    user.user.myFavorites.length < 3 ? user.user.myFavorites.length : 3.5;
+    user.user?.myFavorites.length < 3 ? user.user?.myFavorites.length : 3.5;
 
   useEffect(() => {
     async function setDataAPI() {
@@ -35,7 +34,8 @@ export function Welcome() {
       setArtists(ArtistsAPI);
     }
     setDataAPI();
-  }, []);
+    console.log(user);
+  }, [user.user]);
 
   function search(params: string) {
     const resultsSearchTracks = tracks.filter((track) => {
@@ -57,7 +57,7 @@ export function Welcome() {
       {showSearch.tracks.length === 0 && showSearch.artists.length === 0 ? (
         <>
           <h1 className="welcomeTitle">Welcome</h1>
-          <h1 className="welcome-user">{`${user.user.name} ${user.user.lastname}!`}</h1>
+          <h1 className="welcome-user">{`${user.user?.name} ${user.user?.lastname}!`}</h1>
           <h3 className="newIn">New in this week!</h3>
           <section className="newInSection">
             {tracks
@@ -88,7 +88,7 @@ export function Welcome() {
                 clickable: true,
               }}
             >
-              {user.user.myFavorites.map((track) => {
+              {user.user?.myFavorites.map((track) => {
                 const showSong = tracks.find((t) => {
                   return t.id === track;
                 });
