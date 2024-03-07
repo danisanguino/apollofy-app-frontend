@@ -39,11 +39,18 @@ const Pause = () => (
 );
 
 export function PlayerBar() {
-  const { isPlaying, setIsPlaying, currentSong, volume } = useSongContext();
+  const { isPlaying, setIsPlaying, currentSong, volume, setAudio } =
+    useSongContext();
   const audioRef = useRef<HTMLAudioElement>(null);
   function handleClick() {
     setIsPlaying(!isPlaying);
   }
+
+  useEffect(() => {
+    if (audioRef.current) {
+      setAudio(audioRef.current);
+    }
+  });
 
   useEffect(() => {
     if (audioRef.current) {
