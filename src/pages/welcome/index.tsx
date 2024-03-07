@@ -1,16 +1,19 @@
-import { useEffect, useState } from "react";
-import Page from "../../components/layout/page";
-import { useUserContext } from "../../context/useUserContext";
-import "./welcome.css";
-import { Track } from "../../utils/interfaces/track";
-import { getArtist, getTracks } from "../../utils/functions";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/free-mode";
-import "swiper/css/pagination";
-import { useSongContext } from "../../context/useSongContext";
-import Search from "../../components/layout/search";
-import { Artist } from "../../utils/interfaces/artist";
+import { useEffect, useState } from 'react';
+import Page from '../../components/layout/page';
+import { useUserContext } from '../../context/useUserContext';
+import './welcome.css';
+import { Track } from '../../utils/interfaces/track';
+import { getArtist, getTracks } from '../../utils/functions';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/free-mode';
+import 'swiper/css/pagination';
+import { useSongContext } from '../../context/useSongContext';
+import Search from '../../components/layout/search';
+import { Artist } from '../../utils/interfaces/artist';
+import { Square } from 'lucide-react';
+import { SquareCard } from '@/components/global/squareCard';
+import { SmallCard } from '@/components/global/smallCard';
 
 export function Welcome() {
   const [showSearch, setShowSearch] = useState({
@@ -47,7 +50,6 @@ export function Welcome() {
       artists: resultsSearchArtist,
     });
   }
-  console.log(showSearch);
 
   return (
     <Page>
@@ -63,22 +65,16 @@ export function Welcome() {
               .slice(0, 6)
               .map((track) => {
                 return (
-                  <button
+                  <SquareCard
                     key={track.id}
-                    onClick={() => {
+                    handleClick={() => {
                       setCurrentSong(track);
                       setIsPlaying(true);
                     }}
-                  >
-                    <div className="albumCard">
-                      <img
-                        className="albumPhoto"
-                        src={track.thumbnail}
-                        alt={track.artist}
-                      />
-                      <p className="albumTitle">{track.artist}</p>
-                    </div>
-                  </button>
+                    src={track.thumbnail}
+                    text1={track.artist}
+                    text2={track.name}
+                  />
                 );
               })}
           </section>
@@ -112,15 +108,17 @@ export function Welcome() {
           </section>
         </>
       ) : (
-        <>
+        <section className="search-section">
           {showSearch.artists.length > 0 && (
             <>
               <h3 className="newIn">Artists</h3>
               {showSearch.artists.map((artist) => (
-                <button key={artist.id} className="searchContainer">
-                  <img src={artist.photoUrl} />
-                  <p>{artist.name}</p>
-                </button>
+                <SmallCard
+                  key={artist.id}
+                  src={artist.photoUrl}
+                  text2={artist.name}
+                  class="searchContainer"
+                />
               ))}
             </>
           )}
@@ -128,21 +126,20 @@ export function Welcome() {
             <>
               <h3 className="newIn">Tracks</h3>
               {showSearch.tracks.map((track) => (
-                <button
-                  onClick={() => {
+                <SmallCard
+                  key={track.id}
+                  src={track.thumbnail}
+                  text2={track.name}
+                  handleClick={() => {
                     setCurrentSong(track);
                     setIsPlaying(true);
                   }}
-                  key={track.id}
-                  className="searchContainer"
-                >
-                  <img src={track.thumbnail} />
-                  <p>{track.name}</p>
-                </button>
+                  class="searchContainer"
+                />
               ))}
             </>
           )}
-        </>
+        </section>
       )}
     </Page>
   );

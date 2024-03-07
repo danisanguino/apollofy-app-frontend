@@ -1,9 +1,9 @@
-import Page from "../../components/layout/page";
-import "./player.css";
-import { useSongContext } from "../../context/useSongContext";
-import { useUserContext } from "../../context/useUserContext";
-import { useState } from "react";
-import { Slider } from "@/components/ui/slider";
+import Page from '../../components/layout/page';
+import './player.css';
+import { useSongContext } from '../../context/useSongContext';
+import { useUserContext } from '../../context/useUserContext';
+import { useState } from 'react';
+import { Slider } from '@/components/ui/slider';
 
 type Props = {};
 
@@ -26,14 +26,13 @@ export function Player({}: Props) {
       favs.push(currentSong.id);
     }
     fetch(`http://localhost:3000/user/${user.user.id}`, {
-      method: "PATCH",
+      method: 'PATCH',
       body: JSON.stringify({
         myFavorites: favs,
       }),
     });
     setIsFav(!isFav);
     localStorage.setItem('user', JSON.stringify(user.user));
-    console.log(user.user.myFavorites);
   }
 
   return (

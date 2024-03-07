@@ -1,0 +1,25 @@
+.albumCard {
+  width: 10.5rem;
+}
+
+.albumCard .albumPhoto {
+  width: 10.5rem;
+  height: 10.5rem;
+  object-fit: cover;
+  border-radius: 0.6rem;
+}
+
+.albumCard .artistTitle {
+  font-size: 1.2rem;
+  padding: 0 0.5rem;
+  text-align: left;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.albumCard .albumTitle {
+  color: var(--gray-tertiary);
+  font-size: 1.2rem;
+  text-align: left;
+  padding: 0.5rem;
+}

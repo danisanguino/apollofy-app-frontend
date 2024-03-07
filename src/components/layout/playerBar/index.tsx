@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { useSongContext } from '../../../context/useSongContext';
 import { useUserContext } from '@/context/useUserContext';
+import { SmallCard } from '@/components/global/smallCard';
 
 const Play = () => (
   <svg
@@ -71,15 +72,12 @@ export function PlayerBar() {
         <section className="player-bar">
           <div className="song-info">
             <Link to={'/player'}>
-              <div className="song">
-                <picture>
-                  <img src={currentSong.thumbnail} alt={currentSong.name} />
-                </picture>
-                <div>
-                  <h3>{currentSong.name}</h3>
-                  <p>{currentSong.artist}</p>
-                </div>
-              </div>
+              <SmallCard
+                src={currentSong.thumbnail}
+                text1={currentSong.name}
+                text2={currentSong.artist}
+                class="song"
+              />
             </Link>
           </div>
           <button className="player-btn" onClick={handleClick}>
