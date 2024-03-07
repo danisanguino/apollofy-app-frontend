@@ -43,6 +43,8 @@ export default function SignUp() {
   const user = useUserContext();
   const [dataForm, dispatch] = useReducer(reducer, initialState);
   const [users, setUsers] = useState({} as User[]);
+  const [userError, setUserError] = useState(false);
+  const [emailError, setEmailError] = useState(false);
   const navigate = useNavigate();
 
   async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
@@ -54,10 +56,13 @@ export default function SignUp() {
       return element.email === dataForm.email;
     });
     if (userFoundUsername) {
-      console.log('mismo username');
+      setUserError(true);
     } else if (userFoundEmail) {
-      console.log('mismo email');
+      setUserError(false);
+      setEmailError(true);
     } else {
+      setEmailError(false);
+      setUserError(false);
       const newUser = await fetch('http://localhost:3000/user', {
         method: 'POST',
         body: JSON.stringify({
@@ -107,6 +112,9 @@ export default function SignUp() {
           name="username"
           placeholder="username"
         />
+        {userError && (
+          <small className="message-error user">user registered</small>
+        )}
         <Inputs
           handleChange={(ev: ChangeEvent<HTMLInputElement>) => {
             dispatch({ type: Action.changeName, value: ev.target.value });
@@ -129,6 +137,9 @@ export default function SignUp() {
           type="email"
           placeholder="email"
         />
+        {emailError && (
+          <small className="message-error mail">email registered</small>
+        )}
         <Inputs
           handleChange={(ev: ChangeEvent<HTMLInputElement>) => {
             dispatch({ type: Action.changePassword, value: ev.target.value });

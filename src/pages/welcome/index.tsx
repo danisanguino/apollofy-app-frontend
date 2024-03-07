@@ -34,7 +34,6 @@ export function Welcome() {
       setArtists(ArtistsAPI);
     }
     setDataAPI();
-    console.log(user);
   }, [user.user]);
 
   function search(params: string) {
