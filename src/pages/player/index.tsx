@@ -90,7 +90,6 @@ export function Player({}: Props) {
             </button>
           </div>
           <div className="slider-section">
-            <span>{formatTime(currentTime)}</span>
             <Slider
               min={0}
               max={duration}
@@ -104,7 +103,10 @@ export function Player({}: Props) {
                 setCurrentTime(newValue);
               }}
             />
-            <span>{formatTime(duration)}</span>
+            <div className="time-section">
+              <span>{formatTime(currentTime)}</span>
+              <span>{formatTime(duration)}</span>
+            </div>
           </div>
         </section>
         <section className="playerSection">
