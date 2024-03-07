@@ -31,6 +31,8 @@
 }
 .favourites-songs .song-card .song-info {
   padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .favourites-songs .song-card .song-info h3 {
