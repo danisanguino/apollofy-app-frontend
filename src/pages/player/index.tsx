@@ -107,20 +107,6 @@ export function Player({}: Props) {
             <span>{formatTime(duration)}</span>
           </div>
         </section>
-        <span>{currentTime}</span>
-        <Slider
-          max={audio?.duration}
-          min={0}
-          value={[currentTime]}
-          onValueChange={(value) => {
-            const [newValue] = value;
-            if (audio) {
-              audio.currentTime = newValue;
-            }
-            setCurrentTime(newValue);
-          }}
-        />
-        <span>{duration}</span>
         <section className="playerSection">
           <button>
             <img src="/images/player/back.svg" />
