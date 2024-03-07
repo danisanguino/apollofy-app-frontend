@@ -39,32 +39,10 @@ const Pause = () => (
 );
 
 export function PlayerBar() {
-  const user = useUserContext();
   const { isPlaying, setIsPlaying, currentSong, volume } = useSongContext();
-  const fav = user.user.myFavorites.includes(currentSong.id);
-  const [isFav, setIsFav] = useState(fav);
   const audioRef = useRef<HTMLAudioElement>(null);
   function handleClick() {
     setIsPlaying(!isPlaying);
-  }
-
-  function handleHeart() {
-    const favs = user.user.myFavorites;
-    if (isFav) {
-      const index = user.user.myFavorites.indexOf(currentSong.id);
-      favs.splice(index, 1);
-    } else {
-      favs.push(currentSong.id);
-    }
-    fetch(`http://localhost:3000/user/${user.user.id}`, {
-      method: 'PATCH',
-      body: JSON.stringify({
-        myFavorites: favs,
-      }),
-    });
-    setIsFav(!isFav);
-    localStorage.setItem('user', JSON.stringify(user.user));
-    console.log(user.user.myFavorites);
   }
 
   useEffect(() => {
@@ -72,14 +50,7 @@ export function PlayerBar() {
       audioRef.current.src = currentSong.url;
       audioRef.current.play();
     }
-    const fav = user.user.myFavorites.includes(currentSong.id);
-    setIsFav(fav);
   }, [currentSong]);
-
-  useEffect(() => {
-    const fav = user.user.myFavorites.includes(currentSong.id);
-    setIsFav(fav);
-  }, [user.user.myFavorites.length]);
 
   useEffect(() => {
     if (audioRef.current) {
@@ -110,13 +81,6 @@ export function PlayerBar() {
                 </div>
               </div>
             </Link>
-            <button onClick={handleHeart}>
-              {isFav ? (
-                <img className="heart" src="/images/heart-icon-2.svg" />
-              ) : (
-                <img className="heart" src="/images/heart-icon-1.svg" />
-              )}
-            </button>
           </div>
           <button className="player-btn" onClick={handleClick}>
             {isPlaying ? <Pause /> : <Play />}
