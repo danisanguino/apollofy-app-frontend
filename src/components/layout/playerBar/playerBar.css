@@ -21,3 +21,12 @@
 .heart {
   width: 2rem;
 }
+
+@media screen and (min-width: 1200px) {
+  .player-bar{
+    display: none;
+  }
+}
+  
+
+

@@ -9,6 +9,10 @@
   justify-content: space-between;
 }
 
+.header-laptop  {
+  display: none;
+}
+
 .container {
   display: flex;
   flex-direction: row;
@@ -81,4 +85,39 @@
   padding: 0;
   font-size: 1.3rem;
   font-weight: 600;
+}
+
+@media screen and (min-width: 1200px) {
+  .header {
+    display: none;
+  }
+  .header-laptop{
+    display: block;
+    background-color: var(--gray-primary);
+  }
+  .header-laptop .container-laptop p {
+    color: var(--white);
+    font-weight: 600;
+    font-size: 2.5rem;
+  }
+  .header-laptop .container-laptop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+  }
+  .header-laptop .container-laptop .container-icon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+  .header-laptop .container-laptop .container-icon .icon  {
+    width: 2rem;
+    height: 2rem;
+  }
+ .header-laptop .container-laptop .avatar {
+  width: 5rem;
+  border-radius: 100%;
+  }
 }

@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { useUserContext } from '../../../context/useUserContext';
 import './header.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useSongContext } from '../../../context/useSongContext';
+
 
 type Props = {};
 
@@ -50,6 +51,36 @@ export function Header({}: Props) {
             </li>
           </ul>
         </nav>
+      </header>
+
+      {/*HEADER LAPTOP*/}
+      <header className="header-laptop">
+        <div className="container-laptop">
+          <p>Hello, {user.user?.name}!</p>
+          <div className='container-icon'>
+          <NavLink to="/welcome">
+        <img className='icon' src="/images/home.svg" alt="home icon" />
+          </NavLink>
+          <NavLink to="/favourites">
+        <img className='icon' src="/images/favs.svg" alt="fav music icon" />
+         </NavLink>
+        <NavLink to="/profile">
+        <img
+            className="avatar"
+            src={user.user?.profilePicture}
+            alt="avatar"
+          />
+       </NavLink>
+         
+          </div>
+          
+        </div>
+
+
+        
+          
+        
+       
       </header>
     </>
   );

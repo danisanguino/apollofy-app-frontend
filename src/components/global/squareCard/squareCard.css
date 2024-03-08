@@ -1,11 +1,11 @@
 .albumCard {
-  width: 10.5rem;
+  width: 100%;
 }
 
 .albumCard .albumPhoto {
-  width: 10.5rem;
-  height: 10.5rem;
-  object-fit: cover;
+  width: 100%;
+  height: auto;
+  /* object-fit: cover; */
   border-radius: 0.6rem;
 }
 

@@ -327,10 +327,10 @@
       "password": "123456",
       "profilePicture": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709542929/avata-apollofy.jpg",
       "myFavorites": [
-        "5",
         "6",
         "3",
-        "4"
+        "4",
+        "5"
       ]
     },
     {
