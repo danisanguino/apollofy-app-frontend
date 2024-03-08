@@ -15,7 +15,7 @@
   padding-bottom: 13rem;
 }
 
-.favourites-songs .img-song {
+/* .favourites-songs .img-song {
   width: 7rem;
   height: 7rem;
   object-fit: cover;
@@ -31,6 +31,8 @@
 }
 .favourites-songs .song-card .song-info {
   padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .favourites-songs .song-card .song-info h3 {
@@ -41,4 +43,4 @@
 .favourites-songs .song-card .song-info p {
   font-size: 1.4rem;
   color: var(--gray-secondary);
-}
+} */

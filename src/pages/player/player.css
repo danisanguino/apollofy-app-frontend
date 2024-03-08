@@ -20,8 +20,9 @@
 .songCard .songInfo {
   display: flex;
   justify-content: space-between;
-  width: 70%;
+  width: 30rem;
   text-align: left;
+  padding-bottom: 3rem;
 }
 
 .songCard .songInfo img {
@@ -36,7 +37,7 @@
 }
 
 .playerSection {
-  padding: 10rem;
+  padding: 2rem 6rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -53,5 +54,87 @@
 }
 
 .slider {
-  width: 95px;
+  width: 10rem;
+}
+
+.tracker {
+  width: 26rem;
+}
+
+.sliderContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.sliderContainer img {
+  width: 2rem;
+}
+
+.track-song {
+  width: 30rem;
+}
+
+.slider-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.player-section span {
+  color: var(--white);
+}
+
+.time-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.player-section-laptop {
+  display: none;
+}
+
+@media screen and (min-width: 1200px) {
+  .player-section {
+    display: none;
+  }
+  .player-section-laptop {
+    padding: 2rem 2rem;
+    display: flex;
+    justify-content: left;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+  .songCard-laptop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    padding: 2rem;
+    margin-top: 3rem;
+    color: var(--white);
+  }
+  .songCard-laptop .songInfo {
+    display: flex;
+    justify-content: space-between;
+    width: 30rem;
+    text-align: left;
+    padding-bottom: 3rem;
+  }
+  .songCard-laptop .songPhoto {
+    width: 30rem;
+  }
+  .songCard-laptop .songInfoHeart {
+    width: 20rem;
+    background-color: red;
+  }
+  .songCard-laptop .songInfo .songInfoTitle {
+    font-size: 6rem;
+    font-weight: 800;
+  }
+  .songCard-laptop .songInfo .songInfoArtist {
+    font-size: 2.5rem;
+    font-weight: 400;
+  }
 }

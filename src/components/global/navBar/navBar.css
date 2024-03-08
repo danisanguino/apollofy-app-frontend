@@ -29,3 +29,10 @@
 .active .point {
   display: block;
 }
+
+@media screen and (min-width: 1200px) {
+  .navbar {
+    display: none;
+  }
+}
+  

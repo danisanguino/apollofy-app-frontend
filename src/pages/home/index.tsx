@@ -1,7 +1,7 @@
-import { Logo } from "../../components/layout/logo";
-import { Button } from "../../components/global/button";
-import "./home.css";
-import { useNavigate } from "react-router-dom";
+import { Logo } from '../../components/layout/logo';
+import { Button } from '../../components/global/button';
+import './home.css';
+import { useNavigate } from 'react-router-dom';
 
 type Props = {};
 
@@ -9,11 +9,11 @@ export function Home({}: Props) {
   const navigate = useNavigate();
 
   const goToSignUp = () => {
-    navigate("/signup");
+    navigate('/signup');
   };
 
   const goToLogin = () => {
-    navigate("/login");
+    navigate('/login');
   };
 
   return (
@@ -26,11 +26,11 @@ export function Home({}: Props) {
           we have it.
         </h1>
         <div className="home-buttons">
-          <Button style="btn-yellow" handleClick={goToSignUp}>
-            SIGN UP
-          </Button>
-          <Button style="btn-white" handleClick={goToLogin}>
+          <Button style="btn-yellow" handleClick={goToLogin}>
             LOG IN
+          </Button>
+          <Button style="btn-white" handleClick={goToSignUp}>
+            SIGN UP
           </Button>
         </div>
       </div>

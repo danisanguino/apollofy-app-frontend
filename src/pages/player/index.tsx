@@ -2,14 +2,16 @@ import Page from '../../components/layout/page';
 import './player.css';
 import { useSongContext } from '../../context/useSongContext';
 import { useUserContext } from '../../context/useUserContext';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Slider } from '@/components/ui/slider';
 
 type Props = {};
 
 export function Player({}: Props) {
-  const { isPlaying, setIsPlaying, currentSong, volume, setVolume } =
+  const { isPlaying, setIsPlaying, currentSong, volume, setVolume, audio } =
     useSongContext();
+  const duration = audio?.duration ?? 0;
+  const [currentTime, setCurrentTime] = useState(0);
   const user = useUserContext();
   const favUser = user.user.myFavorites.includes(currentSong.id);
   const [isFav, setIsFav] = useState(favUser);
@@ -33,7 +35,40 @@ export function Player({}: Props) {
     });
     setIsFav(!isFav);
     localStorage.setItem('user', JSON.stringify(user.user));
-    console.log(user.user.myFavorites);
+  }
+
+  useEffect(() => {
+    audio?.addEventListener('timeupdate', handleTimeUpdate);
+    return () => {
+      audio?.removeEventListener('timeupdate', handleTimeUpdate);
+    };
+  }, []);
+
+  function handleTimeUpdate() {
+    if (audio) {
+      setCurrentTime(audio.currentTime);
+    }
+  }
+
+  function formatTime(time: number) {
+    if (time === 0) {
+      return '0:00';
+    } else {
+      const min = Math.floor(time / 60);
+      const sec = Math.floor(time % 60)
+        .toString()
+        .padStart(2, '0');
+
+      return `${min}:${sec}`;
+    }
+  }
+
+  function handleVolume() {
+    if (volume === 0) {
+      setVolume(0.6);
+    } else {
+      setVolume(0);
+    }
   }
 
   return (
@@ -54,17 +89,26 @@ export function Player({}: Props) {
               )}
             </button>
           </div>
+          <div className="slider-section">
+            <Slider
+              min={0}
+              max={duration}
+              value={[currentTime]}
+              className="track-song"
+              onValueChange={(value) => {
+                const [newValue] = value;
+                if (audio) {
+                  audio.currentTime = newValue;
+                }
+                setCurrentTime(newValue);
+              }}
+            />
+            <div className="time-section">
+              <span>{formatTime(currentTime)}</span>
+              <span>{formatTime(duration)}</span>
+            </div>
+          </div>
         </section>
-        <Slider
-          defaultValue={[volume * 100]}
-          max={100}
-          min={0}
-          className="slider"
-          onValueChange={(value: number[]) => {
-            const [newVol] = value;
-            setVolume(newVol / 100);
-          }}
-        />
         <section className="playerSection">
           <button>
             <img src="/images/player/back.svg" />
@@ -86,6 +130,48 @@ export function Player({}: Props) {
             <img src="/images/player/next.svg" />
           </button>
         </section>
+        <div className="sliderContainer">
+          <button onClick={handleVolume}>
+            {volume === 0 ? (
+              <img src="/images/player/speaker-mute.svg" />
+            ) : (
+              <img src="/images/player/speaker-wave-1-svgrepo-com.svg" />
+            )}
+          </button>
+          <Slider
+            defaultValue={[volume * 100]}
+            max={100}
+            min={0}
+            value={[volume * 100]}
+            className="slider"
+            onValueChange={(value: number[]) => {
+              const [newVol] = value;
+              setVolume(newVol / 100);
+            }}
+          />
+        </div>
+      </section>
+
+
+              {/*PLAYER-SONG LAPTOP*/}
+      <section className="player-section-laptop">
+        <section className="songCard-laptop">
+          <img className="songPhoto" src={currentSong.thumbnail} />
+          <div className="songInfo">
+            <div>
+              <h2 className="songInfoTitle">{currentSong.name}</h2>
+              <p className="songInfoArtist">{currentSong.artist}</p>
+              <p>Duration:3:28</p>
+              <button className='songInfoHeart' onClick={handleHeart}>
+                {isFav ? (
+                  <img src="/images/heart-icon-2.svg" />
+                ) : (
+                  <img src="/images/heart-icon-1.svg" />
+                )}
+              </button>
+            </div>
+          </div>
+      </section>
       </section>
     </Page>
   );

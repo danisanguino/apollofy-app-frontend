@@ -7,11 +7,11 @@ import { SongContextProvider } from './context/useSongContext';
 function App() {
   return (
     <UserContextProvider>
-    <SongContextProvider>
-      <BrowserRouter>
-        <AppRoutes />
-      </BrowserRouter>
-    </SongContextProvider>
+      <SongContextProvider>
+        <BrowserRouter>
+          <AppRoutes />
+        </BrowserRouter>
+      </SongContextProvider>
     </UserContextProvider>
   );
 }

@@ -33,7 +33,6 @@ export function Login({}: Props) {
     if (foundUser) {
       if (foundUser.password === userPass) {
         localStorage.setItem('user', JSON.stringify(foundUser));
-        // localStorage.setItem('user', foundUser.username);
         user.setUser(foundUser);
         navigate('/welcome');
       } else {

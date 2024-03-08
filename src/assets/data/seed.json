@@ -232,7 +232,7 @@
       "name": "Viva la vida",
       "artist": "Coldplay",
       "url": "https://res.cloudinary.com/dqm1upnhh/video/upload/v1709651368/16__Coldplay_-_Viva_La_Vida_ff0mi0.mp3",
-      "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709651366/16__Coldplay_-_Viva_La_Vida_wjeost.jpg",
+      "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709899821/16_Coldplay-Viva_La_vida.jpg",
       "new": false,
       "genre": "Pop-rock"
     },
@@ -298,7 +298,9 @@
         "7",
         "1",
         "6",
-        "5"
+        "5",
+        "9",
+        "11"
       ]
     },
     {
@@ -310,11 +312,10 @@
       "password": "123456",
       "profilePicture": "/images/avatarjulai.png",
       "myFavorites": [
+        "2",
         "3",
         "4",
-        "5",
-        "2",
-        "1"
+        "5"
       ]
     },
     {
@@ -324,12 +325,15 @@
       "lastname": "Gil",
       "email": "josemari@example.com",
       "password": "123456",
-      "profilePicture": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709542929/avata-apollofy.jpg",
+      "profilePicture": "/images/josemari.png",
       "myFavorites": [
-        "5",
         "6",
         "3",
-        "4"
+        "4",
+        "5",
+        "16",
+        "19",
+        "20"
       ]
     },
     {
@@ -339,7 +343,7 @@
       "lastname": "Sanguino",
       "email": "danishootman@example.com",
       "password": "123456",
-      "profilePicture": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709542929/avata-apollofy.jpg",
+      "profilePicture": "/images/danisanguino.png",
       "myFavorites": [
         "1",
         "2",
