@@ -1,10 +1,10 @@
 import './squareCard.css';
 
 type Props = {
-  handleClick: () => void;
+  handleClick?: () => void;
   src: string;
   text1: string;
-  text2: string;
+  text2?: string;
 };
 
 export function SquareCard(props: Props) {

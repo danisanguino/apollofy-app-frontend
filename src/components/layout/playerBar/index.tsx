@@ -92,6 +92,30 @@ export function PlayerBar() {
           <audio ref={audioRef}></audio>
         </section>
       )}
+
+
+
+          {/*PLAYERBAR LAPTOP*/}
+      {currentSong.name && (
+        <section className="section-bar-laptop">
+          <div className="player-bar-laptop">
+          <div className="song-info">
+            <Link to={'/player'}>
+              <SmallCard
+                src={currentSong.thumbnail}
+                text1={currentSong.name}
+                text2={currentSong.artist}
+                class="song"
+              />
+            </Link>
+          </div>
+          <button className="player-btn" onClick={handleClick}>
+            {isPlaying ? <Pause /> : <Play />}
+          </button>
+          <audio ref={audioRef}></audio>
+          </div>
+        </section>
+      )}
     </>
   );
 }

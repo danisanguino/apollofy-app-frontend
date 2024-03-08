@@ -23,8 +23,7 @@ export function Welcome() {
   const { setCurrentSong, setIsPlaying } = useSongContext();
   const [tracks, setTracks] = useState([] as Track[]);
   const [artists, setArtists] = useState([] as Artist[]);
-  const slidesPerView =
-    user.user?.myFavorites.length < 3 ? user.user?.myFavorites.length : 3.5;
+  const slidesPerView = user.user?.myFavorites.length < 3 ? user.user?.myFavorites.length : 3.5;
 
   useEffect(() => {
     async function setDataAPI() {
@@ -140,6 +139,16 @@ export function Welcome() {
           )}
         </section>
       )}
+      <h3 className="newIn artistsTitle">Artists</h3>
+      <section  className='section-artists'>
+        {artists.slice(0, 8).map((artist) => {
+          return (
+          <div key={artist.id} className='artist-card'>
+          <img className='artist-photo' src={artist.photoUrl} alt={artist.name} />
+          <p>{artist.name}</p>
+        </div>
+        )})}    
+      </section>
     </Page>
   );
 }

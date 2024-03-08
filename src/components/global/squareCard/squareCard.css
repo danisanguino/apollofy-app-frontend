@@ -1,5 +1,8 @@
 .albumCard {
   width: 100%;
+  /* padding: 0.8rem; */
+  border-radius: 0.8rem;
+  transition: background-color 0.2s ease;
 }
 
 .albumCard .albumPhoto {
@@ -23,3 +26,9 @@
   text-align: left;
   padding: 0.5rem;
 }
+
+/* @media screen and (min-width: 1200px) {
+  .albumCard:hover {
+    background-color:rgba(196, 172, 38, 0.24);
+  }
+} */

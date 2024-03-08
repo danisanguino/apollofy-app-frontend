@@ -12,6 +12,19 @@
   z-index: 2;
 }
 
+.player-bar-laptop {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    width: calc(100% - 4rem);
+    margin: 0 1rem 0 1rem;
+    border-radius: 1rem 1rem 0 0;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    background-color: var(--primaryOpacity);
+    z-index: 2;
+}
 .player-btn {
   background-color: transparent;
   border: none;
@@ -21,10 +34,18 @@
 .heart {
   width: 2rem;
 }
-
+.section-bar-laptop {
+  display: none;
+}
 @media screen and (min-width: 1200px) {
   .player-bar{
     display: none;
+  }
+  .section-bar-laptop {
+    display: block;
+  }
+  .player-bar-laptop {
+    display: flex;
   }
 }
   

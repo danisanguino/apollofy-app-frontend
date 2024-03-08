@@ -104,7 +104,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 2rem;
+    padding: 1rem;
   }
   .header-laptop .container-laptop .container-icon {
     display: flex;
