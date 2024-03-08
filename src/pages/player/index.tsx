@@ -151,6 +151,28 @@ export function Player({}: Props) {
           />
         </div>
       </section>
+
+
+              {/*PLAYER-SONG LAPTOP*/}
+      <section className="player-section-laptop">
+        <section className="songCard-laptop">
+          <img className="songPhoto" src={currentSong.thumbnail} />
+          <div className="songInfo">
+            <div>
+              <h2 className="songInfoTitle">{currentSong.name}</h2>
+              <p className="songInfoArtist">{currentSong.artist}</p>
+              <p>Duration:3:28</p>
+              <button className='songInfoHeart' onClick={handleHeart}>
+                {isFav ? (
+                  <img src="/images/heart-icon-2.svg" />
+                ) : (
+                  <img src="/images/heart-icon-1.svg" />
+                )}
+              </button>
+            </div>
+          </div>
+      </section>
+      </section>
     </Page>
   );
 }
