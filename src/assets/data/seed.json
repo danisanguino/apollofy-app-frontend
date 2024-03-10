@@ -345,12 +345,12 @@
       "password": "123456",
       "profilePicture": "/images/danisanguino.png",
       "myFavorites": [
-        "1",
-        "2",
         "3",
         "10",
         "11",
-        "14"
+        "14",
+        "1",
+        "2"
       ]
     },
     {

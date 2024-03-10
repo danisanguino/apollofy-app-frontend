@@ -4,6 +4,7 @@ import { useSongContext } from '../../context/useSongContext';
 import { useUserContext } from '../../context/useUserContext';
 import { useEffect, useState } from 'react';
 import { Slider } from '@/components/ui/slider';
+import { SquareCard } from '@/components/global/squareCard';
 
 type Props = {};
 
@@ -158,10 +159,10 @@ export function Player({}: Props) {
         <section className="songCard-laptop">
           <img className="songPhoto" src={currentSong.thumbnail} />
           <div className="songInfo">
-            <div>
+            <div className='songInfoDetail'>
               <h2 className="songInfoTitle">{currentSong.name}</h2>
-              <p className="songInfoArtist">{currentSong.artist}</p>
-              <p>Duration:3:28</p>
+              <span className="songInfoArtist">{currentSong.artist} </span>
+              <span className="songInfoDuration">Duration 3:28</span>
               <button className='songInfoHeart' onClick={handleHeart}>
                 {isFav ? (
                   <img src="/images/heart-icon-2.svg" />
@@ -172,6 +173,49 @@ export function Player({}: Props) {
             </div>
           </div>
       </section>
+      </section>
+
+      <section className='related-songs'>
+        <h3 className='title-related'>Related Songs</h3>
+        <div className='container-related'>
+          <div className='related-info'>
+            <img src={currentSong.thumbnail}/>
+            <p>{currentSong.name}</p>
+          </div>
+          <div className='related-info'>
+            <img src={currentSong.thumbnail}/>
+            <p>{currentSong.name}</p>
+          </div>
+          <div className='related-info'>
+            <img src={currentSong.thumbnail}/>
+            <p>{currentSong.name}</p>
+          </div>
+          <div className='related-info'>
+            <img src={currentSong.thumbnail}/>
+            <p>{currentSong.name}</p>
+          </div>
+          <div className='related-info'>
+            <img src={currentSong.thumbnail}/>
+            <p>{currentSong.name}</p>
+          </div>
+          <div className='related-info'>
+            <img src={currentSong.thumbnail}/>
+            <p>{currentSong.name}</p>
+          </div>
+          <div className='related-info'>
+            <img src={currentSong.thumbnail}/>
+            <p>{currentSong.name}</p>
+          </div>
+          <div className='related-info'>
+            <img src={currentSong.thumbnail}/>
+            <p>{currentSong.name}</p>
+          </div>
+          <div className='related-info'>
+            <img src={currentSong.thumbnail}/>
+            <p>{currentSong.name}</p>
+          </div>
+
+        </div>
       </section>
     </Page>
   );

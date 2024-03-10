@@ -42,9 +42,13 @@
   padding-bottom: 13rem;
 }
 
+.favouriteList-laptop{
+  display: none;
+} 
+
 .favouriteList .albumFav {
-  width: 6rem;
-  height: 6rem;
+  width: 10rem;
+  height: 10rem;
   object-fit: cover;
   border-radius: 0.4rem;
 }
@@ -106,23 +110,57 @@
     padding: 0.5rem;
     margin-left: 1rem;
   }
+
   .favouriteList{
-    padding: 3rem;
+    display: none;
+  } 
+
+  .favouriteList-laptop {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+    cursor: pointer;
   }
-  .favouriteList .albumFav {
+
+  .favouriteList-laptop .containter {
+    background-color: var(--gray-primary);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    border-radius: 0.6rem;
+  }
+  
+  .favouriteList-laptop .containter .albumFav-laptop {
     width: 10rem;
     height: 10rem;
+    object-fit: cover;
+    border-radius: 0.4rem;
+    padding: 0.8rem;
   }
+
+  .favouriteList-laptop .containter .albumFav-trackName{
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--white);
+
+  }
+
   .artistsTitle {
     display: flex;
     padding: 0.5rem;
   }
   .section-artists{
     display:flex;
+    padding-bottom: 7rem;
   }
   .section-artists .artist-photo {
     margin-bottom: 1rem;
     width: 11rem;
     height: 11rem;
   }
+
+  
 }

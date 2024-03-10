@@ -104,6 +104,31 @@ export function Welcome() {
               })}
             </Swiper>
           </section>
+
+          {/* FAVOURITES LIST IN LAPTO */}
+          <section className="favouriteList-laptop">
+            
+              {user.user?.myFavorites.slice(0, 8).map((track) => {
+                const showSong = tracks.find((t) => {
+                  return t.id === track;
+                });
+                return (
+                  <div
+                    key={track}
+                    onClick={() => {
+                      setCurrentSong(showSong);
+                      setIsPlaying(true);
+                    }}
+                  > 
+                    <div className='containter'>
+                      <img className="albumFav-laptop" src={showSong?.thumbnail} />
+                      <p className='albumFav-trackName'>{showSong?.name}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            
+          </section>
         </>
       ) : (
         <section className="search-section">

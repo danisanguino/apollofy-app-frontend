@@ -95,10 +95,15 @@
   display: none;
 }
 
+.related-songs{
+  display: none;
+}
+
 @media screen and (min-width: 1200px) {
   .player-section {
     display: none;
   }
+
   .player-section-laptop {
     padding: 2rem 2rem;
     display: flex;
@@ -106,7 +111,9 @@
     align-items: flex-start;
     gap: 1.5rem;
   }
-  .songCard-laptop {
+
+  
+  .player-section-laptop .songCard-laptop {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -115,26 +122,75 @@
     margin-top: 3rem;
     color: var(--white);
   }
-  .songCard-laptop .songInfo {
+  
+  .player-section-laptop .songCard-laptop .songPhoto {
+    width: 30rem;
+  }
+  
+  .player-section-laptop .songCard-laptop .songInfo {
     display: flex;
-    justify-content: space-between;
-    width: 30rem;
     text-align: left;
-    padding-bottom: 3rem;
+    padding-left: 3rem;
+    
   }
-  .songCard-laptop .songPhoto {
-    width: 30rem;
+  
+  .player-section-laptop .songCard-laptop .songInfo .songInfoDetail {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
   }
-  .songCard-laptop .songInfoHeart {
-    width: 20rem;
-    background-color: red;
-  }
-  .songCard-laptop .songInfo .songInfoTitle {
-    font-size: 6rem;
+  
+  .player-section-laptop .songCard-laptop .songInfo .songInfoDetail .songInfoTitle {
+    font-size: 8rem;
     font-weight: 800;
   }
-  .songCard-laptop .songInfo .songInfoArtist {
+  
+  .player-section-laptop .songCard-laptop .songInfo .songInfoArtist {
     font-size: 2.5rem;
-    font-weight: 400;
+    font-weight: 600;
+    color: var(--gray-secondary);
   }
+  
+  .player-section-laptop .songCard-laptop .songInfo .songInfoDuration {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin: 0.5rem 0;
+  }
+  
+  .player-section-laptop .songCard-laptop .songInfoHeart {
+    width: 2rem;
+  }
+
+  .related-songs{
+    display: block;
+    color: white;
+    padding: 2rem 4rem;
+  }
+
+  .related-songs .title-related {
+    font-size: 2.5rem;
+    font-weight: 600;
+    text-align: left;
+  }
+
+  .related-songs .container-related {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+    padding-top: 1rem;
+    gap: 2rem;
+  }
+
+  .related-songs .container-related img {
+    width: 100%;
+    border-radius: 0.8rem;
+    height: auto;
+  }
+
+  .related-songs .container-related p {
+    font-size: 2rem;
+    text-align: left;
+    margin-top: 0.5rem;
+  }
+
+
 }
