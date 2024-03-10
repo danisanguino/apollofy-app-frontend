@@ -164,5 +164,6 @@
     margin-bottom: 1rem;
     width: 11rem;
     height: 11rem;
+    object-fit: cover;
   }
 }

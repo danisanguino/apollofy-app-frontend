@@ -470,105 +470,105 @@
       "name": "T Rex",
       "genre": "rock'n roll",
       "popularity": 56,
-      "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709489523/02_T-Rex.jpg"
+      "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1710096700/02_t-rex_band.jpg"
     },
     {
       "id": "3",
       "name": "Txarango",
       "genre": "rumba",
       "popularity": 63,
-      "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709489706/03_Txarango.jpg"
+      "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1710096700/03_txarango_band.jpg"
     },
     {
       "id": "4",
       "name": "Fair to Midland",
       "genre": "metal",
       "popularity": 51,
-      "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709489845/04_Fair_To_Midland.jpg"
+      "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1710096700/04_fair-to-midland.gif"
     },
     {
       "id": "5",
       "name": "Sigur Rós",
       "genre": "post-rock",
       "popularity": 19,
-      "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709490120/05_Sigur_Ros.jpg"
+      "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1710096699/05_sigur-ros.jpg"
     },
     {
       "id": "6",
       "name": "Bad Bunny",
       "genre": "trap latino",
       "popularity": 39,
-      "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709490267/06_Bad%20Bunny-%20Un%20verano%20sin%20ti.jpg"
+      "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1710096699/06_bad-bunny.jpg"
     },
     {
       "id": "7",
       "name": "Rosalía",
       "genre": "pop latino",
       "popularity": 31,
-      "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709554114/08_%20Rosal%C3%ADa%20-%20Pienso%20en%20tu%20mir%C3%A1.jpg"
+      "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1710096699/08_Rosalia.jpg"
     },
     {
       "id": "8",
-      "name": "C tangana",
+      "name": "C Tangana",
       "genre": "pop-rap",
       "popularity": 55,
-      "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709554240/09_%20C%20tangana%20-%20Ingobernable.jpg"
+      "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1710096698/09_C_Tangana.jpg"
     },
     {
       "id": "9",
       "name": "La paloma",
       "genre": "Metal",
       "popularity": 34,
-      "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709673289/10__La_Paloma_-_Sigo_aqui_vcngtg-media_lib_thumb_dg6ofy.jpg"
+      "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1710097031/10_la-paloma.jpg"
     },
     {
       "id": "10",
       "name": "Manel",
       "genre": "Pop",
       "popularity": 37,
-      "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709651367/11__Manel_-_Benvolgut_qnjdqt.jpg"
+      "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1710096702/11_manel.jpg"
     },
     {
       "id": "11",
       "name": "Nino Bravo",
       "genre": "Balada",
       "popularity": 44,
-      "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709651367/12__Nino_Bravo_-_Un_Beso_Y_Una_Flor_wefous.jpg"
+      "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1710096699/12_nino-bravo.jpg"
     },
     {
       "id": "12",
       "name": "Yarea",
       "genre": "Pop",
       "popularity": 44,
-      "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709651366/13__Yarea_-_La_Culpa_npvlzv.jpg"
+      "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1710096699/13_Yarea.jpg"
     },
     {
       "id": "13",
       "name": "Bad gyal",
       "genres": "trap latino",
       "popularity": 22,
-      "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709651366/14__Bad_Gyal_-_Flow_2000_j3gw9e.jpg"
+      "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1710096699/14_Bad-gyal.jpg"
     },
     {
       "id": "14",
       "name": "Estopa",
       "genre": "Pop",
       "popularity": 33,
-      "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709651366/15__Estopa_-_Como_Camar%C3%B3n_padmlt.jpg"
+      "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1710096698/15_estopa.jpg"
     },
     {
       "id": "15",
       "name": "Coldplay",
       "genres": "Pop-rock",
       "popularity": 62,
-      "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709899821/16_Coldplay-Viva_La_vida.jpg"
+      "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1710096699/16_Coldplay.jpg"
     },
     {
       "id": "16",
       "name": "KAROL G",
       "genres": "Regueton",
       "popularity": 24,
-      "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709651366/17__KAROL_G_-_S91_lavjms.jpg"
+      "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1710096699/17_Karol-G.jpg"
     },
     {
       "id": "17",
@@ -582,7 +582,7 @@
       "name": "Don Omar",
       "genres": "Regueton",
       "popularity": 41,
-      "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709653986/20__Don_Omar_-_Dile_ymjchj.jpg"
+      "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1710096863/20_don-omar.webp"
     }
   ],
   "genres": [
