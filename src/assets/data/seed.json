@@ -162,7 +162,7 @@
       "url": "https://res.cloudinary.com/dqm1upnhh/video/upload/v1709554139/08_%20Rosal%C3%ADa%20%20-%20Pienso%20en%20tu%20mir%C3%A1.mp3",
       "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709554114/08_%20Rosal%C3%ADa%20-%20Pienso%20en%20tu%20mir%C3%A1.jpg",
       "new": true,
-      "genre": "trap latino"
+      "genre": "pop latino"
     },
     {
       "id": "9",
@@ -171,7 +171,7 @@
       "url": "https://res.cloudinary.com/dqm1upnhh/video/upload/v1709554227/09_%20C%20tangana%20-%20Ingobernable.mp3",
       "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709554240/09_%20C%20tangana%20-%20Ingobernable.jpg",
       "new": false,
-      "genre": "trap latino"
+      "genre": "pop-rap"
     },
     {
       "id": "10",
@@ -216,7 +216,7 @@
       "url": "https://res.cloudinary.com/dqm1upnhh/video/upload/v1709651368/14__Bad_Gyal_-_Flow_2000_exka5c.mp3",
       "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709651366/14__Bad_Gyal_-_Flow_2000_j3gw9e.jpg",
       "new": true,
-      "genre": "Trap"
+      "genre": "trap latino"
     },
     {
       "id": "15",
@@ -489,226 +489,139 @@
   "artists": [
     {
       "id": "1",
-      "name": "Kim Cesarion",
-      "genres": [
-        "swedish pop",
-        "swedish soul"
-      ],
+      "name": "The Eyes",
+      "genres": "metal",
       "popularity": 38,
-      "photoUrl": "https://i.scdn.co/image/ab6761610000e5eb842fae710a21f648e26dd910"
+      "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709488618/01_the-eyes-folder_n4iqk0.jpg"
     },
     {
       "id": "2",
-      "name": "C.Gambino",
-      "genres": [
-        "swedish gangsta rap",
-        "swedish hip hop",
-        "swedish trap pop"
-      ],
+      "name": "T Rex",
+      "genre": "rock'n roll",
       "popularity": 56,
-      "photoUrl": "https://i.scdn.co/image/ab6761610000e5eb9fb2b5ff325f43536a2a4ae2"
+      "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709489523/02_T-Rex.jpg"
     },
     {
       "id": "3",
-      "name": "Nicky Romero",
-      "genres": [
-        "big room",
-        "dance pop",
-        "dutch edm",
-        "edm",
-        "electro house",
-        "pop dance",
-        "pop edm",
-        "progressive electro house",
-        "progressive house",
-        "tropical house"
-      ],
+      "name": "Txarango",
+      "genre": "rumba",
       "popularity": 63,
-      "photoUrl": "https://i.scdn.co/image/ab6761610000e5eb8d683372296589f7c718dea6"
+      "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709489706/03_Txarango.jpg"
     },
     {
       "id": "4",
-      "name": "Denz",
-      "genres": [
-        "swedish gangsta rap",
-        "swedish hip hop",
-        "swedish trap",
-        "swedish trap pop"
-      ],
+      "name": "Fair to Midland",
+      "genre": "metal",
       "popularity": 51,
-      "photoUrl": "https://i.scdn.co/image/ab6761610000e5ebda71714b11b7c451281e54ca"
+      "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709489845/04_Fair_To_Midland.jpg"
     },
     {
       "id": "5",
-      "name": "Jesper Swärd",
-      "genres": [],
+      "name": "Sigur Rós",
+      "genre": "post-rock",
       "popularity": 19,
-      "photoUrl": "https://i.scdn.co/image/ab6761610000e5eb9acc7db8348539634e585144"
+      "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709490120/05_Sigur_Ros.jpg"
     },
     {
       "id": "6",
-      "name": "Axel Boman",
-      "genres": [
-        "deep house",
-        "electronica",
-        "float house",
-        "microhouse",
-        "minimal tech house",
-        "swedish electronic",
-        "swedish house"
-      ],
+      "name": "Bad Bunny",
+      "genre": "trap latino",
       "popularity": 39,
-      "photoUrl": "https://i.scdn.co/image/ab6761610000e5eb19cd7b26fa38886bd6355b3c"
+      "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709490267/06_Bad%20Bunny-%20Un%20verano%20sin%20ti.jpg"
     },
     {
       "id": "7",
-      "name": "Rasmus Hultgren",
-      "genres": [
-        "swedish pop rap"
-      ],
+      "name": "Rosalía",
+      "genre": "pop latino",
       "popularity": 31,
-      "photoUrl": "https://i.scdn.co/image/ab6761610000e5eb470a02669d59859a21676ed0"
+      "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709554114/08_%20Rosal%C3%ADa%20-%20Pienso%20en%20tu%20mir%C3%A1.jpg"
     },
     {
       "id": "8",
-      "name": "Dimitri Vangelis & Wyman",
-      "genres": [
-        "edm",
-        "electro house",
-        "pop dance",
-        "pop edm",
-        "progressive electro house",
-        "progressive house"
-      ],
+      "name": "C tangana",
+      "genre": "pop-rap",
       "popularity": 55,
-      "photoUrl": "https://i.scdn.co/image/d3e1ce67d48fa05431bdd2b0f14ffc294960f0bf"
+      "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709554240/09_%20C%20tangana%20-%20Ingobernable.jpg"
     },
     {
       "id": "9",
-      "name": "Hemliga Klubben",
-      "genres": [
-        "swedish pop"
-      ],
+      "name": "La paloma",
+      "genre": "Metal",
       "popularity": 34,
-      "photoUrl": "https://i.scdn.co/image/ab6761610000e5eb014c22b80be73cee9c7835b1"
+      "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709673289/10__La_Paloma_-_Sigo_aqui_vcngtg-media_lib_thumb_dg6ofy.jpg"
     },
     {
       "id": "10",
-      "name": "Steph K",
-      "genres": [
-        "swedish trap pop"
-      ],
+      "name": "Manel",
+      "genre": "Pop",
       "popularity": 37,
-      "photoUrl": "https://i.scdn.co/image/ab6761610000e5ebf913a1de42e743a6f462dfe1"
+      "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709651367/11__Manel_-_Benvolgut_qnjdqt.jpg"
     },
     {
       "id": "11",
-      "name": "Romeo",
-      "genres": [
-        "swedish hip hop",
-        "swedish trap pop"
-      ],
+      "name": "Nino Bravo",
+      "genre": "Balada",
       "popularity": 44,
-      "photoUrl": "https://i.scdn.co/image/ab6761610000e5eb6dca4eb1f2347310b27c3000"
+      "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709651367/12__Nino_Bravo_-_Un_Beso_Y_Una_Flor_wefous.jpg"
     },
     {
       "id": "12",
-      "name": "SINAN",
-      "genres": [
-        "swedish gangsta rap",
-        "swedish hip hop",
-        "swedish trap pop"
-      ],
+      "name": "Yarea",
+      "genre": "Pop",
       "popularity": 44,
-      "photoUrl": "https://i.scdn.co/image/ab6761610000e5eb5c1a2d5e3c93fe46ff18878d"
+      "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709651366/13__Yarea_-_La_Culpa_npvlzv.jpg"
     },
     {
       "id": "13",
-      "name": "Chapee",
-      "genres": [],
+      "name": "Bad gyal",
+      "genres": "trap latino",
       "popularity": 22,
-      "photoUrl": "https://i.scdn.co/image/ab6761610000e5eb8d4c9938258d04640bf9f091"
+      "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709651366/14__Bad_Gyal_-_Flow_2000_j3gw9e.jpg"
     },
     {
       "id": "14",
-      "name": "Les Big Byrd",
-      "genres": [
-        "neo-kraut",
-        "stockholm indie",
-        "swedish indie rock",
-        "swedish psychedelic rock"
-      ],
+      "name": "Estopa",
+      "genre": "Pop",
       "popularity": 33,
-      "photoUrl": "https://i.scdn.co/image/ab6761610000e5ebb7ed50718dfd36111ab26f40"
+      "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709651366/15__Estopa_-_Como_Camar%C3%B3n_padmlt.jpg"
     },
     {
       "id": "15",
-      "name": "Kalash",
-      "genres": [
-        "french hip hop",
-        "pop urbaine",
-        "rap antillais",
-        "trap antillais"
-      ],
+      "name": "Coldplay",
+      "genres": "Pop-rock",
       "popularity": 62,
-      "photoUrl": "https://i.scdn.co/image/ab6761610000e5ebbeffebd066171f03029a3c2a"
+      "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709899821/16_Coldplay-Viva_La_vida.jpg"
     },
     {
       "id": "16",
-      "name": "Karim Alger",
-      "genres": [
-        "swedish trap pop"
-      ],
+      "name": "KAROL G",
+      "genres": "Regueton",
       "popularity": 24,
-      "photoUrl": "https://i.scdn.co/image/ab6761610000e5eb5c33b372d2ef6275ed536450"
+      "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709651366/17__KAROL_G_-_S91_lavjms.jpg"
     },
     {
       "id": "17",
-      "name": "Prof. Stranger",
-      "genres": [],
+      "name": "Duki - Bzrp",
+      "genres": "Musica electronica",
       "popularity": 19,
-      "photoUrl": "https://i.scdn.co/image/ab6761610000e5eb559babce20a71e8210990c29"
+      "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709653986/19__Duki_-_Bzrp_Music_Sessions_Vol._50_dgtrvw.jpg"
     },
     {
       "id": "18",
-      "name": "Ken Ring",
-      "genres": [
-        "swedish gangsta rap",
-        "swedish hip hop",
-        "swedish trap pop"
-      ],
+      "name": "Don Omar",
+      "genres": "Regueton",
       "popularity": 41,
-      "photoUrl": "https://i.scdn.co/image/ab6761610000e5ebd093354b1da8c7c55c4cee9f"
-    },
-    {
-      "id": "19",
-      "name": "Arre",
-      "genres": [],
-      "popularity": 25,
-      "photoUrl": "https://i.scdn.co/image/ab6761610000e5ebf6b060d446495921bd200593"
-    },
-    {
-      "id": "20",
-      "name": "Rozh",
-      "genres": [
-        "swedish drill",
-        "swedish gangsta rap",
-        "swedish hip hop",
-        "swedish trap",
-        "swedish trap pop"
-      ],
-      "popularity": 42,
-      "photoUrl": "https://i.scdn.co/image/ab6761610000e5eb31b2c3d4c8866b38310591be"
+      "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709653986/20__Don_Omar_-_Dile_ymjchj.jpg"
     }
   ],
   "genres": [
     {
       "id": "1",
-      "name": "blues"
+      "name": "metal"
     },
     {
       "id": "2",
-      "name": "rock"
+      "name": "rock'n roll"
     },
     {
       "id": "3",
@@ -716,23 +629,23 @@
     },
     {
       "id": "4",
-      "name": "soul"
+      "name": "rumba"
     },
     {
       "id": "5",
-      "name": "funk"
+      "name": "post-rock"
     },
     {
       "id": "6",
-      "name": "folk"
+      "name": "trap latino"
     },
     {
       "id": "7",
-      "name": "tango"
+      "name": "pop latino"
     },
     {
       "id": "8",
-      "name": "indie"
+      "name": "pop-rap"
     },
     {
       "id": "9",
@@ -740,27 +653,19 @@
     },
     {
       "id": "10",
-      "name": "classical"
+      "name": "Balada"
     },
     {
       "id": "11",
-      "name": "country"
+      "name": "Pop-rock"
     },
     {
       "id": "12",
-      "name": "electronic"
+      "name": "Regueton"
     },
     {
       "id": "13",
-      "name": "lounge"
-    },
-    {
-      "id": "14",
-      "name": "grunge"
-    },
-    {
-      "id": "15",
-      "name": "jazz"
+      "name": "Musica electronica"
     }
   ]
 }
