@@ -95,7 +95,7 @@
   display: none;
 }
 
-.related-songs{
+.related-songs {
   display: none;
 }
 
@@ -112,59 +112,61 @@
     gap: 1.5rem;
   }
 
-  
   .player-section-laptop .songCard-laptop {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
     padding: 2rem;
-    margin-top: 3rem;
     color: var(--white);
   }
-  
+
   .player-section-laptop .songCard-laptop .songPhoto {
     width: 30rem;
   }
-  
+
   .player-section-laptop .songCard-laptop .songInfo {
     display: flex;
     text-align: left;
     padding-left: 3rem;
-    
   }
-  
+
   .player-section-laptop .songCard-laptop .songInfo .songInfoDetail {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
   }
-  
-  .player-section-laptop .songCard-laptop .songInfo .songInfoDetail .songInfoTitle {
+
+  .player-section-laptop
+    .songCard-laptop
+    .songInfo
+    .songInfoDetail
+    .songInfoTitle {
     font-size: 8rem;
     font-weight: 800;
   }
-  
+
   .player-section-laptop .songCard-laptop .songInfo .songInfoArtist {
     font-size: 2.5rem;
     font-weight: 600;
     color: var(--gray-secondary);
   }
-  
+
   .player-section-laptop .songCard-laptop .songInfo .songInfoDuration {
     font-size: 1.5rem;
     font-weight: 400;
     margin: 0.5rem 0;
   }
-  
+
   .player-section-laptop .songCard-laptop .songInfoHeart {
     width: 2rem;
   }
 
-  .related-songs{
+  .related-songs {
     display: block;
     color: white;
     padding: 2rem 4rem;
+    padding-bottom: 7rem;
   }
 
   .related-songs .title-related {
@@ -191,6 +193,4 @@
     text-align: left;
     margin-top: 0.5rem;
   }
-
-
 }

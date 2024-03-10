@@ -26,7 +26,7 @@
   grid-template-columns: repeat(auto-fit, minmax(10.5rem, 1fr));
   /* justify-content: center;
   flex-wrap: wrap; */
-  align-items:start;
+  align-items: start;
   gap: 2rem;
   padding: 2rem;
 }
@@ -42,9 +42,9 @@
   padding-bottom: 13rem;
 }
 
-.favouriteList-laptop{
+.favouriteList-laptop {
   display: none;
-} 
+}
 
 .favouriteList .albumFav {
   width: 10rem;
@@ -71,7 +71,7 @@
   padding-bottom: 11rem;
 }
 
- .artistsTitle {
+.artistsTitle {
   display: none;
   justify-content: left;
   font-size: 2.4rem;
@@ -101,23 +101,23 @@
   border-radius: 5rem;
 }
 
-
 @media screen and (min-width: 1200px) {
-  .welcomeTitle, .welcome-user {
+  .welcomeTitle,
+  .welcome-user {
     display: none;
   }
-  .newIn{
+  .newIn {
     padding: 0.5rem;
     margin-left: 1rem;
   }
 
-  .favouriteList{
+  .favouriteList {
     display: none;
-  } 
+  }
 
   .favouriteList-laptop {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); 
+    grid-template-columns: repeat(4, 1fr);
     justify-content: center;
     gap: 1rem;
     padding: 1rem;
@@ -132,28 +132,32 @@
     width: 100%;
     border-radius: 0.6rem;
   }
-  
+
+  .favouriteList-laptop .containter:hover {
+    transition: background-color 0.2s ease;
+    background-color: rgba(196, 172, 38, 0.3);
+  }
+
   .favouriteList-laptop .containter .albumFav-laptop {
     width: 10rem;
     height: 10rem;
     object-fit: cover;
-    border-radius: 0.4rem;
+    border-radius: 1.5rem;
     padding: 0.8rem;
   }
 
-  .favouriteList-laptop .containter .albumFav-trackName{
+  .favouriteList-laptop .containter .albumFav-trackName {
     font-size: 1.2rem;
     font-weight: 600;
     color: var(--white);
-
   }
 
   .artistsTitle {
     display: flex;
     padding: 0.5rem;
   }
-  .section-artists{
-    display:flex;
+  .section-artists {
+    display: flex;
     padding-bottom: 7rem;
   }
   .section-artists .artist-photo {
@@ -161,6 +165,4 @@
     width: 11rem;
     height: 11rem;
   }
-
-  
 }

@@ -60,3 +60,14 @@
 .song p {
   font-weight: 200;
 }
+
+.smallCard-container {
+  display: flex;
+  justify-content: space-between;
+  color: var(--white);
+  align-items: center;
+}
+
+.duration {
+  padding: 1rem;
+}
