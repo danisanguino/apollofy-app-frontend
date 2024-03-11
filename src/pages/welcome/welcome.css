@@ -106,6 +106,11 @@
   .welcome-user {
     display: none;
   }
+
+  .search-container {
+    margin-top: 6rem;
+  }
+
   .newIn {
     padding: 0.5rem;
     margin-left: 1rem;
@@ -124,7 +129,7 @@
     cursor: pointer;
   }
 
-  .favouriteList-laptop .containter {
+  .favouriteList-laptop .container {
     background-color: var(--gray-primary);
     display: flex;
     flex-direction: row;
@@ -133,12 +138,12 @@
     border-radius: 0.6rem;
   }
 
-  .favouriteList-laptop .containter:hover {
+  .favouriteList-laptop .container:hover {
     transition: background-color 0.2s ease;
     background-color: rgba(196, 172, 38, 0.3);
   }
 
-  .favouriteList-laptop .containter .albumFav-laptop {
+  .favouriteList-laptop .container .albumFav-laptop {
     width: 10rem;
     height: 10rem;
     object-fit: cover;
@@ -146,7 +151,7 @@
     padding: 0.8rem;
   }
 
-  .favouriteList-laptop .containter .albumFav-trackName {
+  .favouriteList-laptop .container .albumFav-trackName {
     font-size: 1.2rem;
     font-weight: 600;
     color: var(--white);
@@ -158,7 +163,7 @@
   }
   .section-artists {
     display: flex;
-    padding-bottom: 7rem;
+    padding-bottom: 8rem;
   }
   .section-artists .artist-photo {
     margin-bottom: 1rem;

@@ -9,7 +9,7 @@
   justify-content: space-between;
 }
 
-.header-laptop  {
+.header-laptop {
   display: none;
 }
 
@@ -91,7 +91,10 @@
   .header {
     display: none;
   }
-  .header-laptop{
+  .header-laptop {
+    position: fixed;
+    top: 0;
+    width: 100%;
     display: block;
     background-color: var(--gray-primary);
   }
@@ -112,12 +115,12 @@
     align-items: center;
     gap: 1rem;
   }
-  .header-laptop .container-laptop .container-icon .icon  {
+  .header-laptop .container-laptop .container-icon .icon {
     width: 2rem;
     height: 2rem;
   }
- .header-laptop .container-laptop .avatar {
-  width: 5rem;
-  border-radius: 100%;
+  .header-laptop .container-laptop .avatar {
+    width: 5rem;
+    border-radius: 100%;
   }
 }

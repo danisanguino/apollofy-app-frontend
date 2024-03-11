@@ -5,6 +5,6 @@ export interface Track {
   url: string;
   thumbnail: string;
   new: boolean;
-  genre: string;
+  genre: string[];
   liked: boolean;
 }

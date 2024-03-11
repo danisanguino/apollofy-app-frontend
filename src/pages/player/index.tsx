@@ -1,9 +1,11 @@
-import Page from "../../components/layout/page";
-import "./player.css";
-import { useSongContext } from "../../context/useSongContext";
-import { useUserContext } from "../../context/useUserContext";
-import { useEffect, useState } from "react";
-import { Slider } from "@/components/ui/slider";
+import Page from '../../components/layout/page';
+import './player.css';
+import { useSongContext } from '../../context/useSongContext';
+import { useUserContext } from '../../context/useUserContext';
+import { useEffect, useState } from 'react';
+import { Slider } from '@/components/ui/slider';
+import { Track } from '@/utils/interfaces/track';
+import { formatTime, getTracks } from '@/utils/functions';
 
 type Props = {};
 
@@ -15,6 +17,31 @@ export function Player({}: Props) {
   const user = useUserContext();
   const favUser = user.user.myFavorites.includes(currentSong.id);
   const [isFav, setIsFav] = useState(favUser);
+  const [tracks, setTracks] = useState([] as Track[]);
+  const [relatedSongs, setRelatedSongs] = useState([] as Track[]);
+
+  useEffect(() => {
+    async function setDataAPI() {
+      const TracksAPI = await getTracks();
+      setTracks(TracksAPI);
+    }
+    setDataAPI();
+  }, []);
+
+  useEffect(() => {
+    const relatedSongs = tracks.filter((t) => {
+      let includes = false;
+      currentSong.genre.map((g) => {
+        if (t.genre.includes(g) && t.name !== currentSong.name) {
+          includes = true;
+        }
+      });
+      if (includes) {
+        return t;
+      }
+    });
+    setRelatedSongs(relatedSongs);
+  }, [tracks]);
 
   function handleClickPlay() {
     setIsPlaying(!isPlaying);
@@ -28,38 +55,25 @@ export function Player({}: Props) {
       favs.push(currentSong.id);
     }
     fetch(`http://localhost:3000/user/${user.user.id}`, {
-      method: "PATCH",
+      method: 'PATCH',
       body: JSON.stringify({
         myFavorites: favs,
       }),
     });
     setIsFav(!isFav);
-    localStorage.setItem("user", JSON.stringify(user.user));
+    localStorage.setItem('user', JSON.stringify(user.user));
   }
 
   useEffect(() => {
-    audio?.addEventListener("timeupdate", handleTimeUpdate);
+    audio?.addEventListener('timeupdate', handleTimeUpdate);
     return () => {
-      audio?.removeEventListener("timeupdate", handleTimeUpdate);
+      audio?.removeEventListener('timeupdate', handleTimeUpdate);
     };
   }, []);
 
   function handleTimeUpdate() {
     if (audio) {
       setCurrentTime(audio.currentTime);
-    }
-  }
-
-  function formatTime(time: number) {
-    if (time === 0) {
-      return "0:00";
-    } else {
-      const min = Math.floor(time / 60);
-      const sec = Math.floor(time % 60)
-        .toString()
-        .padStart(2, "0");
-
-      return `${min}:${sec}`;
     }
   }
 
@@ -175,58 +189,21 @@ export function Player({}: Props) {
         </section>
       </section>
 
-      <section className="related-songs">
-        <h3 className="title-related">Related Songs</h3>
-        <div className="container-related">
-          {/* {currentSong.map((genre) => {
-                const showGenre = genre.find((g) => {
-                  return g.id === genre;
-                });
-                  return (
-              <div className="related-info">
-                <img src={currentSong.thumbnail} />
-                <p>{currentSong.name}</p>
-              </div>
-                  )} */}
-
-          <div className="related-info">
-            <img src={currentSong.thumbnail} />
-            <p>{currentSong.name}</p>
+      {relatedSongs.length > 0 && (
+        <section className="related-songs">
+          <h3 className="title-related">Related Songs</h3>
+          <div className="container-related">
+            {relatedSongs.map((song) => {
+              return (
+                <div key={song.id} className="related-info">
+                  <img src={song.thumbnail} />
+                  <p>{song.name}</p>
+                </div>
+              );
+            })}
           </div>
-          <div className="related-info">
-            <img src={currentSong.thumbnail} />
-            <p>{currentSong.name}</p>
-          </div>
-          <div className="related-info">
-            <img src={currentSong.thumbnail} />
-            <p>{currentSong.name}</p>
-          </div>
-          <div className="related-info">
-            <img src={currentSong.thumbnail} />
-            <p>{currentSong.name}</p>
-          </div>
-          <div className="related-info">
-            <img src={currentSong.thumbnail} />
-            <p>{currentSong.name}</p>
-          </div>
-          <div className="related-info">
-            <img src={currentSong.thumbnail} />
-            <p>{currentSong.name}</p>
-          </div>
-          <div className="related-info">
-            <img src={currentSong.thumbnail} />
-            <p>{currentSong.name}</p>
-          </div>
-          <div className="related-info">
-            <img src={currentSong.thumbnail} />
-            <p>{currentSong.name}</p>
-          </div>
-          <div className="related-info">
-            <img src={currentSong.thumbnail} />
-            <p>{currentSong.name}</p>
-          </div>
-        </div>
-      </section>
+        </section>
+      )}
     </Page>
   );
 }

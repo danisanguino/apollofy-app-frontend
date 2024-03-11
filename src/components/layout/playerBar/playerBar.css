@@ -13,17 +13,17 @@
 }
 
 .player-bar-laptop {
-    display: none;
-    position: fixed;
-    bottom: 0;
-    width: calc(100% - 4rem);
-    margin: 0 1rem 0 1rem;
-    border-radius: 1rem 1rem 0 0;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 1rem;
-    background-color: var(--primaryOpacity);
-    z-index: 2;
+  display: none;
+  position: fixed;
+  bottom: 0;
+  width: calc(100% - 4rem);
+  margin: 0 1rem 0 1rem;
+  border-radius: 1rem 1rem 0 0;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  background-color: var(--primaryOpacity);
+  z-index: 2;
 }
 .player-btn {
   background-color: transparent;
@@ -38,7 +38,7 @@
   display: none;
 }
 @media screen and (min-width: 1200px) {
-  .player-bar{
+  .player-bar {
     display: none;
   }
   .section-bar-laptop {
@@ -46,8 +46,12 @@
   }
   .player-bar-laptop {
     display: flex;
+    justify-content: space-between;
+  }
+  .track-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin: 0.5rem 0;
   }
 }
-  
-
-

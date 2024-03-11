@@ -1,8 +1,10 @@
 import './playerBar.css';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { useSongContext } from '../../../context/useSongContext';
 import { SmallCard } from '@/components/global/smallCard';
+import { Slider } from '@/components/ui/slider';
+import { formatTime } from '@/utils/functions';
 
 const Play = () => (
   <svg
@@ -39,16 +41,40 @@ const Pause = () => (
 );
 
 export function PlayerBar() {
-  const { isPlaying, setIsPlaying, currentSong, volume, setAudio } =
+  const { isPlaying, setIsPlaying, currentSong, volume, setVolume, setAudio } =
     useSongContext();
   const audioRef = useRef<HTMLAudioElement>(null);
   function handleClick() {
     setIsPlaying(!isPlaying);
   }
+  const [duration, setDuration] = useState(0);
+  const [currentTime, setCurrentTime] = useState(0);
+
+  useEffect(() => {
+    audioRef.current?.addEventListener('timeupdate', handleTimeUpdate);
+    return () => {
+      audioRef.current?.removeEventListener('timeupdate', handleTimeUpdate);
+    };
+  }, []);
+
+  function handleTimeUpdate() {
+    if (audioRef.current) {
+      setCurrentTime(audioRef.current.currentTime);
+    }
+  }
+
+  function handleVolume() {
+    if (volume === 0) {
+      setVolume(0.6);
+    } else {
+      setVolume(0);
+    }
+  }
 
   useEffect(() => {
     if (audioRef.current) {
       setAudio(audioRef.current);
+      setDuration(audioRef.current.duration);
     }
   });
 
@@ -89,33 +115,71 @@ export function PlayerBar() {
           <button className="player-btn" onClick={handleClick}>
             {isPlaying ? <Pause /> : <Play />}
           </button>
-          <audio ref={audioRef}></audio>
         </section>
       )}
 
-
-
-          {/*PLAYERBAR LAPTOP*/}
+      {/*PLAYERBAR LAPTOP*/}
       {currentSong.name && (
         <section className="section-bar-laptop">
           <div className="player-bar-laptop">
-          <div className="song-info">
-            <Link to={'/player'}>
-              <SmallCard
-                src={currentSong.thumbnail}
-                text1={currentSong.name}
-                text2={currentSong.artist}
-                class="song"
+            <div className="song-info">
+              <Link to={'/player'}>
+                <SmallCard
+                  src={currentSong.thumbnail}
+                  text1={currentSong.name}
+                  text2={currentSong.artist}
+                  class="song"
+                />
+              </Link>
+            </div>
+            <div className="track-section">
+              <button className="player-btn" onClick={handleClick}>
+                {isPlaying ? <Pause /> : <Play />}
+              </button>
+              <div className="slider-section">
+                <Slider
+                  min={0}
+                  max={duration}
+                  value={[currentTime]}
+                  className="track-song"
+                  onValueChange={(value) => {
+                    const [newValue] = value;
+                    if (audioRef.current) {
+                      audioRef.current.currentTime = newValue;
+                    }
+                    setCurrentTime(newValue);
+                  }}
+                />
+              </div>
+              <div className="time-section">
+                <span>{formatTime(currentTime)}</span>
+                <span>{formatTime(duration)}</span>
+              </div>
+            </div>
+            <div className="sliderContainer">
+              <button onClick={handleVolume}>
+                {volume === 0 ? (
+                  <img src="/images/player/speaker-mute.svg" />
+                ) : (
+                  <img src="/images/player/speaker-wave-1-svgrepo-com.svg" />
+                )}
+              </button>
+              <Slider
+                defaultValue={[volume * 100]}
+                max={100}
+                min={0}
+                value={[volume * 100]}
+                className="slider"
+                onValueChange={(value: number[]) => {
+                  const [newVol] = value;
+                  setVolume(newVol / 100);
+                }}
               />
-            </Link>
-          </div>
-          <button className="player-btn" onClick={handleClick}>
-            {isPlaying ? <Pause /> : <Play />}
-          </button>
-          <audio ref={audioRef}></audio>
+            </div>
           </div>
         </section>
       )}
+      <audio ref={audioRef}></audio>
     </>
   );
 }

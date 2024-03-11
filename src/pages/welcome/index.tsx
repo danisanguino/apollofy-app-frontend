@@ -13,6 +13,7 @@ import Search from '../../components/layout/search';
 import { Artist } from '../../utils/interfaces/artist';
 import { SquareCard } from '@/components/global/squareCard';
 import { SmallCard } from '@/components/global/smallCard';
+import { Link } from 'react-router-dom';
 
 export function Welcome() {
   const [showSearch, setShowSearch] = useState({
@@ -23,7 +24,8 @@ export function Welcome() {
   const { setCurrentSong, setIsPlaying } = useSongContext();
   const [tracks, setTracks] = useState([] as Track[]);
   const [artists, setArtists] = useState([] as Artist[]);
-  const slidesPerView = user.user?.myFavorites.length < 3 ? user.user?.myFavorites.length : 3.5;
+  const slidesPerView =
+    user.user?.myFavorites.length < 3 ? user.user?.myFavorites.length : 3.5;
 
   useEffect(() => {
     async function setDataAPI() {
@@ -35,23 +37,11 @@ export function Welcome() {
     setDataAPI();
   }, [user.user]);
 
-  function search(params: string) {
-    const resultsSearchTracks = tracks.filter((track) => {
-      return params && track.name.toLowerCase().includes(params.toLowerCase());
-    });
-
-    const resultsSearchArtist = artists.filter((artist) => {
-      return params && artist.name.toLowerCase().includes(params.toLowerCase());
-    });
-    setShowSearch({
-      tracks: resultsSearchTracks,
-      artists: resultsSearchArtist,
-    });
-  }
-
   return (
     <Page>
-      <Search param={search} />
+      <div className="search-container">
+        <Search setShowSearch={setShowSearch} />
+      </div>
       {showSearch.tracks.length === 0 && showSearch.artists.length === 0 ? (
         <>
           <h1 className="welcomeTitle">Welcome</h1>
@@ -77,7 +67,9 @@ export function Welcome() {
               })}
           </section>
 
-          <h3 className="newIn">My favourites</h3>
+          <Link to="/favourites">
+            <h3 className="newIn">My favourites</h3>
+          </Link>
           <section className="favouriteList">
             <Swiper
               slidesPerView={slidesPerView}
@@ -105,29 +97,30 @@ export function Welcome() {
             </Swiper>
           </section>
 
-          {/* FAVOURITES LIST IN LAPTO */}
+          {/* FAVOURITES LIST IN LAPTOP */}
           <section className="favouriteList-laptop">
-            
-              {user.user?.myFavorites.slice(0, 8).map((track) => {
-                const showSong = tracks.find((t) => {
-                  return t.id === track;
-                });
-                return (
-                  <div
-                    key={track}
-                    onClick={() => {
-                      setCurrentSong(showSong);
-                      setIsPlaying(true);
-                    }}
-                  > 
-                    <div className='containter'>
-                      <img className="albumFav-laptop" src={showSong?.thumbnail} />
-                      <p className='albumFav-trackName'>{showSong?.name}</p>
-                    </div>
+            {user.user?.myFavorites.slice(0, 8).map((track) => {
+              const showSong = tracks.find((t) => {
+                return t.id === track;
+              });
+              return (
+                <div
+                  key={track}
+                  onClick={() => {
+                    setCurrentSong(showSong);
+                    setIsPlaying(true);
+                  }}
+                >
+                  <div className="container">
+                    <img
+                      className="albumFav-laptop"
+                      src={showSong?.thumbnail}
+                    />
+                    <p className="albumFav-trackName">{showSong?.name}</p>
                   </div>
-                );
-              })}
-            
+                </div>
+              );
+            })}
           </section>
         </>
       ) : (
@@ -165,14 +158,19 @@ export function Welcome() {
         </section>
       )}
       <h3 className="newIn artistsTitle">Artists</h3>
-      <section  className='section-artists'>
+      <section className="section-artists">
         {artists.slice(0, 8).map((artist) => {
           return (
-          <div key={artist.id} className='artist-card'>
-          <img className='artist-photo' src={artist.photoUrl} alt={artist.name} />
-          <p>{artist.name}</p>
-        </div>
-        )})}    
+            <div key={artist.id} className="artist-card">
+              <img
+                className="artist-photo"
+                src={artist.photoUrl}
+                alt={artist.name}
+              />
+              <p>{artist.name}</p>
+            </div>
+          );
+        })}
       </section>
     </Page>
   );

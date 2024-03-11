@@ -105,6 +105,7 @@
   }
 
   .player-section-laptop {
+    margin-top: 7rem;
     padding: 2rem 2rem;
     display: flex;
     justify-content: left;
@@ -123,6 +124,7 @@
 
   .player-section-laptop .songCard-laptop .songPhoto {
     width: 30rem;
+    border-radius: 0.6rem;
   }
 
   .player-section-laptop .songCard-laptop .songInfo {
@@ -176,16 +178,16 @@
   }
 
   .related-songs .container-related {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+    display: flex;
     padding-top: 1rem;
     gap: 2rem;
   }
 
   .related-songs .container-related img {
-    width: 100%;
+    width: 15rem;
+    height: 15rem;
+    object-fit: cover;
     border-radius: 0.8rem;
-    height: auto;
   }
 
   .related-songs .container-related p {
