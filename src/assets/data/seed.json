@@ -94,12 +94,12 @@
   "tracks": [
     {
       "id": "1",
-      "name": "Crucified Lie",
-      "artist": "The Eyes",
-      "url": "https://res.cloudinary.com/dqm1upnhh/video/upload/v1709488318/01_-_Crucified_Lie_o3ihfq.mp3",
-      "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709488618/01_the-eyes-folder_n4iqk0.jpg",
+      "name": "Out The Door",
+      "artist": "The Mexican Sugar Skulls",
+      "url": "https://res.cloudinary.com/dqm1upnhh/video/upload/v1710101917/01-TMSS-Out_the_Door_ahgh2o.mp3",
+      "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1710101894/01-front-tmss_lauuzd.jpg",
       "new": true,
-      "genre": "metal"
+      "genre": "punk-rock rock"
     },
     {
       "id": "2",
@@ -271,6 +271,15 @@
       "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709653986/20__Don_Omar_-_Dile_ymjchj.jpg",
       "new": true,
       "genre": "Regueton"
+    },
+    {
+      "id": "21",
+      "name": "Florida",
+      "artist": "La Jvnta",
+      "url": "https://res.cloudinary.com/dqm1upnhh/video/upload/v1710141241/21_La_Jvnta-Florida.mp3",
+      "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1710141239/21_La_jvnta-album.jpg",
+      "new": true,
+      "genre": "Regueton"
     }
   ],
   "user": [
@@ -292,7 +301,16 @@
       "email": "mariacidoncha@gmail.com",
       "password": "maria",
       "profilePicture": "/images/cidoncha.png",
-      "myFavorites": ["3", "4", "7", "1", "6", "5", "9", "11"]
+      "myFavorites": [
+        "3",
+        "4",
+        "7",
+        "1",
+        "6",
+        "5",
+        "9",
+        "11"
+      ]
     },
     {
       "id": "ddc5",
@@ -302,7 +320,13 @@
       "email": "jusanchis@example.com",
       "password": "123456",
       "profilePicture": "/images/avatarjulai.png",
-      "myFavorites": ["2", "3", "4", "5"]
+      "myFavorites": [
+        "2",
+        "3",
+        "4",
+        "5",
+        "21"
+      ]
     },
     {
       "id": "0149",
@@ -312,7 +336,15 @@
       "email": "josemari@example.com",
       "password": "123456",
       "profilePicture": "/images/josemari.png",
-      "myFavorites": ["6", "3", "4", "5", "16", "19", "20"]
+      "myFavorites": [
+        "6",
+        "3",
+        "4",
+        "5",
+        "16",
+        "19",
+        "20"
+      ]
     },
     {
       "id": "d341",
@@ -322,7 +354,14 @@
       "email": "danishootman@example.com",
       "password": "123456",
       "profilePicture": "/images/danisanguino.png",
-      "myFavorites": ["3", "10", "11", "14", "1", "2"]
+      "myFavorites": [
+        "3",
+        "10",
+        "11",
+        "14",
+        "1",
+        "2"
+      ]
     },
     {
       "id": "1ab2",
@@ -460,10 +499,10 @@
   "artists": [
     {
       "id": "1",
-      "name": "The Eyes",
-      "genres": "metal",
+      "name": "The Mexican Sugar Skulls",
+      "genres": "rock punk-rock",
       "popularity": 38,
-      "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709488618/01_the-eyes-folder_n4iqk0.jpg"
+      "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1710101905/01-TMSS-band_ydl9yg.jpg"
     },
     {
       "id": "2",
@@ -583,6 +622,13 @@
       "genres": "Regueton",
       "popularity": 41,
       "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1710096863/20_don-omar.webp"
+    },
+    {
+      "id": "19",
+      "name": "La Jvnta",
+      "genres": "Rock",
+      "popularity": 53,
+      "photoUrl": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1710141240/21_La_Jvnta-band.jpg"
     }
   ],
   "genres": [
