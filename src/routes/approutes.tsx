@@ -19,7 +19,7 @@ const AppRoutes = () => {
         <Route element={<PlayerBar />}>
           <Route
             path="/welcome"
-            element={<ProtectedRoutes component={Welcome} />}
+            element={< Welcome/>}
           />
           <Route
             path="/profile"

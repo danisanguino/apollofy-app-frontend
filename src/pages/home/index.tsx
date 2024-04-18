@@ -1,20 +1,22 @@
 import { Logo } from '../../components/layout/logo';
 import { Button } from '../../components/global/button';
 import './home.css';
-import { useNavigate } from 'react-router-dom';
+import { useAuth0 } from "@auth0/auth0-react"
 
 type Props = {};
 
 export function Home({}: Props) {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const goToSignUp = () => {
-    navigate('/signup');
-  };
+  // const goToSignUp = () => {
+  //   navigate('/signup');
+  // };
 
-  const goToLogin = () => {
-    navigate('/login');
-  };
+  // const goToLogin = () => {
+  //   navigate('/login');
+  // };
+
+  const { loginWithRedirect } = useAuth0()
 
   return (
     <div className="home">
@@ -26,12 +28,12 @@ export function Home({}: Props) {
           we have it.
         </h1>
         <div className="home-buttons">
-          <Button style="btn-yellow" handleClick={goToLogin}>
-            LOG IN
+          <Button style="btn-yellow" handleClick={()=>loginWithRedirect()}>
+            LET'S START
           </Button>
-          <Button style="btn-white" handleClick={goToSignUp}>
+          {/* <Button style="btn-white" handleClick={goToSignUp}>
             SIGN UP
-          </Button>
+          </Button> */}
         </div>
       </div>
       <p>
