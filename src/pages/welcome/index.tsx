@@ -3,7 +3,7 @@ import Page from '../../components/layout/page';
 import { useUserContext } from '../../context/useUserContext';
 import './welcome.css';
 import { Track } from '../../utils/interfaces/track';
-import { getArtist, getTracks } from '../../utils/functions';
+import { getArtist, getTracks, getUsers } from '../../utils/functions';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/free-mode';
@@ -14,18 +14,41 @@ import { Artist } from '../../utils/interfaces/artist';
 import { SquareCard } from '@/components/global/squareCard';
 import { SmallCard } from '@/components/global/smallCard';
 import { Link } from 'react-router-dom';
+import { User, useAuth0 } from '@auth0/auth0-react';
 
 export function Welcome() {
   const [showSearch, setShowSearch] = useState({
     artists: [] as Artist[],
     tracks: [] as Track[],
   });
-  const user = useUserContext();
+  const userContext = useUserContext();
   const { setCurrentSong, setIsPlaying } = useSongContext();
   const [tracks, setTracks] = useState([] as Track[]);
   const [artists, setArtists] = useState([] as Artist[]);
+  const [users, setUsers] = useState([] as User[]);
   const slidesPerView =
-    user.user?.myFavorites.length < 3 ? user.user?.myFavorites.length : 3.5;
+    userContext.user?.myFavorites.length < 3
+      ? userContext.user?.myFavorites.length
+      : 3.5;
+  const { user, isLoading } = useAuth0();
+  console.log('🚀 ~ Welcome ~ user:', user);
+
+  useEffect(() => {
+    async function setDataAPI() {
+      const UsersAPI = await getUsers();
+      setUsers(UsersAPI);
+    }
+    setDataAPI();
+    if (
+      users.find((u) => {
+        return u.email === user?.email;
+      })
+    ) {
+      console.log('el usuario existe en la base de datos');
+    } else {
+      console.log('el usuario no existe en la base de datos');
+    }
+  }, []);
 
   useEffect(() => {
     async function setDataAPI() {
@@ -35,7 +58,11 @@ export function Welcome() {
       setArtists(ArtistsAPI);
     }
     setDataAPI();
-  }, [user.user]);
+  }, [userContext.user]);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <Page>
@@ -45,7 +72,7 @@ export function Welcome() {
       {showSearch.tracks.length === 0 && showSearch.artists.length === 0 ? (
         <>
           <h1 className="welcomeTitle">Welcome</h1>
-          <h1 className="welcome-user">{`${user.user?.name} ${user.user?.lastname}!`}</h1>
+          <h1 className="welcome-user">{`${userContext.user?.name} ${userContext.user?.lastname}!`}</h1>
           <h3 className="newIn">New in this week!</h3>
           <section className="newInSection">
             {tracks
@@ -78,7 +105,7 @@ export function Welcome() {
                 clickable: true,
               }}
             >
-              {user.user?.myFavorites.map((track) => {
+              {userContext.user?.myFavorites.map((track) => {
                 const showSong = tracks.find((t) => {
                   return t.id === track;
                 });
@@ -99,7 +126,7 @@ export function Welcome() {
 
           {/* FAVOURITES LIST IN LAPTOP */}
           <section className="favouriteList-laptop">
-            {user.user?.myFavorites.slice(0, 8).map((track) => {
+            {userContext.user?.myFavorites.slice(0, 8).map((track) => {
               const showSong = tracks.find((t) => {
                 return t.id === track;
               });

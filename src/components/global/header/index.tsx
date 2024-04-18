@@ -1,16 +1,16 @@
 import { useState } from 'react';
 import { useUserContext } from '../../../context/useUserContext';
 import './header.css';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useSongContext } from '../../../context/useSongContext';
-import Search from '@/components/layout/search';
+import { useAuth0 } from '@auth0/auth0-react';
 
 type Props = {};
 
 export function Header({}: Props) {
   const user = useUserContext();
+  const { logout } = useAuth0();
   const { setCurrentSong } = useSongContext();
-  const navigate = useNavigate();
   const [isChecked, setIsChecked] = useState(false);
 
   function handleClick() {
@@ -19,8 +19,8 @@ export function Header({}: Props) {
 
   function handleClickLogOut() {
     localStorage.removeItem('user');
-    navigate('/');
     setCurrentSong({});
+    logout();
   }
 
   return (
