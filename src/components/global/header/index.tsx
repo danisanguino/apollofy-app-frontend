@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useUserContext } from '../../../context/useUserContext';
 import './header.css';
 import { Link, NavLink } from 'react-router-dom';
@@ -9,9 +9,12 @@ type Props = {};
 
 export function Header({}: Props) {
   const user = useUserContext();
-  const { logout, user: auth0user } = useAuth0();
+  console.log('🚀 ~ Header ~ user:', user);
+  const { logout } = useAuth0();
   const { setCurrentSong } = useSongContext();
   const [isChecked, setIsChecked] = useState(false);
+
+  useEffect(() => {}, [user]);
 
   function handleClick() {
     setIsChecked(!isChecked);

@@ -10,21 +10,21 @@ const { VITE_AUTH0_DOMAIN: domain, VITE_AUTH0_CLIENT_ID: clientId } =
 
 function App() {
   return (
-    <UserContextProvider>
-      <SongContextProvider>
-        <Auth0Provider
-          domain={domain}
-          clientId={clientId}
-          authorizationParams={{
-            redirect_uri: window.location.origin + '/welcome',
-          }}
-        >
+    <SongContextProvider>
+      <Auth0Provider
+        domain={domain}
+        clientId={clientId}
+        authorizationParams={{
+          redirect_uri: window.location.origin + '/welcome',
+        }}
+      >
+        <UserContextProvider>
           <BrowserRouter>
             <AppRoutes />
           </BrowserRouter>
-        </Auth0Provider>
-      </SongContextProvider>
-    </UserContextProvider>
+        </UserContextProvider>
+      </Auth0Provider>
+    </SongContextProvider>
   );
 }
 

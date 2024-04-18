@@ -32,8 +32,8 @@ export function Welcome() {
   //     ? userContext.user?.myFavorites.length
   //     : 3.5;
   const { user: auth0User, isLoading } = useAuth0();
-  console.log('🚀 ~ Welcome ~ userContext:', userContext);
-  console.log('🚀 ~ Welcome ~ user:', auth0User);
+  // console.log('🚀 ~ Welcome ~ userContext:', userContext);
+  // console.log('🚀 ~ Welcome ~ user:', auth0User);
 
   useEffect(() => {
     async function setDataAPI() {
@@ -50,9 +50,9 @@ export function Welcome() {
     const foundUser = users.find((u) => {
       return u.email === auth0User?.email;
     });
-    console.log('🚀 ~ foundUser ~ foundUser:', foundUser);
     if (foundUser) {
-      console.log('el usuario existe en la base de datos');
+      console.log('🚀 ~ foundUser ~ foundUser:', foundUser);
+      // console.log('el usuario existe en la base de datos');
       localStorage.setItem('user', JSON.stringify(foundUser));
       userContext.setUser(foundUser);
     } else {
@@ -69,8 +69,8 @@ export function Welcome() {
       });
       const newUserJSON = await newUser.json();
       localStorage.setItem('user', JSON.stringify(newUserJSON));
-      userContext.setUser(JSON.parse(newUserJSON));
-      console.log('🚀 ~ userValidation ~ newUser:', newUserJSON);
+      userContext.setUser(newUserJSON);
+      // console.log('🚀 ~ userValidation ~ newUser:', newUserJSON);
     }
   }
 
