@@ -75,14 +75,6 @@ export function Profile() {
         }),
       });
     }
-    if (data.lastname.trim() !== '') {
-      fetch(`http://localhost:3000/user/${user.user.id}`, {
-        method: 'PATCH',
-        body: JSON.stringify({
-          lastname: data.lastname.trim(),
-        }),
-      });
-    }
     if (data.email.trim() !== '') {
       fetch(`http://localhost:3000/user/${user.user.id}`, {
         method: 'PATCH',
@@ -145,16 +137,6 @@ export function Profile() {
             }}
             name="name"
             placeholder={user.user.name}
-          />
-        </label>
-        <label>
-          Last name
-          <Inputs
-            handleChange={(e: ChangeEvent<HTMLInputElement>) => {
-              dispatch({ type: Action.changeLastname, value: e.target.value });
-            }}
-            name="lastname"
-            placeholder={user.user.lastname}
           />
         </label>
         <label>

@@ -9,7 +9,7 @@ type Props = {};
 
 export function Header({}: Props) {
   const user = useUserContext();
-  const { logout } = useAuth0();
+  const { logout, user: auth0user } = useAuth0();
   const { setCurrentSong } = useSongContext();
   const [isChecked, setIsChecked] = useState(false);
 
