@@ -23,10 +23,6 @@ export function UserContextProvider(props: IUserContextProps) {
   const { user: auth0User } = useAuth0();
   const [user, setUser] = useState(auth0User);
 
-  useEffect(() => {
-    setUser(auth0User);
-  }, [auth0User]);
-
   return (
     <UserContext.Provider value={{ user, setUser }}>
       {props.children}
