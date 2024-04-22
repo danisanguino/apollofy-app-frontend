@@ -1,19 +1,20 @@
-import { useEffect, useState } from 'react';
-import Page from '../../components/layout/page';
-import { useUserContext } from '../../context/useUserContext';
-import './welcome.css';
-import { Track } from '../../utils/interfaces/track';
-import { getArtist, getTracks } from '../../utils/functions';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/free-mode';
-import 'swiper/css/pagination';
-import { useSongContext } from '../../context/useSongContext';
-import Search from '../../components/layout/search';
-import { Artist } from '../../utils/interfaces/artist';
-import { SquareCard } from '@/components/global/squareCard';
-import { SmallCard } from '@/components/global/smallCard';
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import Page from "../../components/layout/page";
+import { useUserContext } from "../../context/useUserContext";
+import "./welcome.css";
+import { Track } from "../../utils/interfaces/track";
+import { getArtist, getTracks } from "../../utils/functions";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/pagination";
+import { useSongContext } from "../../context/useSongContext";
+import Search from "../../components/layout/search";
+import { Artist } from "../../utils/interfaces/artist";
+import { SquareCard } from "@/components/global/squareCard";
+import { SmallCard } from "@/components/global/smallCard";
+import { Link } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 
 export function Welcome() {
   const [showSearch, setShowSearch] = useState({
@@ -26,11 +27,12 @@ export function Welcome() {
   const [artists, setArtists] = useState([] as Artist[]);
   const slidesPerView =
     user.user?.myFavorites.length < 3 ? user.user?.myFavorites.length : 3.5;
+  const { getAccessTokenSilently } = useAuth0();
 
   useEffect(() => {
     async function setDataAPI() {
-      const TracksAPI = await getTracks();
-      const ArtistsAPI = await getArtist();
+      const TracksAPI = await getTracks(getAccessTokenSilently);
+      const ArtistsAPI = await getArtist(getAccessTokenSilently);
       setTracks(TracksAPI);
       setArtists(ArtistsAPI);
     }
