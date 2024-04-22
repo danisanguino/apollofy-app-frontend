@@ -31,8 +31,7 @@ export function Welcome() {
   //   userContext.user?.myFavorites.length < 3
   //     ? userContext.user?.myFavorites.length
   //     : 3.5;
-  const { getAccessTokenSilently } = useAuth0();
-  const { user: auth0User, isLoading } = useAuth0();
+  const { user: auth0User, isLoading, getAccessTokenSilently } = useAuth0();
   // console.log('🚀 ~ Welcome ~ userContext:', userContext);
   // console.log('🚀 ~ Welcome ~ user:', auth0User);
 
@@ -77,6 +76,13 @@ export function Welcome() {
 
   useEffect(() => {
     async function setDataAPI() {
+      // const { VITE_AUTH0_AUDIENCE: audience } = import.meta.env;
+      // const token = await getAccessTokenSilently({
+      //   authorizationParams: {
+      //     audience: audience,
+      //   },
+      // });
+      // console.log(token);
       const TracksAPI = await getTracks(getAccessTokenSilently);
       const ArtistsAPI = await getArtist(getAccessTokenSilently);
       setTracks(TracksAPI);

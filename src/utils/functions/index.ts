@@ -18,13 +18,16 @@ export async function getUsers() {
 }
 
 export async function getTracks(getToken: any) {
+  console.log(` Hola qué es esto ${typeof getToken}`);
   const token = await getToken();
+  console.log(token);
   const data = await fetch("http://localhost:4000/track", {
     headers: {
       authorization: `Bearer ${token}`,
     },
   });
   const JSONdata = await data.json();
+  console.log(JSONdata);
   return JSONdata;
 }
 
