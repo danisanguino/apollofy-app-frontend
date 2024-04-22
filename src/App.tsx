@@ -19,6 +19,7 @@ function App() {
         clientId={clientId}
         authorizationParams={{
           redirect_uri: window.location.origin + '/welcome',
+          audience: audience,
         }}
       >
         <UserContextProvider>
