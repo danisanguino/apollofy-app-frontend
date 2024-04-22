@@ -3,7 +3,12 @@ import Page from '../../components/layout/page';
 import { useUserContext } from '../../context/useUserContext';
 import './welcome.css';
 import { Track } from '../../utils/interfaces/track';
-import { getArtist, getTracks, getUsers } from '../../utils/functions';
+import {
+  getArtist,
+  getTracks,
+  getUsers,
+  protectedRoutes,
+} from '../../utils/functions';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/free-mode';
@@ -31,7 +36,7 @@ export function Welcome() {
   //   userContext.user?.myFavorites.length < 3
   //     ? userContext.user?.myFavorites.length
   //     : 3.5;
-  const { user: auth0User, isLoading } = useAuth0();
+  const { user: auth0User, isLoading, getAccessTokenSilently } = useAuth0();
   // console.log('🚀 ~ Welcome ~ userContext:', userContext);
   // console.log('🚀 ~ Welcome ~ user:', auth0User);
 
@@ -76,7 +81,7 @@ export function Welcome() {
 
   useEffect(() => {
     async function setDataAPI() {
-      const TracksAPI = await getTracks();
+      const TracksAPI = await getTracks(getAccessTokenSilently);
       const ArtistsAPI = await getArtist();
       setTracks(TracksAPI);
       setArtists(ArtistsAPI);
@@ -117,7 +122,9 @@ export function Welcome() {
                 );
               })}
           </section>
-
+          <button onClick={() => protectedRoutes(getAccessTokenSilently)}>
+            protected req
+          </button>
           <Link to="/favourites">
             <h3 className="newIn">My favourites</h3>
           </Link>

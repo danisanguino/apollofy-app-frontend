@@ -6,9 +6,17 @@ export async function getUsers() {
   return JSONdata;
 }
 
-export async function getTracks() {
-  const data = await fetch('http://localhost:3000/tracks');
+export async function getTracks(getToken: any) {
+  const token = await getToken();
+  console.log('🚀 ~ getTracks ~ token:', token);
+
+  const data = await fetch('http://localhost:4000/track', {
+    headers: {
+      authorization: `Bearer ${token}`,
+    },
+  });
   const JSONdata = await data.json();
+  console.log('🚀 ~ getTracks ~ JSONdata:', JSONdata);
   return JSONdata;
 }
 
@@ -29,4 +37,16 @@ export function formatTime(time: number) {
 
     return `${min}:${sec}`;
   }
+}
+
+export async function protectedRoutes(getToken: any) {
+  const token = await getToken();
+  console.log('🚀 ~ protectedRoutes ~ token:', token);
+  const res = await fetch('http://localhost:4000/artist', {
+    headers: {
+      authorization: `Bearer ${token}`,
+    },
+  });
+  const data = await res.json();
+  console.log('🚀 ~ protectedRoutes ~ data:', data);
 }
