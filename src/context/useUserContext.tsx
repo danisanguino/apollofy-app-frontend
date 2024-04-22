@@ -1,8 +1,15 @@
-import { ReactNode, createContext, useContext, useState } from 'react';
+import {
+  ReactNode,
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+} from 'react';
 import { User } from '../utils/interfaces/user';
+import { useAuth0 } from '@auth0/auth0-react';
 
 interface UserContextType {
-  user: User;
+  user: User | any;
   setUser: Function;
 }
 
@@ -13,8 +20,8 @@ interface IUserContextProps {
 const UserContext = createContext({} as UserContextType);
 
 export function UserContextProvider(props: IUserContextProps) {
-  const usernameLocalStorage = localStorage.getItem('user')!;
-  const [user, setUser] = useState<User>(JSON.parse(usernameLocalStorage));
+  const { user: auth0User } = useAuth0();
+  const [user, setUser] = useState(auth0User);
 
   return (
     <UserContext.Provider value={{ user, setUser }}>

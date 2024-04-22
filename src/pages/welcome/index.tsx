@@ -3,7 +3,7 @@ import Page from "../../components/layout/page";
 import { useUserContext } from "../../context/useUserContext";
 import "./welcome.css";
 import { Track } from "../../utils/interfaces/track";
-import { getArtist, getTracks } from "../../utils/functions";
+import { getArtist, getTracks, getUsers } from "../../utils/functions";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/free-mode";
@@ -15,19 +15,65 @@ import { SquareCard } from "@/components/global/squareCard";
 import { SmallCard } from "@/components/global/smallCard";
 import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
+import { User } from "../../utils/interfaces/user";
 
 export function Welcome() {
   const [showSearch, setShowSearch] = useState({
     artists: [] as Artist[],
     tracks: [] as Track[],
   });
-  const user = useUserContext();
+  const userContext = useUserContext();
   const { setCurrentSong, setIsPlaying } = useSongContext();
   const [tracks, setTracks] = useState([] as Track[]);
   const [artists, setArtists] = useState([] as Artist[]);
-  const slidesPerView =
-    user.user?.myFavorites.length < 3 ? user.user?.myFavorites.length : 3.5;
+  const [users, setUsers] = useState([] as User[]);
+  // const slidesPerView =
+  //   userContext.user?.myFavorites.length < 3
+  //     ? userContext.user?.myFavorites.length
+  //     : 3.5;
   const { getAccessTokenSilently } = useAuth0();
+  const { user: auth0User, isLoading } = useAuth0();
+  // console.log('🚀 ~ Welcome ~ userContext:', userContext);
+  // console.log('🚀 ~ Welcome ~ user:', auth0User);
+
+  useEffect(() => {
+    async function setDataAPI() {
+      const UsersAPI = await getUsers();
+      setUsers(UsersAPI);
+    }
+    setDataAPI();
+    if (auth0User) {
+      userValidation();
+    }
+  }, [auth0User]);
+
+  async function userValidation() {
+    const foundUser = users.find((u) => {
+      return u.email === auth0User?.email;
+    });
+    if (foundUser) {
+      console.log("🚀 ~ foundUser ~ foundUser:", foundUser);
+      // console.log('el usuario existe en la base de datos');
+      localStorage.setItem("user", JSON.stringify(foundUser));
+      userContext.setUser(foundUser);
+    } else {
+      console.log("el usuario no existe en la base de datos", auth0User);
+      const newUser = await fetch(`http://localhost:3000/user`, {
+        method: "POST",
+        body: JSON.stringify({
+          username: auth0User?.nickname,
+          name: auth0User?.name,
+          email: auth0User?.email,
+          profilePicture: auth0User?.picture,
+          myFavorites: [],
+        }),
+      });
+      const newUserJSON = await newUser.json();
+      localStorage.setItem("user", JSON.stringify(newUserJSON));
+      userContext.setUser(newUserJSON);
+      // console.log('🚀 ~ userValidation ~ newUser:', newUserJSON);
+    }
+  }
 
   useEffect(() => {
     async function setDataAPI() {
@@ -37,7 +83,11 @@ export function Welcome() {
       setArtists(ArtistsAPI);
     }
     setDataAPI();
-  }, [user.user]);
+  }, [userContext.user]);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <Page>
@@ -47,7 +97,7 @@ export function Welcome() {
       {showSearch.tracks.length === 0 && showSearch.artists.length === 0 ? (
         <>
           <h1 className="welcomeTitle">Welcome</h1>
-          <h1 className="welcome-user">{`${user.user?.name} ${user.user?.lastname}!`}</h1>
+          <h1 className="welcome-user">{`${userContext.user?.name}!`}</h1>
           <h3 className="newIn">New in this week!</h3>
           <section className="newInSection">
             {tracks
@@ -72,7 +122,7 @@ export function Welcome() {
           <Link to="/favourites">
             <h3 className="newIn">My favourites</h3>
           </Link>
-          <section className="favouriteList">
+          {/* <section className="favouriteList">
             <Swiper
               slidesPerView={slidesPerView}
               freeMode={true}
@@ -80,7 +130,7 @@ export function Welcome() {
                 clickable: true,
               }}
             >
-              {user.user?.myFavorites.map((track) => {
+              {userContext.user?.myFavorites.map((track) => {
                 const showSong = tracks.find((t) => {
                   return t.id === track;
                 });
@@ -97,11 +147,11 @@ export function Welcome() {
                 );
               })}
             </Swiper>
-          </section>
+          </section> */}
 
           {/* FAVOURITES LIST IN LAPTOP */}
-          <section className="favouriteList-laptop">
-            {user.user?.myFavorites.slice(0, 8).map((track) => {
+          {/* <section className="favouriteList-laptop">
+            {userContext.user?.myFavorites.slice(0, 8).map((track) => {
               const showSong = tracks.find((t) => {
                 return t.id === track;
               });
@@ -123,7 +173,7 @@ export function Welcome() {
                 </div>
               );
             })}
-          </section>
+          </section> */}
         </>
       ) : (
         <section className="search-section">
