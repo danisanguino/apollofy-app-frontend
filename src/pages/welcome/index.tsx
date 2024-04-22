@@ -76,15 +76,8 @@ export function Welcome() {
 
   useEffect(() => {
     async function setDataAPI() {
-      // const { VITE_AUTH0_AUDIENCE: audience } = import.meta.env;
-      // const token = await getAccessTokenSilently({
-      //   authorizationParams: {
-      //     audience: audience,
-      //   },
-      // });
-      // console.log(token);
       const TracksAPI = await getTracks(getAccessTokenSilently);
-      const ArtistsAPI = await getArtist(getAccessTokenSilently);
+      const ArtistsAPI = await getArtist();
       setTracks(TracksAPI);
       setArtists(ArtistsAPI);
     }
@@ -124,7 +117,9 @@ export function Welcome() {
                 );
               })}
           </section>
-
+          <button onClick={() => protectedRoutes(getAccessTokenSilently)}>
+            protected req
+          </button>
           <Link to="/favourites">
             <h3 className="newIn">My favourites</h3>
           </Link>
