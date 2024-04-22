@@ -13,22 +13,22 @@ const {
 
 function App() {
   return (
-    <SongContextProvider>
-      <Auth0Provider
-        domain={domain}
-        clientId={clientId}
-        authorizationParams={{
-          redirect_uri: window.location.origin + '/welcome',
-          audience: audience,
-        }}
-      >
+    <Auth0Provider
+      domain={domain}
+      clientId={clientId}
+      authorizationParams={{
+        redirect_uri: window.location.origin + '/welcome',
+        audience: audience,
+      }}
+    >
+      <SongContextProvider>
         <UserContextProvider>
           <BrowserRouter>
             <AppRoutes />
           </BrowserRouter>
         </UserContextProvider>
-      </Auth0Provider>
-    </SongContextProvider>
+      </SongContextProvider>
+    </Auth0Provider>
   );
 }
 
