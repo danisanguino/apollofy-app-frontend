@@ -3,12 +3,7 @@ import Page from '../../components/layout/page';
 import { useUserContext } from '../../context/useUserContext';
 import './welcome.css';
 import { Track } from '../../utils/interfaces/track';
-import {
-  getArtist,
-  getTracks,
-  getUsers,
-  protectedRoutes,
-} from '../../utils/functions';
+import { getArtist, getTracks, getUsers } from '../../utils/functions';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/free-mode';
@@ -80,6 +75,11 @@ export function Welcome() {
   }
 
   useEffect(() => {
+    console.log(
+      '🚀 ~ useEffect ~ getAccessTokenSilently:',
+      typeof getAccessTokenSilently
+    );
+
     async function setDataAPI() {
       const TracksAPI = await getTracks(getAccessTokenSilently);
       const ArtistsAPI = await getArtist();
@@ -87,7 +87,7 @@ export function Welcome() {
       setArtists(ArtistsAPI);
     }
     setDataAPI();
-  }, [userContext.user]);
+  }, [userContext.user, getAccessTokenSilently]);
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -122,9 +122,9 @@ export function Welcome() {
                 );
               })}
           </section>
-          <button onClick={() => protectedRoutes(getAccessTokenSilently)}>
+          {/* <button onClick={() => protectedRoutes(getAccessTokenSilently)}>
             protected req
-          </button>
+          </button> */}
           <Link to="/favourites">
             <h3 className="newIn">My favourites</h3>
           </Link>
