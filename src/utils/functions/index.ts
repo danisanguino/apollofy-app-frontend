@@ -42,15 +42,3 @@ export function formatTime(time: number) {
     return `${min}:${sec}`;
   }
 }
-
-// export async function protectedRoutes(getToken: any) {
-//   const token = await getToken();
-//   console.log('🚀 ~ protectedRoutes ~ token:', token);
-//   const res = await fetch('http://localhost:4000/artist', {
-//     headers: {
-//       authorization: `Bearer ${token}`,
-//     },
-//   });
-//   const data = await res.json();
-//   console.log('🚀 ~ protectedRoutes ~ data:', data);
-// }

@@ -100,14 +100,14 @@ export function PlayerBar() {
   return (
     <>
       <Outlet />
-      {currentSong.name && (
+      {currentSong.title && (
         <section className="player-bar">
           <div className="song-info">
             <Link to={'/player'}>
               <SmallCard
                 src={currentSong.thumbnail}
-                text1={currentSong.name}
-                text2={currentSong.artist}
+                text1={currentSong.title}
+                text2={currentSong.artist.name}
                 class="song"
               />
             </Link>
@@ -119,15 +119,15 @@ export function PlayerBar() {
       )}
 
       {/*PLAYERBAR LAPTOP*/}
-      {currentSong.name && (
+      {currentSong.title && (
         <section className="section-bar-laptop">
           <div className="player-bar-laptop">
             <div className="song-info">
               <Link to={'/player'}>
                 <SmallCard
                   src={currentSong.thumbnail}
-                  text1={currentSong.name}
-                  text2={currentSong.artist}
+                  text1={currentSong.title}
+                  text2={currentSong.artist.name}
                   class="song"
                 />
               </Link>
