@@ -77,7 +77,7 @@ export function Welcome() {
   useEffect(() => {
     async function setDataAPI() {
       const TracksAPI = await getTracks(getAccessTokenSilently);
-      const ArtistsAPI = await getArtist();
+      const ArtistsAPI = await getArtist(getAccessTokenSilently);
       setTracks(TracksAPI);
       setArtists(ArtistsAPI);
     }
@@ -117,9 +117,6 @@ export function Welcome() {
                 );
               })}
           </section>
-          <button onClick={() => protectedRoutes(getAccessTokenSilently)}>
-            protected req
-          </button>
           <Link to="/favourites">
             <h3 className="newIn">My favourites</h3>
           </Link>
