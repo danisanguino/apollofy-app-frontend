@@ -25,12 +25,13 @@ export function Welcome() {
   const userContext = useUserContext();
   const { setCurrentSong, setIsPlaying } = useSongContext();
   const [tracks, setTracks] = useState([] as Track[]);
+  console.log(tracks);
   const [artists, setArtists] = useState([] as Artist[]);
   const [users, setUsers] = useState([] as User[]);
-  // const slidesPerView =
-  //   userContext.user?.myFavorites.length < 3
-  //     ? userContext.user?.myFavorites.length
-  //     : 3.5;
+  const slidesPerView =
+    userContext.user?.myFavorites.length < 3
+      ? userContext.user?.myFavorites.length
+      : 3.5;
   const { user: auth0User, isLoading, getAccessTokenSilently } = useAuth0();
   // console.log('🚀 ~ Welcome ~ userContext:', userContext);
   // console.log('🚀 ~ Welcome ~ user:', auth0User);
@@ -75,14 +76,20 @@ export function Welcome() {
   }
 
   useEffect(() => {
+    console.log(
+      "🚀 ~ useEffect ~ getAccessTokenSilently:",
+      typeof getAccessTokenSilently
+    );
+
     async function setDataAPI() {
       const TracksAPI = await getTracks(getAccessTokenSilently);
-      const ArtistsAPI = await getArtist(getAccessTokenSilently);
-      setTracks(TracksAPI);
-      setArtists(ArtistsAPI);
+      console.log(TracksAPI);
+      // const ArtistsAPI = await getArtist();
+      setTracks(TracksAPI.data);
+      // setArtists(ArtistsAPI);
     }
     setDataAPI();
-  }, [userContext.user]);
+  }, []);
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -100,8 +107,8 @@ export function Welcome() {
           <h3 className="newIn">New in this week!</h3>
           <section className="newInSection">
             {tracks
-              .filter((track) => track.new)
-              .slice(0, 6)
+              // .filter((track) => track.new)
+              // .slice(0, 6)
               .map((track) => {
                 return (
                   <SquareCard
@@ -111,16 +118,18 @@ export function Welcome() {
                       setIsPlaying(true);
                     }}
                     src={track.thumbnail}
-                    text1={track.artist}
-                    text2={track.name}
+                    text1={track.artist.name}
+                    text2={track.title}
                   />
                 );
               })}
           </section>
-          <Link to="/favourites">
-            <h3 className="newIn">My favourites</h3>
-          </Link>
-          {/* <section className="favouriteList">
+          {userContext.user?.myFavorites.length > 0 ?? (
+            <Link to="/favourites">
+              <h3 className="newIn">My favourites</h3>
+            </Link>
+          )}
+          <section className="favouriteList">
             <Swiper
               slidesPerView={slidesPerView}
               freeMode={true}
@@ -128,7 +137,7 @@ export function Welcome() {
                 clickable: true,
               }}
             >
-              {userContext.user?.myFavorites.map((track) => {
+              {userContext.user?.myFavorites.map((track: string) => {
                 const showSong = tracks.find((t) => {
                   return t.id === track;
                 });
@@ -145,11 +154,11 @@ export function Welcome() {
                 );
               })}
             </Swiper>
-          </section> */}
+          </section>
 
           {/* FAVOURITES LIST IN LAPTOP */}
-          {/* <section className="favouriteList-laptop">
-            {userContext.user?.myFavorites.slice(0, 8).map((track) => {
+          <section className="favouriteList-laptop">
+            {userContext.user?.myFavorites.slice(0, 8).map((track: string) => {
               const showSong = tracks.find((t) => {
                 return t.id === track;
               });
@@ -166,12 +175,12 @@ export function Welcome() {
                       className="albumFav-laptop"
                       src={showSong?.thumbnail}
                     />
-                    <p className="albumFav-trackName">{showSong?.name}</p>
+                    <p className="albumFav-trackName">{showSong?.title}</p>
                   </div>
                 </div>
               );
             })}
-          </section> */}
+          </section>
         </>
       ) : (
         <section className="search-section">
@@ -195,7 +204,7 @@ export function Welcome() {
                 <SmallCard
                   key={track.id}
                   src={track.thumbnail}
-                  text2={track.name}
+                  text2={track.title}
                   handleClick={() => {
                     setCurrentSong(track);
                     setIsPlaying(true);
