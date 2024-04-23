@@ -7,6 +7,7 @@ import { ChangeEvent, useReducer } from 'react';
 import { Action, ActionForm, Form } from '../../utils/interfaces/form';
 import { NavBar } from '../../components/global/navBar';
 import { useSongContext } from '../../context/useSongContext';
+import { useAuth0 } from '@auth0/auth0-react';
 
 const initialState: Form = {
   username: '',
@@ -44,6 +45,7 @@ function reducer(data: Form, action: ActionForm) {
 
 export function Profile() {
   const navigate = useNavigate();
+  const { logout } = useAuth0();
   const user = useUserContext();
   const { setCurrentSong } = useSongContext();
   const [data, dispatch] = useReducer(reducer, initialState);
@@ -51,6 +53,7 @@ export function Profile() {
     localStorage.removeItem('user');
     navigate('/');
     setCurrentSong({});
+    logout();
   }
   function handleClickBack() {
     navigate(-1);
@@ -69,14 +72,6 @@ export function Profile() {
         method: 'PATCH',
         body: JSON.stringify({
           name: data.name.trim(),
-        }),
-      });
-    }
-    if (data.lastname.trim() !== '') {
-      fetch(`http://localhost:3000/user/${user.user.id}`, {
-        method: 'PATCH',
-        body: JSON.stringify({
-          lastname: data.lastname.trim(),
         }),
       });
     }
@@ -142,16 +137,6 @@ export function Profile() {
             }}
             name="name"
             placeholder={user.user.name}
-          />
-        </label>
-        <label>
-          Last name
-          <Inputs
-            handleChange={(e: ChangeEvent<HTMLInputElement>) => {
-              dispatch({ type: Action.changeLastname, value: e.target.value });
-            }}
-            name="lastname"
-            placeholder={user.user.lastname}
           />
         </label>
         <label>

@@ -6,6 +6,12 @@
 
 The project consists of creating a web music platform based on Spotify and SoundCloud.
 
+## Initializing project
+
+pnpm install
+pnpx json-server src/assets/data/seed.json
+pnpm run dev
+
 ## Stacks
 
 - [Vite](https://vitejs.dev)

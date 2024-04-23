@@ -430,6 +430,14 @@
       "password": "123456",
       "profilePicture": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709542929/avata-apollofy.jpg",
       "myFavorites": []
+    },
+    {
+      "id": "cd0d",
+      "username": "squadturingoct23",
+      "name": "Squad Turing",
+      "email": "squadturingoct23@gmail.com",
+      "profilePicture": "https://lh3.googleusercontent.com/a/ACg8ocLnYjq1bhAQ7USgE145ogf9OCzC0hQocQV1TjoSOBPreISjig=s96-c",
+      "myFavorites": []
     }
   ],
   "albums": [
