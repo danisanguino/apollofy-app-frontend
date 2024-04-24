@@ -25,7 +25,6 @@ export function Welcome() {
   const userContext = useUserContext();
   const { setCurrentSong, setIsPlaying } = useSongContext();
   const [tracks, setTracks] = useState([] as Track[]);
-  console.log(tracks)
   const [artists, setArtists] = useState([] as Artist[]);
   const [users, setUsers] = useState([] as User[]);
   const slidesPerView =
@@ -33,8 +32,6 @@ export function Welcome() {
       ? userContext.user?.myFavorites.length
       : 3.5;
   const { user: auth0User, isLoading, getAccessTokenSilently } = useAuth0();
-  // console.log('🚀 ~ Welcome ~ userContext:', userContext);
-  // console.log('🚀 ~ Welcome ~ user:', auth0User);
 
   useEffect(() => {
     async function setDataAPI() {
@@ -52,12 +49,9 @@ export function Welcome() {
       return u.email === auth0User?.email;
     });
     if (foundUser) {
-      console.log('🚀 ~ foundUser ~ foundUser:', foundUser);
-      // console.log('el usuario existe en la base de datos');
       localStorage.setItem('user', JSON.stringify(foundUser));
       userContext.setUser(foundUser);
     } else {
-      console.log('el usuario no existe en la base de datos', auth0User);
       const newUser = await fetch(`http://localhost:3000/user`, {
         method: 'POST',
         body: JSON.stringify({
@@ -71,22 +65,16 @@ export function Welcome() {
       const newUserJSON = await newUser.json();
       localStorage.setItem('user', JSON.stringify(newUserJSON));
       userContext.setUser(newUserJSON);
-      // console.log('🚀 ~ userValidation ~ newUser:', newUserJSON);
     }
   }
 
   useEffect(() => {
-    console.log(
-      '🚀 ~ useEffect ~ getAccessTokenSilently:',
-      typeof getAccessTokenSilently
-    );
 
     async function setDataAPI() {
       const TracksAPI = await getTracks(getAccessTokenSilently);
-      console.log(TracksAPI)
-      const ArtistsAPI = await getArtist();
+      const ArtistsAPI = await getArtist(getAccessTokenSilently);
       setTracks(TracksAPI.data);
-      setArtists(ArtistsAPI);
+      setArtists(ArtistsAPI.data);
     }
     setDataAPI();
   }, []);
@@ -125,7 +113,7 @@ export function Welcome() {
               })}
           </section>
           {
-            userContext.user?.myFavorites.length > 0 ??
+            userContext.user?.myFavorites.length > 0 && 
             <Link to="/favourites">
             <h3 className="newIn">My favourites</h3>
           </Link>
@@ -187,11 +175,12 @@ export function Welcome() {
         <section className="search-section">
           {showSearch.artists.length > 0 && (
             <>
+            {/* ARTIST SECTION */}
               <h3 className="newIn">Artists</h3>
               {showSearch.artists.map((artist) => (
                 <SmallCard
                   key={artist.id}
-                  src={artist.photoUrl}
+                  src={artist.img}
                   text2={artist.name}
                   class="searchContainer"
                 />
@@ -224,7 +213,7 @@ export function Welcome() {
             <div key={artist.id} className="artist-card">
               <img
                 className="artist-photo"
-                src={artist.photoUrl}
+                src={artist.img}
                 alt={artist.name}
               />
               <p>{artist.name}</p>

@@ -9,7 +9,8 @@ export interface Track {
   url: string;
   thumbnail: string;
   new: boolean;
-  genre: Genre[];
+  genres: Genre[];
+  genresId: string[];
   likes: number;
   createdAt: Date,
   updatedAt: Date

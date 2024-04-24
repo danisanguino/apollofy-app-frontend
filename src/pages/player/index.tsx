@@ -16,6 +16,8 @@ export function Player({}: Props) {
   const duration = audio?.duration ?? 0;
   const [currentTime, setCurrentTime] = useState(0);
   const user = useUserContext();
+  console.log("usuario" , user.user);
+  console.log("cancion" , currentSong)
   const favUser = user.user.myFavorites.includes(currentSong.id);
   const [isFav, setIsFav] = useState(favUser);
   const [tracks, setTracks] = useState([] as Track[]);
@@ -33,8 +35,8 @@ export function Player({}: Props) {
   useEffect(() => {
     const relatedSongs = tracks.filter((t) => {
       let includes = false;
-      currentSong.genre.map((g) => {
-        if (t.genre.includes(g) && t.title !== currentSong.title) {
+      currentSong.genresId.map((g) => {
+        if (t.genresId.includes(g) && t.title !== currentSong.title) {
           includes = true;
         }
       });

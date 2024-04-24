@@ -19,15 +19,22 @@ export async function getTracks(getToken: any) {
       },
     });
     const JSONdata = await data.json();
-    console.log('🚀 ~ getTracks ~ JSONdata:', JSONdata);
     return JSONdata;
   }
 }
 
-export async function getArtist() {
-  const data = await fetch('http://localhost:3000/artists');
-  const JSONdata = await data.json();
-  return JSONdata;
+export async function getArtist(getToken: any) {
+  if(typeof getToken === 'function') {
+    const token = await getToken();
+
+    const data = await fetch('http://localhost:4000/artist', {
+      headers: {
+        authorization: `Bearer ${token}`,
+      },
+    });
+    const JSONdata = await data.json();
+    return JSONdata;
+  }
 }
 
 export function formatTime(time: number) {
