@@ -9,12 +9,11 @@ type Props = {};
 
 export function Header({}: Props) {
   const user = useUserContext();
-  console.log('🚀 ~ Header ~ user:', user);
   const { logout } = useAuth0();
   const { setCurrentSong } = useSongContext();
   const [isChecked, setIsChecked] = useState(false);
 
-  useEffect(() => {}, [user]);
+  useEffect(() => {}, [user.user]);
 
   function handleClick() {
     setIsChecked(!isChecked);
@@ -30,11 +29,7 @@ export function Header({}: Props) {
     <>
       <header className="header">
         <div className="container">
-          <img
-            className="avatar"
-            src={user.user?.profilePicture}
-            alt="avatar"
-          />
+          <img className="avatar" src={user.user?.img} alt="avatar" />
           <p>Hello, {user.user?.name}!</p>
         </div>
         <label className="menu">
@@ -72,11 +67,7 @@ export function Header({}: Props) {
               />
             </NavLink>
             <NavLink to="/profile">
-              <img
-                className="avatar"
-                src={user.user?.profilePicture}
-                alt="avatar"
-              />
+              <img className="avatar" src={user.user?.img} alt="avatar" />
             </NavLink>
           </div>
         </div>

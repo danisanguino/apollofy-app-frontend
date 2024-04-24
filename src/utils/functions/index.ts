@@ -1,17 +1,40 @@
-
-
 /* global functions */
 
-export async function getUsers() {
-  const data = await fetch('http://localhost:3000/user');
-  const JSONdata = await data.json();
-  return JSONdata;
+export async function getUsers(getToken: any) {
+  if (typeof getToken === 'function') {
+    const token = await getToken();
+
+    const data = await fetch('http://localhost:4000/user', {
+      headers: {
+        authorization: `Bearer ${token}`,
+      },
+    });
+    const JSONdata = await data.json();
+    return JSONdata;
+  }
+}
+
+export async function createUser(getToken: any, info: any) {
+  if (typeof getToken === 'function') {
+    const token = await getToken();
+
+    const data = await fetch('http://localhost:4000/user', {
+      method: 'POST',
+      headers: {
+        authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(info),
+    });
+    const dataJSON = await data.json();
+    return dataJSON.data;
+  }
 }
 
 export async function getTracks(getToken: any) {
   if (typeof getToken === 'function') {
     const token = await getToken();
-    console.log('🚀 ~ getTracks ~ token:', token);
+    // console.log('🚀 ~ getTracks ~ token:', token);
 
     const data = await fetch('http://localhost:4000/track', {
       headers: {
@@ -24,7 +47,7 @@ export async function getTracks(getToken: any) {
 }
 
 export async function getArtist(getToken: any) {
-  if(typeof getToken === 'function') {
+  if (typeof getToken === 'function') {
     const token = await getToken();
 
     const data = await fetch('http://localhost:4000/artist', {

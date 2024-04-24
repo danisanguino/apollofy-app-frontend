@@ -3,7 +3,12 @@ import Page from '../../components/layout/page';
 import { useUserContext } from '../../context/useUserContext';
 import './welcome.css';
 import { Track } from '../../utils/interfaces/track';
-import { getArtist, getTracks, getUsers } from '../../utils/functions';
+import {
+  createUser,
+  getArtist,
+  getTracks,
+  getUsers,
+} from '../../utils/functions';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/free-mode';
@@ -35,41 +40,47 @@ export function Welcome() {
 
   useEffect(() => {
     async function setDataAPI() {
-      const UsersAPI = await getUsers();
-      setUsers(UsersAPI);
+      const UsersAPI = await getUsers(getAccessTokenSilently);
+      setUsers(UsersAPI.data);
     }
     setDataAPI();
+  }, []);
+
+  useEffect(() => {
     if (auth0User) {
       userValidation();
     }
-  }, [auth0User]);
+  }, [auth0User, users]);
 
   async function userValidation() {
     const foundUser = users.find((u) => {
       return u.email === auth0User?.email;
     });
+    console.log('🚀 ~ foundUser ~ foundUser:', foundUser);
+    console.log('🚀 ~ foundUser ~ users:', users);
     if (foundUser) {
       localStorage.setItem('user', JSON.stringify(foundUser));
       userContext.setUser(foundUser);
+      console.log('🚀 ~ USER FOUND userValidation ~ userContext:', userContext);
     } else {
-      const newUser = await fetch(`http://localhost:3000/user`, {
-        method: 'POST',
-        body: JSON.stringify({
-          username: auth0User?.nickname,
-          name: auth0User?.name,
-          email: auth0User?.email,
-          profilePicture: auth0User?.picture,
-          myFavorites: [],
-        }),
-      });
-      const newUserJSON = await newUser.json();
-      localStorage.setItem('user', JSON.stringify(newUserJSON));
-      userContext.setUser(newUserJSON);
+      const body = {
+        username: auth0User?.nickname,
+        name: auth0User?.name,
+        email: auth0User?.email,
+        // img: auth0User?.picture,
+      };
+      const newUser = await createUser(getAccessTokenSilently, body);
+      localStorage.setItem('user', JSON.stringify(newUser));
+      userContext.setUser(newUser);
+      console.log(
+        '🚀 ~ NEW USER userValidation ~ userContext:',
+        userContext,
+        newUser
+      );
     }
   }
 
   useEffect(() => {
-
     async function setDataAPI() {
       const TracksAPI = await getTracks(getAccessTokenSilently);
       const ArtistsAPI = await getArtist(getAccessTokenSilently);
@@ -112,12 +123,11 @@ export function Welcome() {
                 );
               })}
           </section>
-          {
-            userContext.user?.myFavorites.length > 0 && 
+          {userContext.user?.myFavorites.length > 0 && (
             <Link to="/favourites">
-            <h3 className="newIn">My favourites</h3>
-          </Link>
-          }
+              <h3 className="newIn">My favourites</h3>
+            </Link>
+          )}
           <section className="favouriteList">
             <Swiper
               slidesPerView={slidesPerView}
@@ -175,7 +185,7 @@ export function Welcome() {
         <section className="search-section">
           {showSearch.artists.length > 0 && (
             <>
-            {/* ARTIST SECTION */}
+              {/* ARTIST SECTION */}
               <h3 className="newIn">Artists</h3>
               {showSearch.artists.map((artist) => (
                 <SmallCard
