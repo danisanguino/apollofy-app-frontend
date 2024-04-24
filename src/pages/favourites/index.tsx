@@ -6,6 +6,7 @@ import { getTracks } from "../../utils/functions";
 import { useUserContext } from "../../context/useUserContext";
 import { useSongContext } from "../../context/useSongContext";
 import { SmallCard } from "@/components/global/smallCard";
+import { useAuth0 } from "@auth0/auth0-react";
 
 type Props = {};
 
@@ -13,11 +14,12 @@ export function Favourites({}: Props) {
   const [tracks, setTracks] = useState([] as Track[]);
   const user = useUserContext();
   const { setCurrentSong, setIsPlaying } = useSongContext();
+  const {getAccessTokenSilently} = useAuth0();
 
   useEffect(() => {
     async function setTracksAPI() {
-      const TracksAPI = await getTracks();
-      setTracks(TracksAPI);
+      const TracksAPI = await getTracks(getAccessTokenSilently);
+      setTracks(TracksAPI.data);
     }
     setTracksAPI();
   }, []);
@@ -26,7 +28,7 @@ export function Favourites({}: Props) {
     <Page>
       <section className="favourites-songs">
         <h2 className="favourite-title">I love them</h2>
-        {user.user.myFavorites.map((track) => {
+        {user.user.myFavorites.map((track: string) => {
           const favTrack = tracks.find((t) => t.id === track)!;
           return (
             <div className="fav-container">
@@ -37,8 +39,8 @@ export function Favourites({}: Props) {
                   setIsPlaying(true);
                 }}
                 src={favTrack?.thumbnail}
-                text1={favTrack?.name}
-                text2={favTrack?.artist}
+                text1={favTrack?.title}
+                text2={favTrack?.artist.name}
                 text3="3:15"
               />
             </div>

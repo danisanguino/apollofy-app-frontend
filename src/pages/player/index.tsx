@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { Slider } from '@/components/ui/slider';
 import { Track } from '@/utils/interfaces/track';
 import { formatTime, getTracks } from '@/utils/functions';
+import { useAuth0 } from '@auth0/auth0-react';
 
 type Props = {};
 
@@ -19,11 +20,12 @@ export function Player({}: Props) {
   const [isFav, setIsFav] = useState(favUser);
   const [tracks, setTracks] = useState([] as Track[]);
   const [relatedSongs, setRelatedSongs] = useState([] as Track[]);
+  const {getAccessTokenSilently} = useAuth0();
 
   useEffect(() => {
     async function setDataAPI() {
-      const TracksAPI = await getTracks();
-      setTracks(TracksAPI);
+      const TracksAPI = await getTracks(getAccessTokenSilently);
+      setTracks(TracksAPI.data);
     }
     setDataAPI();
   }, []);
@@ -32,7 +34,7 @@ export function Player({}: Props) {
     const relatedSongs = tracks.filter((t) => {
       let includes = false;
       currentSong.genre.map((g) => {
-        if (t.genre.includes(g) && t.name !== currentSong.name) {
+        if (t.genre.includes(g) && t.title !== currentSong.title) {
           includes = true;
         }
       });
@@ -92,8 +94,8 @@ export function Player({}: Props) {
           <img className="songPhoto" src={currentSong.thumbnail} />
           <div className="songInfo">
             <div>
-              <h2 className="songInfoTitle">{currentSong.name}</h2>
-              <p className="songInfoArtist">{currentSong.artist}</p>
+              <h2 className="songInfoTitle">{currentSong.title}</h2>
+              <p className="songInfoArtist">{currentSong.artist.name}</p>
             </div>
             <button onClick={handleHeart}>
               {isFav ? (
@@ -172,8 +174,8 @@ export function Player({}: Props) {
           <img className="songPhoto" src={currentSong.thumbnail} />
           <div className="songInfo">
             <div className="songInfoDetail">
-              <h2 className="songInfoTitle">{currentSong.name}</h2>
-              <span className="songInfoArtist">{currentSong.artist} </span>
+              <h2 className="songInfoTitle">{currentSong.title}</h2>
+              <span className="songInfoArtist">{currentSong.artist.name} </span>
               <span className="songInfoDuration">
                 Duration {formatTime(duration)}
               </span>
@@ -197,7 +199,7 @@ export function Player({}: Props) {
               return (
                 <div key={song.id} className="related-info">
                   <img src={song.thumbnail} />
-                  <p>{song.name}</p>
+                  <p>{song.title}</p>
                 </div>
               );
             })}
