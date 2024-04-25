@@ -3,6 +3,7 @@
 export async function getUsers(getToken: any) {
   if (typeof getToken === 'function') {
     const token = await getToken();
+    console.log('🚀 ~ getUsers ~ token:', token);
 
     const data = await fetch('http://localhost:4000/user', {
       headers: {

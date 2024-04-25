@@ -64,7 +64,7 @@ export function Welcome() {
         username: auth0User?.nickname,
         name: auth0User?.name,
         email: auth0User?.email,
-        // img: auth0User?.picture,
+        img: auth0User?.picture,
       };
       const newUser = await createUser(getAccessTokenSilently, body);
       localStorage.setItem('user', JSON.stringify(newUser));
@@ -101,6 +101,9 @@ export function Welcome() {
               // .filter((track) => track.new)
               // .slice(0, 6)
               .map((track) => {
+                const artist = artists.find((a) => {
+                  return a.id === track.artist[0].artistId;
+                });
                 return (
                   <SquareCard
                     key={track.id}
@@ -109,7 +112,7 @@ export function Welcome() {
                       setIsPlaying(true);
                     }}
                     src={track.thumbnail}
-                    text1={track.artist.name}
+                    text1={artist?.name || ''}
                     text2={track.title}
                   />
                 );

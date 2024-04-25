@@ -13,7 +13,7 @@ export function Header({}: Props) {
   const { setCurrentSong } = useSongContext();
   const [isChecked, setIsChecked] = useState(false);
 
-  useEffect(() => {}, [user.user]);
+  useEffect(() => {}, [user]);
 
   function handleClick() {
     setIsChecked(!isChecked);

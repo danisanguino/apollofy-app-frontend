@@ -5,8 +5,9 @@ import { useUserContext } from '../../context/useUserContext';
 import { useEffect, useState } from 'react';
 import { Slider } from '@/components/ui/slider';
 import { Track } from '@/utils/interfaces/track';
-import { formatTime, getTracks } from '@/utils/functions';
+import { formatTime, getArtist, getTracks } from '@/utils/functions';
 import { useAuth0 } from '@auth0/auth0-react';
+import { Artist } from '@/utils/interfaces/artist';
 
 type Props = {};
 
@@ -16,18 +17,22 @@ export function Player({}: Props) {
   const duration = audio?.duration ?? 0;
   const [currentTime, setCurrentTime] = useState(0);
   const user = useUserContext();
-  console.log("usuario" , user.user);
-  console.log("cancion" , currentSong)
-  const favUser = user.user.myFavorites.includes(currentSong.id);
+  const favUser = user.user?.myFavorites.includes(currentSong.id);
   const [isFav, setIsFav] = useState(favUser);
   const [tracks, setTracks] = useState([] as Track[]);
   const [relatedSongs, setRelatedSongs] = useState([] as Track[]);
-  const {getAccessTokenSilently} = useAuth0();
+  const { getAccessTokenSilently } = useAuth0();
+  const [artists, setArtists] = useState([] as Artist[]);
+  const currentArtist = artists.find((a) => {
+    return a.id === currentSong.artist[0].artistId;
+  });
 
   useEffect(() => {
     async function setDataAPI() {
       const TracksAPI = await getTracks(getAccessTokenSilently);
+      const ArtistsAPI = await getArtist(getAccessTokenSilently);
       setTracks(TracksAPI.data);
+      setArtists(ArtistsAPI.data);
     }
     setDataAPI();
   }, []);
@@ -35,30 +40,38 @@ export function Player({}: Props) {
   useEffect(() => {
     const relatedSongs = tracks.filter((t) => {
       let includes = false;
-      currentSong.genresId.map((g) => {
-        if (t.genresId.includes(g) && t.title !== currentSong.title) {
-          includes = true;
-        }
+      currentSong.genres.map((g) => {
+        t.genres.forEach((tg) => {
+          if (tg.genreId === g.genreId && t.title !== currentSong.title) {
+            includes = true;
+          }
+        });
       });
+      // currentSong.genresId.map((g) => {
+      //   if (t.genresId.includes(g) && t.title !== currentSong.title) {
+      //     includes = true;
+      //   }
+      // });
       if (includes) {
         return t;
       }
     });
     setRelatedSongs(relatedSongs);
+    console.log('🚀 ~ relatedSongs ~ relatedSongs:', relatedSongs);
   }, [tracks]);
 
   function handleClickPlay() {
     setIsPlaying(!isPlaying);
   }
   function handleHeart() {
-    const favs = user.user.myFavorites;
+    const favs = user.user?.myFavorites;
     if (isFav) {
-      const index = user.user.myFavorites.indexOf(currentSong.id);
+      const index = user.user?.myFavorites.indexOf(currentSong.id);
       favs.splice(index, 1);
     } else {
       favs.push(currentSong.id);
     }
-    fetch(`http://localhost:3000/user/${user.user.id}`, {
+    fetch(`http://localhost:3000/user/${user.user?.id}`, {
       method: 'PATCH',
       body: JSON.stringify({
         myFavorites: favs,
@@ -97,7 +110,7 @@ export function Player({}: Props) {
           <div className="songInfo">
             <div>
               <h2 className="songInfoTitle">{currentSong.title}</h2>
-              <p className="songInfoArtist">{currentSong.artist.name}</p>
+              <p className="songInfoArtist">{currentArtist?.name || ''}</p>
             </div>
             <button onClick={handleHeart}>
               {isFav ? (
@@ -177,7 +190,9 @@ export function Player({}: Props) {
           <div className="songInfo">
             <div className="songInfoDetail">
               <h2 className="songInfoTitle">{currentSong.title}</h2>
-              <span className="songInfoArtist">{currentSong.artist.name} </span>
+              <span className="songInfoArtist">
+                {currentArtist?.name || ''}{' '}
+              </span>
               <span className="songInfoDuration">
                 Duration {formatTime(duration)}
               </span>
