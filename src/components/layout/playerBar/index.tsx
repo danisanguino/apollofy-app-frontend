@@ -4,7 +4,9 @@ import { Link, Outlet } from 'react-router-dom';
 import { useSongContext } from '../../../context/useSongContext';
 import { SmallCard } from '@/components/global/smallCard';
 import { Slider } from '@/components/ui/slider';
-import { formatTime } from '@/utils/functions';
+import { formatTime, getArtist } from '@/utils/functions';
+import { Artist } from '@/utils/interfaces/artist';
+import { useAuth0 } from '@auth0/auth0-react';
 
 const Play = () => (
   <svg
@@ -49,6 +51,21 @@ export function PlayerBar() {
   }
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
+  const { getAccessTokenSilently } = useAuth0();
+  const [artists, setArtists] = useState([] as Artist[]);
+  const currentArtist = artists.find((a) => {
+    if (currentSong.title) {
+      return a.id === currentSong.artist[0].artistId;
+    }
+  });
+
+  useEffect(() => {
+    async function setDataAPI() {
+      const ArtistsAPI = await getArtist(getAccessTokenSilently);
+      setArtists(ArtistsAPI.data);
+    }
+    setDataAPI();
+  }, []);
 
   useEffect(() => {
     audioRef.current?.addEventListener('timeupdate', handleTimeUpdate);
@@ -107,7 +124,7 @@ export function PlayerBar() {
               <SmallCard
                 src={currentSong.thumbnail}
                 text1={currentSong.title}
-                text2={currentSong.artist.name}
+                text2={currentArtist?.name || ''}
                 class="song"
               />
             </Link>
@@ -127,7 +144,7 @@ export function PlayerBar() {
                 <SmallCard
                   src={currentSong.thumbnail}
                   text1={currentSong.title}
-                  text2={currentSong.artist.name}
+                  text2={currentArtist?.name || ''}
                   class="song"
                 />
               </Link>

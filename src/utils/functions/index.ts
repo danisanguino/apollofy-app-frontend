@@ -3,7 +3,6 @@
 export async function getUsers(getToken: any) {
   if (typeof getToken === 'function') {
     const token = await getToken();
-    console.log('🚀 ~ getUsers ~ token:', token);
 
     const data = await fetch('http://localhost:4000/user', {
       headers: {
@@ -35,7 +34,6 @@ export async function createUser(getToken: any, info: any) {
 export async function getTracks(getToken: any) {
   if (typeof getToken === 'function') {
     const token = await getToken();
-    // console.log('🚀 ~ getTracks ~ token:', token);
 
     const data = await fetch('http://localhost:4000/track', {
       headers: {
