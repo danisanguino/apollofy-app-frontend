@@ -50,18 +50,15 @@ export function Welcome() {
     if (auth0User) {
       userValidation();
     }
-  }, [auth0User, users]);
+  }, [users]);
 
   async function userValidation() {
     const foundUser = users.find((u) => {
       return u.email === auth0User?.email;
     });
-    console.log('🚀 ~ foundUser ~ foundUser:', foundUser);
-    console.log('🚀 ~ foundUser ~ users:', users);
     if (foundUser) {
       localStorage.setItem('user', JSON.stringify(foundUser));
       userContext.setUser(foundUser);
-      console.log('🚀 ~ USER FOUND userValidation ~ userContext:', userContext);
     } else {
       const body = {
         username: auth0User?.nickname,
@@ -72,11 +69,6 @@ export function Welcome() {
       const newUser = await createUser(getAccessTokenSilently, body);
       localStorage.setItem('user', JSON.stringify(newUser));
       userContext.setUser(newUser);
-      console.log(
-        '🚀 ~ NEW USER userValidation ~ userContext:',
-        userContext,
-        newUser
-      );
     }
   }
 
