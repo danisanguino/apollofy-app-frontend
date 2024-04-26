@@ -5,7 +5,12 @@ import { useUserContext } from '../../context/useUserContext';
 import { useEffect, useState } from 'react';
 import { Slider } from '@/components/ui/slider';
 import { Track } from '@/utils/interfaces/track';
-import { formatTime, getArtist, getTracks } from '@/utils/functions';
+import {
+  formatTime,
+  getArtist,
+  getTracks,
+  updateFavorites,
+} from '@/utils/functions';
 import { useAuth0 } from '@auth0/auth0-react';
 import { Artist } from '@/utils/interfaces/artist';
 
@@ -47,22 +52,17 @@ export function Player({}: Props) {
           }
         });
       });
-      // currentSong.genresId.map((g) => {
-      //   if (t.genresId.includes(g) && t.title !== currentSong.title) {
-      //     includes = true;
-      //   }
-      // });
       if (includes) {
         return t;
       }
     });
     setRelatedSongs(relatedSongs);
-    console.log('🚀 ~ relatedSongs ~ relatedSongs:', relatedSongs);
   }, [tracks]);
 
   function handleClickPlay() {
     setIsPlaying(!isPlaying);
   }
+
   function handleHeart() {
     const favs = user.user?.myFavorites;
     if (isFav) {
@@ -71,12 +71,15 @@ export function Player({}: Props) {
     } else {
       favs.push(currentSong.id);
     }
-    fetch(`http://localhost:3000/user/${user.user?.id}`, {
-      method: 'PATCH',
-      body: JSON.stringify({
-        myFavorites: favs,
-      }),
-    });
+    async function updating() {
+      const userUpdated = await updateFavorites(
+        getAccessTokenSilently,
+        favs,
+        user.user?.id
+      );
+      user.setUser(userUpdated);
+    }
+    updating();
     setIsFav(!isFav);
     localStorage.setItem('user', JSON.stringify(user.user));
   }

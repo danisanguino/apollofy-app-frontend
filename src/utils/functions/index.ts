@@ -31,6 +31,25 @@ export async function createUser(getToken: any, info: any) {
   }
 }
 
+export async function updateFavorites(getToken: any, info: any, id: string) {
+  if (typeof getToken === 'function') {
+    const token = await getToken();
+
+    const data = await fetch(`http://localhost:4000/user/${id}`, {
+      method: 'PATCH',
+      body: JSON.stringify({
+        myFavorites: info,
+      }),
+      headers: {
+        authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+    });
+    const dataJSON = await data.json();
+    return dataJSON.data;
+  }
+}
+
 export async function getTracks(getToken: any) {
   if (typeof getToken === 'function') {
     const token = await getToken();

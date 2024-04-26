@@ -37,17 +37,19 @@ export function Welcome() {
       ? userContext.user?.myFavorites.length
       : 3.5;
   const { user: auth0User, isLoading, getAccessTokenSilently } = useAuth0();
+  const [usersDone, isUsersDone] = useState(false);
 
   useEffect(() => {
     async function setDataAPI() {
       const UsersAPI = await getUsers(getAccessTokenSilently);
       setUsers(UsersAPI.data);
+      isUsersDone(true);
     }
     setDataAPI();
   }, []);
 
   useEffect(() => {
-    if (auth0User) {
+    if (auth0User && usersDone) {
       userValidation();
     }
   }, [users]);
