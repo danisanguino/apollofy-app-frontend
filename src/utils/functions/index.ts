@@ -12,7 +12,7 @@
 // }
 
 export async function getUsers() {
-  const data = await fetch("http://localhost:3000/user");
+  const data = await fetch("http://localhost:4000/user");
   const JSONdata = await data.json();
   return JSONdata;
 }
