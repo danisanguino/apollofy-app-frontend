@@ -38,7 +38,6 @@ export default function Search(props: Props) {
       return params && track.title.toLowerCase().includes(params.toLowerCase());
     });
 
-    console.log('🚀 ~ resultsSearchArtist ~ artists:', artists);
     const resultsSearchArtist = artists.filter((artist) => {
       return params && artist.name.toLowerCase().includes(params.toLowerCase());
     });

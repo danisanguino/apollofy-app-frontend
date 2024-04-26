@@ -1,6 +1,6 @@
+import './favourites.css';
 import { useEffect, useState } from 'react';
 import Page from '../../components/layout/page';
-import './favourites.css';
 import { Track } from '../../utils/interfaces/track';
 import { formatTime, getArtist, getTracks } from '../../utils/functions';
 import { useUserContext } from '../../context/useUserContext';
@@ -9,9 +9,7 @@ import { SmallCard } from '@/components/global/smallCard';
 import { useAuth0 } from '@auth0/auth0-react';
 import { Artist } from '@/utils/interfaces/artist';
 
-type Props = {};
-
-export function Favourites({}: Props) {
+export function Favourites() {
   const [tracks, setTracks] = useState([] as Track[]);
   const [artists, setArtists] = useState([] as Artist[]);
   const user = useUserContext();
@@ -33,10 +31,7 @@ export function Favourites({}: Props) {
       <section className="favourites-songs">
         <h2 className="favourite-title">I love them</h2>
         {user.user?.myFavorites.map((track: string) => {
-          console.log('🚀 ~ {user.user?.myFavorites.map ~ track:', track);
-          console.log('🚀 ~ tracks:', tracks);
           const favTrack = tracks.find((t) => t.id === track);
-          console.log('🚀 ~ {user.user?.myFavorites.map ~ favTrack:', favTrack);
           const artist = artists.find((a) => {
             return a.id === favTrack?.artist[0].artistId;
           });
@@ -62,16 +57,3 @@ export function Favourites({}: Props) {
     </Page>
   );
 }
-
-// <button key={track} onClick={() => {
-//   setCurrentSong(favTrack);
-//     setIsPlaying(true);
-//   }}>
-//   <div className="song-card">
-//     <img className="img-song" src={favTrack?.thumbnail} />
-//     <div className="song-info">
-//       <h3>{favTrack?.name}</h3>
-//       <p>{favTrack?.artist}</p>
-//     </div>
-//   </div>
-// </button>
