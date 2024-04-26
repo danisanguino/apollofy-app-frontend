@@ -34,6 +34,7 @@ export function Favourites({}: Props) {
         <h2 className="favourite-title">I love them</h2>
         {user.user?.myFavorites.map((track: string) => {
           const favTrack = tracks.find((t) => t.id === track)!;
+          console.log('🚀 ~ {user.user?.myFavorites.map ~ favTrack:', favTrack);
           const artist = artists.find((a) => {
             return a.id === favTrack.artist[0].artistId;
           });
