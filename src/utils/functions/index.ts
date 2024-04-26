@@ -1,16 +1,5 @@
 /* global functions */
 
-// export async function getUsers(getToken: any) {
-//   const token = await getToken();
-//   const data = await fetch("http://localhost:4000/user", {
-//     headers: {
-//       authorization: `Bearer ${token}`,
-//     },
-//   });
-//   const JSONdata = await data.json();
-//   return JSONdata;
-// }
-
 const URL = import.meta.env.VITE_AUTH0_AUDIENCE;
 
 export async function getUsers(getToken: any) {

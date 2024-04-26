@@ -1,5 +1,5 @@
-import { ReactNode, createContext, useContext, useState } from 'react';
-import { Track } from '../utils/interfaces/track';
+import { ReactNode, createContext, useContext, useState } from "react";
+import { Track } from "../utils/interfaces/track";
 
 interface SongContextType {
   isPlaying: boolean;
@@ -50,7 +50,7 @@ export function useSongContext() {
 
   if (!context) {
     throw new Error(
-      'useSongContext  must be used within a DataContextProvider'
+      "useSongContext  must be used within a DataContextProvider"
     );
   }
 

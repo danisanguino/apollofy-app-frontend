@@ -1,21 +1,21 @@
-import './profile.css';
-import { useNavigate } from 'react-router-dom';
-import { Button } from '../../components/global/button';
-import { Inputs } from '../../components/global/inputs';
-import { useUserContext } from '../../context/useUserContext';
-import { ChangeEvent, useReducer } from 'react';
-import { Action, ActionForm, Form } from '../../utils/interfaces/form';
-import { NavBar } from '../../components/global/navBar';
-import { useSongContext } from '../../context/useSongContext';
-import { useAuth0 } from '@auth0/auth0-react';
+import "./profile.css";
+import { useNavigate } from "react-router-dom";
+import { Button } from "../../components/global/button";
+import { Inputs } from "../../components/global/inputs";
+import { useUserContext } from "../../context/useUserContext";
+import { ChangeEvent, useReducer } from "react";
+import { Action, ActionForm, Form } from "../../utils/interfaces/form";
+import { NavBar } from "../../components/global/navBar";
+import { useSongContext } from "../../context/useSongContext";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const initialState: Form = {
-  username: '',
-  name: '',
-  lastname: '',
-  email: '',
-  password: '',
-  confirmPassword: '',
+  username: "",
+  name: "",
+  lastname: "",
+  email: "",
+  password: "",
+  confirmPassword: "",
 };
 
 function reducer(data: Form, action: ActionForm) {
@@ -50,8 +50,8 @@ export function Profile() {
   const { setCurrentSong } = useSongContext();
   const [data, dispatch] = useReducer(reducer, initialState);
   function handleClickLogOut() {
-    localStorage.removeItem('user');
-    navigate('/');
+    localStorage.removeItem("user");
+    navigate("/");
     setCurrentSong({});
     logout();
   }
@@ -59,36 +59,36 @@ export function Profile() {
     navigate(-1);
   }
   function handleClickSave() {
-    if (data.username.trim() !== '') {
+    if (data.username.trim() !== "") {
       fetch(`http://localhost:3000/user/${user.user.id}`, {
-        method: 'PATCH',
+        method: "PATCH",
         body: JSON.stringify({
           username: data.username.trim(),
         }),
       });
     }
-    if (data.name.trim() !== '') {
+    if (data.name.trim() !== "") {
       fetch(`http://localhost:3000/user/${user.user.id}`, {
-        method: 'PATCH',
+        method: "PATCH",
         body: JSON.stringify({
           name: data.name.trim(),
         }),
       });
     }
-    if (data.email.trim() !== '') {
+    if (data.email.trim() !== "") {
       fetch(`http://localhost:3000/user/${user.user.id}`, {
-        method: 'PATCH',
+        method: "PATCH",
         body: JSON.stringify({
           email: data.email.trim(),
         }),
       });
     }
     if (
-      data.password.trim() !== '' &&
+      data.password.trim() !== "" &&
       data.password.trim() === data.confirmPassword?.trim()
     ) {
       fetch(`http://localhost:3000/user/${user.user.id}`, {
-        method: 'PATCH',
+        method: "PATCH",
         body: JSON.stringify({
           password: data.password.trim(),
         }),
@@ -97,10 +97,10 @@ export function Profile() {
   }
   function handleClickDelete() {
     fetch(`http://localhost:3000/user/${user.user.id}`, {
-      method: 'DELETE',
+      method: "DELETE",
     });
-    navigate('/');
-    localStorage.removeItem('user');
+    navigate("/");
+    localStorage.removeItem("user");
   }
 
   return (
