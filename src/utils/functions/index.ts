@@ -1,10 +1,12 @@
 /* global functions */
 
+const URL = import.meta.env.VITE_AUTH0_AUDIENCE;
+
 export async function getUsers(getToken: any) {
   if (typeof getToken === 'function') {
     const token = await getToken();
 
-    const data = await fetch('http://localhost:4000/user', {
+    const data = await fetch(URL + '/user', {
       headers: {
         authorization: `Bearer ${token}`,
       },
@@ -18,7 +20,7 @@ export async function createUser(getToken: any, info: any) {
   if (typeof getToken === 'function') {
     const token = await getToken();
 
-    const data = await fetch('http://localhost:4000/user', {
+    const data = await fetch(URL + '/user', {
       method: 'POST',
       headers: {
         authorization: `Bearer ${token}`,
@@ -35,7 +37,7 @@ export async function updateFavorites(getToken: any, info: any, id: string) {
   if (typeof getToken === 'function') {
     const token = await getToken();
 
-    const data = await fetch(`http://localhost:4000/user/${id}`, {
+    const data = await fetch(URL + `/user/${id}`, {
       method: 'PATCH',
       body: JSON.stringify({
         myFavorites: info,
@@ -54,7 +56,7 @@ export async function getTracks(getToken: any) {
   if (typeof getToken === 'function') {
     const token = await getToken();
 
-    const data = await fetch('http://localhost:4000/track', {
+    const data = await fetch(URL + '/track', {
       headers: {
         authorization: `Bearer ${token}`,
       },
@@ -68,7 +70,7 @@ export async function getArtist(getToken: any) {
   if (typeof getToken === 'function') {
     const token = await getToken();
 
-    const data = await fetch('http://localhost:4000/artist', {
+    const data = await fetch(URL + '/artist', {
       headers: {
         authorization: `Bearer ${token}`,
       },
