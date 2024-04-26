@@ -99,11 +99,7 @@
       "url": "https://res.cloudinary.com/dqm1upnhh/video/upload/v1710101917/01-TMSS-Out_the_Door_ahgh2o.mp3",
       "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1710101894/01-front-tmss_lauuzd.jpg",
       "new": true,
-      "genre": [
-        "punk-rock",
-        "rock",
-        "post-punk"
-      ]
+      "genre": ["punk-rock", "rock", "post-punk"]
     },
     {
       "id": "2",
@@ -112,9 +108,7 @@
       "url": "https://res.cloudinary.com/dqm1upnhh/video/upload/v1709489335/02_T-Rex-i_love_to_boogie.mp3",
       "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709489523/02_T-Rex.jpg",
       "new": true,
-      "genre": [
-        "rock"
-      ]
+      "genre": ["rock"]
     },
     {
       "id": "3",
@@ -123,9 +117,7 @@
       "url": "https://res.cloudinary.com/dqm1upnhh/video/upload/v1709489703/03_Txarango-Una_Lluna_A_L_Aigua.mp3",
       "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709489706/03_Txarango.jpg",
       "new": true,
-      "genre": [
-        "rumba"
-      ]
+      "genre": ["rumba"]
     },
     {
       "id": "4",
@@ -134,10 +126,7 @@
       "url": "https://res.cloudinary.com/dqm1upnhh/video/upload/v1709489847/04_Fair_to_Midland-Rikki_Tivi_Tavi.mp3",
       "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709489845/04_Fair_To_Midland.jpg",
       "new": true,
-      "genre": [
-        "metal",
-        "rock"
-      ]
+      "genre": ["metal", "rock"]
     },
     {
       "id": "5",
@@ -146,9 +135,7 @@
       "url": "https://res.cloudinary.com/dqm1upnhh/video/upload/v1709490127/05_Sigur_Ros-Hopipolla.mp3",
       "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709490120/05_Sigur_Ros.jpg",
       "new": true,
-      "genre": [
-        "rock"
-      ]
+      "genre": ["rock"]
     },
     {
       "id": "6",
@@ -157,10 +144,7 @@
       "url": "https://res.cloudinary.com/dqm1upnhh/video/upload/v1709490105/06_%20Bad%20Bunny%20-%20Ojitos%20Lindos.mp3",
       "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709490267/06_Bad%20Bunny-%20Un%20verano%20sin%20ti.jpg",
       "new": true,
-      "genre": [
-        "trap",
-        "latino"
-      ]
+      "genre": ["trap", "latino"]
     },
     {
       "id": "7",
@@ -169,10 +153,7 @@
       "url": "https://res.cloudinary.com/dqm1upnhh/video/upload/v1709553947/07_%20Bad%20Bunny%20-%20Yonaguni.mp3",
       "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709554068/07_Bad%20Bunny%20-%20Yonaguni.jpg",
       "new": false,
-      "genre": [
-        "trap",
-        "latino"
-      ]
+      "genre": ["trap", "latino"]
     },
     {
       "id": "8",
@@ -181,10 +162,7 @@
       "url": "https://res.cloudinary.com/dqm1upnhh/video/upload/v1709554139/08_%20Rosal%C3%ADa%20%20-%20Pienso%20en%20tu%20mir%C3%A1.mp3",
       "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709554114/08_%20Rosal%C3%ADa%20-%20Pienso%20en%20tu%20mir%C3%A1.jpg",
       "new": true,
-      "genre": [
-        "pop",
-        "latino"
-      ]
+      "genre": ["pop", "latino"]
     },
     {
       "id": "9",
@@ -193,10 +171,7 @@
       "url": "https://res.cloudinary.com/dqm1upnhh/video/upload/v1709554227/09_%20C%20tangana%20-%20Ingobernable.mp3",
       "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709554240/09_%20C%20tangana%20-%20Ingobernable.jpg",
       "new": false,
-      "genre": [
-        "pop",
-        "rap"
-      ]
+      "genre": ["pop", "rap"]
     },
     {
       "id": "10",
@@ -205,10 +180,7 @@
       "url": "https://res.cloudinary.com/dqm1upnhh/video/upload/v1709650068/10__La_Paloma_-_Sigo_aqui_fjahj0.mp3",
       "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709673289/10__La_Paloma_-_Sigo_aqui_vcngtg-media_lib_thumb_dg6ofy.jpg",
       "new": true,
-      "genre": [
-        "Metal",
-        "rock"
-      ]
+      "genre": ["Metal", "rock"]
     },
     {
       "id": "11",
@@ -217,9 +189,7 @@
       "url": "https://res.cloudinary.com/dqm1upnhh/video/upload/v1709651369/11__Manel_-_Benvolgut_mvrqul.mp3",
       "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709651367/11__Manel_-_Benvolgut_qnjdqt.jpg",
       "new": true,
-      "genre": [
-        "Pop"
-      ]
+      "genre": ["Pop"]
     },
     {
       "id": "12",
@@ -228,10 +198,7 @@
       "url": "https://res.cloudinary.com/dqm1upnhh/video/upload/v1709651368/12__Nino_Bravo_-_Un_Beso_Y_Una_Flor_cd0qf3.mp3",
       "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709651367/12__Nino_Bravo_-_Un_Beso_Y_Una_Flor_wefous.jpg",
       "new": true,
-      "genre": [
-        "Balada",
-        "pop"
-      ]
+      "genre": ["Balada", "pop"]
     },
     {
       "id": "13",
@@ -240,9 +207,7 @@
       "url": "https://res.cloudinary.com/dqm1upnhh/video/upload/v1709651369/13__Yarea_-_La_Culpa_gby12c.mp3",
       "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709651366/13__Yarea_-_La_Culpa_npvlzv.jpg",
       "new": false,
-      "genre": [
-        "Pop"
-      ]
+      "genre": ["Pop"]
     },
     {
       "id": "14",
@@ -251,10 +216,7 @@
       "url": "https://res.cloudinary.com/dqm1upnhh/video/upload/v1709651368/14__Bad_Gyal_-_Flow_2000_exka5c.mp3",
       "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709651366/14__Bad_Gyal_-_Flow_2000_j3gw9e.jpg",
       "new": true,
-      "genre": [
-        "trap",
-        "latino"
-      ]
+      "genre": ["trap", "latino"]
     },
     {
       "id": "15",
@@ -263,9 +225,7 @@
       "url": "https://res.cloudinary.com/dqm1upnhh/video/upload/v1709651367/15__Estopa_-_Como_Camar%C3%B3n_zp1g8p.mp3",
       "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709651366/15__Estopa_-_Como_Camar%C3%B3n_padmlt.jpg",
       "new": false,
-      "genre": [
-        "Pop"
-      ]
+      "genre": ["Pop"]
     },
     {
       "id": "16",
@@ -274,10 +234,7 @@
       "url": "https://res.cloudinary.com/dqm1upnhh/video/upload/v1709651368/16__Coldplay_-_Viva_La_Vida_ff0mi0.mp3",
       "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709899821/16_Coldplay-Viva_La_vida.jpg",
       "new": false,
-      "genre": [
-        "Pop",
-        "rock"
-      ]
+      "genre": ["Pop", "rock"]
     },
     {
       "id": "17",
@@ -286,10 +243,7 @@
       "url": "https://res.cloudinary.com/dqm1upnhh/video/upload/v1709651368/17__KAROL_G_-_S91_sdbmcw.mp3",
       "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709651366/17__KAROL_G_-_S91_lavjms.jpg",
       "new": true,
-      "genre": [
-        "Regueton",
-        "latino"
-      ]
+      "genre": ["Regueton", "latino"]
     },
     {
       "id": "18",
@@ -298,10 +252,7 @@
       "url": "https://res.cloudinary.com/dqm1upnhh/video/upload/v1709651369/18__Bad_Gyal_-_Blin_Blin_rwg9pq.mp3",
       "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709651366/18__Bad_Gyal_-_Blin_Blin_eae82u.jpg",
       "new": false,
-      "genre": [
-        "Trap",
-        "latino"
-      ]
+      "genre": ["Trap", "latino"]
     },
     {
       "id": "19",
@@ -310,9 +261,7 @@
       "url": "https://res.cloudinary.com/dqm1upnhh/video/upload/v1709653987/19__Duki_-_Bzrp_Music_Sessions_Vol._50_m69nhc.mp3",
       "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709653986/19__Duki_-_Bzrp_Music_Sessions_Vol._50_dgtrvw.jpg",
       "new": false,
-      "genre": [
-        "Electronic"
-      ]
+      "genre": ["Electronic"]
     },
     {
       "id": "20",
@@ -321,10 +270,7 @@
       "url": "https://res.cloudinary.com/dqm1upnhh/video/upload/v1709653986/20__Don_Omar_-_Dile_qlnasc.mp3",
       "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1709653986/20__Don_Omar_-_Dile_ymjchj.jpg",
       "new": true,
-      "genre": [
-        "Regueton",
-        "latino"
-      ]
+      "genre": ["Regueton", "latino"]
     },
     {
       "id": "21",
@@ -333,10 +279,7 @@
       "url": "https://res.cloudinary.com/dqm1upnhh/video/upload/v1710141241/21_La_Jvnta-Florida.mp3",
       "thumbnail": "https://res.cloudinary.com/dqm1upnhh/image/upload/v1710141239/21_La_jvnta-album.jpg",
       "new": true,
-      "genre": [
-        "post-punk",
-        "rock"
-      ]
+      "genre": ["post-punk", "rock"]
     }
   ],
   "user": [
@@ -358,16 +301,7 @@
       "email": "mariacidoncha@gmail.com",
       "password": "maria",
       "profilePicture": "/images/cidoncha.png",
-      "myFavorites": [
-        "3",
-        "4",
-        "7",
-        "1",
-        "6",
-        "5",
-        "9",
-        "11"
-      ]
+      "myFavorites": ["3", "4", "7", "1", "6", "5", "9", "11"]
     },
     {
       "id": "ddc5",
@@ -377,13 +311,7 @@
       "email": "jusanchis@example.com",
       "password": "123456",
       "profilePicture": "/images/avatarjulai.png",
-      "myFavorites": [
-        "2",
-        "3",
-        "4",
-        "5",
-        "21"
-      ]
+      "myFavorites": ["2", "3", "4", "5", "21"]
     },
     {
       "id": "0149",
@@ -393,16 +321,7 @@
       "email": "josemari@example.com",
       "password": "123456",
       "profilePicture": "/images/josemari.png",
-      "myFavorites": [
-        "6",
-        "3",
-        "4",
-        "5",
-        "19",
-        "20",
-        "1",
-        "18"
-      ]
+      "myFavorites": ["6", "3", "4", "5", "19", "20", "1", "18"]
     },
     {
       "id": "d341",
@@ -412,14 +331,7 @@
       "email": "danishootman@example.com",
       "password": "123456",
       "profilePicture": "/images/danisanguino.png",
-      "myFavorites": [
-        "3",
-        "10",
-        "11",
-        "14",
-        "1",
-        "2"
-      ]
+      "myFavorites": ["3", "10", "11", "14", "1", "2"]
     },
     {
       "id": "1ab2",
@@ -448,7 +360,7 @@
       "myFavorites": []
     },
     {
-      "id": "2a03",
+      "id": "2b7c",
       "username": "squadturingoct23",
       "name": "Squad Turing",
       "email": "squadturingoct23@gmail.com",
@@ -456,7 +368,7 @@
       "myFavorites": []
     },
     {
-      "id": "db23",
+      "id": "a3b5",
       "username": "squadturingoct23",
       "name": "Squad Turing",
       "email": "squadturingoct23@gmail.com",
@@ -464,15 +376,7 @@
       "myFavorites": []
     },
     {
-      "id": "5195",
-      "username": "squadturingoct23",
-      "name": "Squad Turing",
-      "email": "squadturingoct23@gmail.com",
-      "profilePicture": "https://lh3.googleusercontent.com/a/ACg8ocLnYjq1bhAQ7USgE145ogf9OCzC0hQocQV1TjoSOBPreISjig=s96-c",
-      "myFavorites": []
-    },
-    {
-      "id": "d03b",
+      "id": "03a8",
       "username": "squadturingoct23",
       "name": "Squad Turing",
       "email": "squadturingoct23@gmail.com",

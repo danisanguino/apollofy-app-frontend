@@ -11,37 +11,84 @@
 //   return JSONdata;
 // }
 
-export async function getUsers() {
-  const data = await fetch("http://localhost:4000/user");
-  const JSONdata = await data.json();
-  return JSONdata;
-}
+const URL = import.meta.env.VITE_AUTH0_AUDIENCE;
 
-export async function getTracks(getToken: any) {
+export async function getUsers(getToken: any) {
   if (typeof getToken === "function") {
     const token = await getToken();
-    console.log("🚀 ~ getTracks ~ token:", token);
 
-    const data = await fetch("http://localhost:4000/track", {
+    const data = await fetch(URL + "/user", {
       headers: {
         authorization: `Bearer ${token}`,
       },
     });
     const JSONdata = await data.json();
-    console.log("🚀 ~ getTracks ~ JSONdata:", JSONdata);
+    return JSONdata;
+  }
+}
+
+export async function createUser(getToken: any, info: any) {
+  if (typeof getToken === "function") {
+    const token = await getToken();
+
+    const data = await fetch(URL + "/user", {
+      method: "POST",
+      headers: {
+        authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(info),
+    });
+    const dataJSON = await data.json();
+    return dataJSON.data;
+  }
+}
+
+export async function updateFavorites(getToken: any, info: any, id: string) {
+  if (typeof getToken === "function") {
+    const token = await getToken();
+
+    const data = await fetch(URL + `/user/${id}`, {
+      method: "PATCH",
+      body: JSON.stringify({
+        myFavorites: info,
+      }),
+      headers: {
+        authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    });
+    const dataJSON = await data.json();
+    return dataJSON.data;
+  }
+}
+
+export async function getTracks(getToken: any) {
+  if (typeof getToken === "function") {
+    const token = await getToken();
+
+    const data = await fetch(URL + "/track", {
+      headers: {
+        authorization: `Bearer ${token}`,
+      },
+    });
+    const JSONdata = await data.json();
     return JSONdata;
   }
 }
 
 export async function getArtist(getToken: any) {
-  // const token = await getToken();
-  // const data = await fetch("http://localhost:4000/artist", {
-  //   headers: {
-  //     authorization: `Bearer ${token}`,
-  //   },
-  // });
-  // const JSONdata = await data.json();
-  // return JSONdata;
+  if (typeof getToken === "function") {
+    const token = await getToken();
+
+    const data = await fetch(URL + "/artist", {
+      headers: {
+        authorization: `Bearer ${token}`,
+      },
+    });
+    const JSONdata = await data.json();
+    return JSONdata;
+  }
 }
 
 export function formatTime(time: number) {

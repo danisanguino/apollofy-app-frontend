@@ -1,17 +1,18 @@
-import { Artist } from "./artist";
-import { Genre } from "./genre";
+import { ArtistTrack } from './artistTrack';
+import { GenreTrack } from './genreTrack';
 
 export interface Track {
   id: string;
   title: string;
-  artist: Artist;
-  artistId: string,
+  artist: ArtistTrack[];
+  artistId: string;
   url: string;
+  duration?: number;
   thumbnail: string;
   new: boolean;
-  genre: Genre[];
+  genres: GenreTrack[];
+  genresId: string[];
   likes: number;
-  createdAt: Date,
-  updatedAt: Date
+  createdAt: Date;
+  updatedAt: Date;
 }
-

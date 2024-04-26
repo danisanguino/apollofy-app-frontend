@@ -7,7 +7,6 @@ import { useUserContext } from '@/context/useUserContext';
 import { useAuth0 } from '@auth0/auth0-react';
 
 type Props = {
-  // param: Function;
   setShowSearch: Function;
 };
 
@@ -16,7 +15,7 @@ export default function Search(props: Props) {
   const [tracks, setTracks] = useState([] as Track[]);
   const [artists, setArtists] = useState([] as Artist[]);
   const user = useUserContext();
-  const {getAccessTokenSilently} = useAuth0();
+  const { getAccessTokenSilently } = useAuth0();
 
   const handleChange = (ev: ChangeEvent<HTMLInputElement>) => {
     ev.preventDefault();
@@ -27,9 +26,9 @@ export default function Search(props: Props) {
   useEffect(() => {
     async function setDataAPI() {
       const TracksAPI = await getTracks(getAccessTokenSilently);
-      const ArtistsAPI = await getArtist();
+      const ArtistsAPI = await getArtist(getAccessTokenSilently);
       setTracks(TracksAPI.data);
-      setArtists(ArtistsAPI);
+      setArtists(ArtistsAPI.data);
     }
     setDataAPI();
   }, [user.user]);

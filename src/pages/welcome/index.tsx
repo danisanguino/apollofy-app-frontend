@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useEffect, useState } from "react";
 import Page from "../../components/layout/page";
 import { useUserContext } from "../../context/useUserContext";
@@ -16,6 +17,31 @@ import { SmallCard } from "@/components/global/smallCard";
 import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import { User } from "../../utils/interfaces/user";
+=======
+import { useEffect, useState } from 'react';
+import Page from '../../components/layout/page';
+import { useUserContext } from '../../context/useUserContext';
+import './welcome.css';
+import { Track } from '../../utils/interfaces/track';
+import {
+  createUser,
+  getArtist,
+  getTracks,
+  getUsers,
+} from '../../utils/functions';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/free-mode';
+import 'swiper/css/pagination';
+import { useSongContext } from '../../context/useSongContext';
+import Search from '../../components/layout/search';
+import { Artist } from '../../utils/interfaces/artist';
+import { SquareCard } from '@/components/global/squareCard';
+import { SmallCard } from '@/components/global/smallCard';
+import { Link } from 'react-router-dom';
+import { useAuth0 } from '@auth0/auth0-react';
+import { User } from '../../utils/interfaces/user';
+>>>>>>> main
 
 export function Welcome() {
   const [showSearch, setShowSearch] = useState({
@@ -25,7 +51,10 @@ export function Welcome() {
   const userContext = useUserContext();
   const { setCurrentSong, setIsPlaying } = useSongContext();
   const [tracks, setTracks] = useState([] as Track[]);
+<<<<<<< HEAD
   console.log(tracks);
+=======
+>>>>>>> main
   const [artists, setArtists] = useState([] as Artist[]);
   const [users, setUsers] = useState([] as User[]);
   const slidesPerView =
@@ -33,25 +62,29 @@ export function Welcome() {
       ? userContext.user?.myFavorites.length
       : 3.5;
   const { user: auth0User, isLoading, getAccessTokenSilently } = useAuth0();
-  // console.log('🚀 ~ Welcome ~ userContext:', userContext);
-  // console.log('🚀 ~ Welcome ~ user:', auth0User);
+  const [usersDone, isUsersDone] = useState(false);
 
   useEffect(() => {
     async function setDataAPI() {
-      const UsersAPI = await getUsers();
-      setUsers(UsersAPI);
+      const UsersAPI = await getUsers(getAccessTokenSilently);
+      setUsers(UsersAPI.data);
+      isUsersDone(true);
     }
     setDataAPI();
-    if (auth0User) {
+  }, []);
+
+  useEffect(() => {
+    if (auth0User && usersDone) {
       userValidation();
     }
-  }, [auth0User]);
+  }, [users]);
 
   async function userValidation() {
     const foundUser = users.find((u) => {
       return u.email === auth0User?.email;
     });
     if (foundUser) {
+<<<<<<< HEAD
       console.log("🚀 ~ foundUser ~ foundUser:", foundUser);
       // console.log('el usuario existe en la base de datos');
       localStorage.setItem("user", JSON.stringify(foundUser));
@@ -72,10 +105,25 @@ export function Welcome() {
       localStorage.setItem("user", JSON.stringify(newUserJSON));
       userContext.setUser(newUserJSON);
       // console.log('🚀 ~ userValidation ~ newUser:', newUserJSON);
+=======
+      localStorage.setItem('user', JSON.stringify(foundUser));
+      userContext.setUser(foundUser);
+    } else {
+      const body = {
+        username: auth0User?.nickname,
+        name: auth0User?.name,
+        email: auth0User?.email,
+        img: auth0User?.picture,
+      };
+      const newUser = await createUser(getAccessTokenSilently, body);
+      localStorage.setItem('user', JSON.stringify(newUser));
+      userContext.setUser(newUser);
+>>>>>>> main
     }
   }
 
   useEffect(() => {
+<<<<<<< HEAD
     console.log(
       "🚀 ~ useEffect ~ getAccessTokenSilently:",
       typeof getAccessTokenSilently
@@ -87,6 +135,13 @@ export function Welcome() {
       // const ArtistsAPI = await getArtist();
       setTracks(TracksAPI.data);
       // setArtists(ArtistsAPI);
+=======
+    async function setDataAPI() {
+      const TracksAPI = await getTracks(getAccessTokenSilently);
+      const ArtistsAPI = await getArtist(getAccessTokenSilently);
+      setTracks(TracksAPI.data);
+      setArtists(ArtistsAPI.data);
+>>>>>>> main
     }
     setDataAPI();
   }, []);
@@ -110,6 +165,9 @@ export function Welcome() {
               // .filter((track) => track.new)
               // .slice(0, 6)
               .map((track) => {
+                const artist = artists.find((a) => {
+                  return a.id === track.artist[0].artistId;
+                });
                 return (
                   <SquareCard
                     key={track.id}
@@ -118,13 +176,17 @@ export function Welcome() {
                       setIsPlaying(true);
                     }}
                     src={track.thumbnail}
-                    text1={track.artist.name}
+                    text1={artist?.name || ''}
                     text2={track.title}
                   />
                 );
               })}
           </section>
+<<<<<<< HEAD
           {userContext.user?.myFavorites.length > 0 ?? (
+=======
+          {userContext.user?.myFavorites.length > 0 && (
+>>>>>>> main
             <Link to="/favourites">
               <h3 className="newIn">My favourites</h3>
             </Link>
@@ -186,11 +248,12 @@ export function Welcome() {
         <section className="search-section">
           {showSearch.artists.length > 0 && (
             <>
+              {/* ARTIST SECTION */}
               <h3 className="newIn">Artists</h3>
               {showSearch.artists.map((artist) => (
                 <SmallCard
                   key={artist.id}
-                  src={artist.photoUrl}
+                  src={artist.img}
                   text2={artist.name}
                   class="searchContainer"
                 />
@@ -223,7 +286,7 @@ export function Welcome() {
             <div key={artist.id} className="artist-card">
               <img
                 className="artist-photo"
-                src={artist.photoUrl}
+                src={artist.img}
                 alt={artist.name}
               />
               <p>{artist.name}</p>

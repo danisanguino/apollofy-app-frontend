@@ -1,15 +1,9 @@
-import {
-  ReactNode,
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-} from 'react';
+import { ReactNode, createContext, useContext, useState } from 'react';
 import { User } from '../utils/interfaces/user';
-import { useAuth0 } from '@auth0/auth0-react';
+import { useAuth0, User as userAuth } from '@auth0/auth0-react';
 
 interface UserContextType {
-  user: User | any;
+  user: User | userAuth | undefined;
   setUser: Function;
 }
 
@@ -17,8 +11,10 @@ interface IUserContextProps {
   children: ReactNode;
 }
 
+//Contexto
 const UserContext = createContext({} as UserContextType);
 
+//Provider, se pone en app abranzando routes
 export function UserContextProvider(props: IUserContextProps) {
   const { user: auth0User } = useAuth0();
   const [user, setUser] = useState(auth0User);
@@ -30,6 +26,7 @@ export function UserContextProvider(props: IUserContextProps) {
   );
 }
 
+//Hook, se usa en la app
 export function useUserContext() {
   const context = useContext(UserContext);
 
