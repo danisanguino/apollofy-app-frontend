@@ -7,6 +7,7 @@ export interface Track {
   artist: ArtistTrack[];
   artistId: string;
   url: string;
+  duration?: number;
   thumbnail: string;
   new: boolean;
   genres: GenreTrack[];

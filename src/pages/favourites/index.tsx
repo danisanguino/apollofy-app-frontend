@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Page from '../../components/layout/page';
 import './favourites.css';
 import { Track } from '../../utils/interfaces/track';
-import { getArtist, getTracks } from '../../utils/functions';
+import { formatTime, getArtist, getTracks } from '../../utils/functions';
 import { useUserContext } from '../../context/useUserContext';
 import { useSongContext } from '../../context/useSongContext';
 import { SmallCard } from '@/components/global/smallCard';
@@ -33,10 +33,12 @@ export function Favourites({}: Props) {
       <section className="favourites-songs">
         <h2 className="favourite-title">I love them</h2>
         {user.user?.myFavorites.map((track: string) => {
-          const favTrack = tracks.find((t) => t.id === track)!;
+          console.log('🚀 ~ {user.user?.myFavorites.map ~ track:', track);
+          console.log('🚀 ~ tracks:', tracks);
+          const favTrack = tracks.find((t) => t.id === track);
           console.log('🚀 ~ {user.user?.myFavorites.map ~ favTrack:', favTrack);
           const artist = artists.find((a) => {
-            return a.id === favTrack.artist[0].artistId;
+            return a.id === favTrack?.artist[0].artistId;
           });
           return (
             <div key={track} className="fav-container">
@@ -46,10 +48,12 @@ export function Favourites({}: Props) {
                   setCurrentSong(favTrack);
                   setIsPlaying(true);
                 }}
-                src={favTrack?.thumbnail}
+                src={favTrack?.thumbnail || ''}
                 text1={favTrack?.title}
                 text2={artist?.name || ''}
-                text3="3:15"
+                text3={
+                  favTrack?.duration ? formatTime(favTrack.duration) : '2:00'
+                }
               />
             </div>
           );
