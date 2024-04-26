@@ -1,10 +1,14 @@
-<<<<<<< HEAD
 import { useEffect, useState } from "react";
 import Page from "../../components/layout/page";
 import { useUserContext } from "../../context/useUserContext";
 import "./welcome.css";
 import { Track } from "../../utils/interfaces/track";
-import { getArtist, getTracks, getUsers } from "../../utils/functions";
+import {
+  createUser,
+  getArtist,
+  getTracks,
+  getUsers,
+} from "../../utils/functions";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/free-mode";
@@ -17,31 +21,6 @@ import { SmallCard } from "@/components/global/smallCard";
 import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import { User } from "../../utils/interfaces/user";
-=======
-import { useEffect, useState } from 'react';
-import Page from '../../components/layout/page';
-import { useUserContext } from '../../context/useUserContext';
-import './welcome.css';
-import { Track } from '../../utils/interfaces/track';
-import {
-  createUser,
-  getArtist,
-  getTracks,
-  getUsers,
-} from '../../utils/functions';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/free-mode';
-import 'swiper/css/pagination';
-import { useSongContext } from '../../context/useSongContext';
-import Search from '../../components/layout/search';
-import { Artist } from '../../utils/interfaces/artist';
-import { SquareCard } from '@/components/global/squareCard';
-import { SmallCard } from '@/components/global/smallCard';
-import { Link } from 'react-router-dom';
-import { useAuth0 } from '@auth0/auth0-react';
-import { User } from '../../utils/interfaces/user';
->>>>>>> main
 
 export function Welcome() {
   const [showSearch, setShowSearch] = useState({
@@ -51,10 +30,6 @@ export function Welcome() {
   const userContext = useUserContext();
   const { setCurrentSong, setIsPlaying } = useSongContext();
   const [tracks, setTracks] = useState([] as Track[]);
-<<<<<<< HEAD
-  console.log(tracks);
-=======
->>>>>>> main
   const [artists, setArtists] = useState([] as Artist[]);
   const [users, setUsers] = useState([] as User[]);
   const slidesPerView =
@@ -84,29 +59,7 @@ export function Welcome() {
       return u.email === auth0User?.email;
     });
     if (foundUser) {
-<<<<<<< HEAD
-      console.log("🚀 ~ foundUser ~ foundUser:", foundUser);
-      // console.log('el usuario existe en la base de datos');
       localStorage.setItem("user", JSON.stringify(foundUser));
-      userContext.setUser(foundUser);
-    } else {
-      console.log("el usuario no existe en la base de datos", auth0User);
-      const newUser = await fetch(`http://localhost:3000/user`, {
-        method: "POST",
-        body: JSON.stringify({
-          username: auth0User?.nickname,
-          name: auth0User?.name,
-          email: auth0User?.email,
-          profilePicture: auth0User?.picture,
-          myFavorites: [],
-        }),
-      });
-      const newUserJSON = await newUser.json();
-      localStorage.setItem("user", JSON.stringify(newUserJSON));
-      userContext.setUser(newUserJSON);
-      // console.log('🚀 ~ userValidation ~ newUser:', newUserJSON);
-=======
-      localStorage.setItem('user', JSON.stringify(foundUser));
       userContext.setUser(foundUser);
     } else {
       const body = {
@@ -116,32 +69,17 @@ export function Welcome() {
         img: auth0User?.picture,
       };
       const newUser = await createUser(getAccessTokenSilently, body);
-      localStorage.setItem('user', JSON.stringify(newUser));
+      localStorage.setItem("user", JSON.stringify(newUser));
       userContext.setUser(newUser);
->>>>>>> main
     }
   }
 
   useEffect(() => {
-<<<<<<< HEAD
-    console.log(
-      "🚀 ~ useEffect ~ getAccessTokenSilently:",
-      typeof getAccessTokenSilently
-    );
-
-    async function setDataAPI() {
-      const TracksAPI = await getTracks(getAccessTokenSilently);
-      console.log(TracksAPI);
-      // const ArtistsAPI = await getArtist();
-      setTracks(TracksAPI.data);
-      // setArtists(ArtistsAPI);
-=======
     async function setDataAPI() {
       const TracksAPI = await getTracks(getAccessTokenSilently);
       const ArtistsAPI = await getArtist(getAccessTokenSilently);
       setTracks(TracksAPI.data);
       setArtists(ArtistsAPI.data);
->>>>>>> main
     }
     setDataAPI();
   }, []);
@@ -176,17 +114,13 @@ export function Welcome() {
                       setIsPlaying(true);
                     }}
                     src={track.thumbnail}
-                    text1={artist?.name || ''}
+                    text1={artist?.name || ""}
                     text2={track.title}
                   />
                 );
               })}
           </section>
-<<<<<<< HEAD
-          {userContext.user?.myFavorites.length > 0 ?? (
-=======
           {userContext.user?.myFavorites.length > 0 && (
->>>>>>> main
             <Link to="/favourites">
               <h3 className="newIn">My favourites</h3>
             </Link>
