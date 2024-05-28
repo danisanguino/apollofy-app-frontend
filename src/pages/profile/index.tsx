@@ -60,7 +60,7 @@ export function Profile() {
   }
   function handleClickSave() {
     if (data.username.trim() !== '') {
-      fetch(`http://localhost:3000/user/${user.user.id}`, {
+      fetch(`http://localhost:3000/user/${user.user?.id}`, {
         method: 'PATCH',
         body: JSON.stringify({
           username: data.username.trim(),
@@ -68,7 +68,7 @@ export function Profile() {
       });
     }
     if (data.name.trim() !== '') {
-      fetch(`http://localhost:3000/user/${user.user.id}`, {
+      fetch(`http://localhost:3000/user/${user.user?.id}`, {
         method: 'PATCH',
         body: JSON.stringify({
           name: data.name.trim(),
@@ -76,7 +76,7 @@ export function Profile() {
       });
     }
     if (data.email.trim() !== '') {
-      fetch(`http://localhost:3000/user/${user.user.id}`, {
+      fetch(`http://localhost:3000/user/${user.user?.id}`, {
         method: 'PATCH',
         body: JSON.stringify({
           email: data.email.trim(),
@@ -87,7 +87,7 @@ export function Profile() {
       data.password.trim() !== '' &&
       data.password.trim() === data.confirmPassword?.trim()
     ) {
-      fetch(`http://localhost:3000/user/${user.user.id}`, {
+      fetch(`http://localhost:3000/user/${user.user?.id}`, {
         method: 'PATCH',
         body: JSON.stringify({
           password: data.password.trim(),
@@ -96,7 +96,7 @@ export function Profile() {
     }
   }
   function handleClickDelete() {
-    fetch(`http://localhost:3000/user/${user.user.id}`, {
+    fetch(`http://localhost:3000/user/${user.user?.id}`, {
       method: 'DELETE',
     });
     navigate('/');
@@ -114,10 +114,10 @@ export function Profile() {
       </section>
       <img
         className="img-profile"
-        src={user.user.profilePicture}
-        alt={`${user.user.username} image`}
+        src={user.user?.img}
+        alt={`${user.user?.username} image`}
       />
-      <p className="name">{`${user.user.name} ${user.user.lastname}`}</p>
+      <p className="name">{`${user.user?.name}`}</p>
       <form className="form-section">
         <label>
           Username
@@ -126,7 +126,7 @@ export function Profile() {
               dispatch({ type: Action.changeUsername, value: e.target.value });
             }}
             name="username"
-            placeholder={user.user.username}
+            placeholder={user.user?.username}
           />
         </label>
         <label>
@@ -136,7 +136,7 @@ export function Profile() {
               dispatch({ type: Action.changeName, value: e.target.value });
             }}
             name="name"
-            placeholder={user.user.name}
+            placeholder={user.user?.name || ''}
           />
         </label>
         <label>
@@ -147,7 +147,7 @@ export function Profile() {
             }}
             type="email"
             name="email"
-            placeholder={user.user.email}
+            placeholder={user.user?.email || ''}
           />
         </label>
         <label>
