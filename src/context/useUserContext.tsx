@@ -1,6 +1,6 @@
-import { ReactNode, createContext, useContext, useState } from 'react';
-import { User } from '../utils/interfaces/user';
-import { useAuth0, User as userAuth } from '@auth0/auth0-react';
+import { ReactNode, createContext, useContext, useState } from "react";
+import { User } from "../utils/interfaces/user";
+import { useAuth0, User as userAuth } from "@auth0/auth0-react";
 
 interface UserContextType {
   user: User | userAuth | undefined;
@@ -32,7 +32,7 @@ export function useUserContext() {
 
   if (!context) {
     throw new Error(
-      'useUserContext  must be used within a DataContextProvider'
+      "useUserContext  must be used within a DataContextProvider"
     );
   }
 

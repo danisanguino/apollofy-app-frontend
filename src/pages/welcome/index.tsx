@@ -1,26 +1,26 @@
-import { useEffect, useState } from 'react';
-import Page from '../../components/layout/page';
-import { useUserContext } from '../../context/useUserContext';
-import './welcome.css';
-import { Track } from '../../utils/interfaces/track';
+import { useEffect, useState } from "react";
+import Page from "../../components/layout/page";
+import { useUserContext } from "../../context/useUserContext";
+import "./welcome.css";
+import { Track } from "../../utils/interfaces/track";
 import {
   createUser,
   getArtist,
   getTracks,
   getUsers,
-} from '../../utils/functions';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/free-mode';
-import 'swiper/css/pagination';
-import { useSongContext } from '../../context/useSongContext';
-import Search from '../../components/layout/search';
-import { Artist } from '../../utils/interfaces/artist';
-import { SquareCard } from '@/components/global/squareCard';
-import { SmallCard } from '@/components/global/smallCard';
-import { Link } from 'react-router-dom';
-import { useAuth0 } from '@auth0/auth0-react';
-import { User } from '../../utils/interfaces/user';
+} from "../../utils/functions";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/pagination";
+import { useSongContext } from "../../context/useSongContext";
+import Search from "../../components/layout/search";
+import { Artist } from "../../utils/interfaces/artist";
+import { SquareCard } from "@/components/global/squareCard";
+import { SmallCard } from "@/components/global/smallCard";
+import { Link } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
+import { User } from "../../utils/interfaces/user";
 
 export function Welcome() {
   const [showSearch, setShowSearch] = useState({
@@ -55,11 +55,13 @@ export function Welcome() {
   }, [users]);
 
   async function userValidation() {
-    const foundUser = users.find((u) => {
+    const foundUser = await users?.find((u) => {
       return u.email === auth0User?.email;
     });
+    console.log({ foundUser });
     if (foundUser) {
-      localStorage.setItem('user', JSON.stringify(foundUser));
+      console.log("user found", foundUser);
+      localStorage.setItem("user", JSON.stringify(foundUser));
       userContext.setUser(foundUser);
     } else {
       const body = {
@@ -68,8 +70,10 @@ export function Welcome() {
         email: auth0User?.email,
         img: auth0User?.picture,
       };
+      console.log("user not found", { body });
       const newUser = await createUser(getAccessTokenSilently, body);
-      localStorage.setItem('user', JSON.stringify(newUser));
+      console.log({ newUser });
+      localStorage.setItem("user", JSON.stringify(newUser));
       userContext.setUser(newUser);
     }
   }
@@ -114,7 +118,7 @@ export function Welcome() {
                       setIsPlaying(true);
                     }}
                     src={track.thumbnail}
-                    text1={artist?.name || ''}
+                    text1={artist?.name || ""}
                     text2={track.title}
                   />
                 );
