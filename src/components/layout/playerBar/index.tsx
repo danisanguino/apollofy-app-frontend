@@ -68,7 +68,7 @@ export function PlayerBar() {
       setArtists(ArtistsAPI.data);
     }
     setDataAPI();
-  }, []);
+  }, [getAccessTokenSilently]);
 
   useEffect(() => {
     audioRef.current?.addEventListener("timeupdate", handleTimeUpdate);

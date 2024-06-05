@@ -32,7 +32,7 @@ export default function Search(props: Props) {
       setArtists(ArtistsAPI.data);
     }
     setDataAPI();
-  }, [user.user]);
+  }, [user.user, getAccessTokenSilently]);
 
   function search(params: string) {
     const resultsSearchTracks = tracks.filter((track) => {

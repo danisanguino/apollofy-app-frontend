@@ -15,6 +15,7 @@ export function Favourites() {
   const user = useUserContext();
   const { setCurrentSong, setIsPlaying } = useSongContext();
   const { getAccessTokenSilently } = useUserContext();
+  console.log(getAccessTokenSilently);
 
   useEffect(() => {
     async function setTracksAPI() {
@@ -24,7 +25,7 @@ export function Favourites() {
       setArtists(ArtistsAPI.data);
     }
     setTracksAPI();
-  }, []);
+  }, [getAccessTokenSilently]);
 
   return (
     <Page>

@@ -41,7 +41,7 @@ export function Player({}: Props) {
       setArtists(ArtistsAPI.data);
     }
     setDataAPI();
-  }, []);
+  }, [getAccessTokenSilently]);
 
   useEffect(() => {
     const relatedSongs = tracks.filter((t) => {

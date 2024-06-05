@@ -38,6 +38,7 @@ export function Welcome() {
       : 3.5;
   const { user: auth0User, isLoading } = useAuth0(); //de aquí he quitado el token
   const { getAccessTokenSilently } = useUserContext();
+  console.log(getAccessTokenSilently);
   const [usersDone, isUsersDone] = useState(false);
 
   useEffect(() => {
@@ -47,7 +48,7 @@ export function Welcome() {
       isUsersDone(true);
     }
     setDataAPI();
-  }, []);
+  }, [getAccessTokenSilently]);
 
   useEffect(() => {
     if (auth0User && usersDone) {
