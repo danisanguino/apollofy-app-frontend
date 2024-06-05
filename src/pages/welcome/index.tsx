@@ -33,10 +33,12 @@ export function Welcome() {
   const [artists, setArtists] = useState([] as Artist[]);
   const [users, setUsers] = useState([] as User[]);
   const slidesPerView =
+    userContext.user?.myFavorites !== undefined &&
     userContext.user?.myFavorites.length < 3
       ? userContext.user?.myFavorites.length
       : 3.5;
   const { user: auth0User, isLoading } = useAuth0(); //de aquí he quitado el token
+  console.log(auth0User);
   const { getAccessTokenSilently } = useUserContext();
   console.log(getAccessTokenSilently);
   const [usersDone, isUsersDone] = useState(false);
@@ -126,11 +128,12 @@ export function Welcome() {
                 );
               })}
           </section>
-          {userContext.user?.myFavorites.length > 0 && (
-            <Link to="/favourites">
-              <h3 className="newIn">My favourites</h3>
-            </Link>
-          )}
+          {userContext.user?.myFavorites !== undefined &&
+            userContext.user?.myFavorites.length > 0 && (
+              <Link to="/favourites">
+                <h3 className="newIn">My favourites</h3>
+              </Link>
+            )}
           <section className="favouriteList">
             <Swiper
               slidesPerView={slidesPerView}
@@ -139,49 +142,51 @@ export function Welcome() {
                 clickable: true,
               }}
             >
-              {userContext.user?.myFavorites.map((track: string) => {
+              {userContext.user?.myFavorites !== undefined &&
+                userContext.user?.myFavorites.map((track: string) => {
+                  const showSong = tracks.find((t) => {
+                    return t.id === track;
+                  });
+                  return (
+                    <SwiperSlide
+                      key={track}
+                      onClick={() => {
+                        setCurrentSong(showSong);
+                        setIsPlaying(true);
+                      }}
+                    >
+                      <img className="albumFav" src={showSong?.thumbnail} />
+                    </SwiperSlide>
+                  );
+                })}
+            </Swiper>
+          </section>
+
+          {/* FAVOURITES LIST IN LAPTOP */}
+          <section className="favouriteList-laptop">
+            {userContext.user?.myFavorites !== undefined &&
+              userContext.user?.myFavorites.slice(0, 8).map((track: string) => {
                 const showSong = tracks.find((t) => {
                   return t.id === track;
                 });
                 return (
-                  <SwiperSlide
+                  <div
                     key={track}
                     onClick={() => {
                       setCurrentSong(showSong);
                       setIsPlaying(true);
                     }}
                   >
-                    <img className="albumFav" src={showSong?.thumbnail} />
-                  </SwiperSlide>
+                    <div className="container">
+                      <img
+                        className="albumFav-laptop"
+                        src={showSong?.thumbnail}
+                      />
+                      <p className="albumFav-trackName">{showSong?.title}</p>
+                    </div>
+                  </div>
                 );
               })}
-            </Swiper>
-          </section>
-
-          {/* FAVOURITES LIST IN LAPTOP */}
-          <section className="favouriteList-laptop">
-            {userContext.user?.myFavorites.slice(0, 8).map((track: string) => {
-              const showSong = tracks.find((t) => {
-                return t.id === track;
-              });
-              return (
-                <div
-                  key={track}
-                  onClick={() => {
-                    setCurrentSong(showSong);
-                    setIsPlaying(true);
-                  }}
-                >
-                  <div className="container">
-                    <img
-                      className="albumFav-laptop"
-                      src={showSong?.thumbnail}
-                    />
-                    <p className="albumFav-trackName">{showSong?.title}</p>
-                  </div>
-                </div>
-              );
-            })}
           </section>
         </>
       ) : (
