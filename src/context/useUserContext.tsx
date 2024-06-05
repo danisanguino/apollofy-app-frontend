@@ -33,7 +33,15 @@ export function UserContextProvider(props: IUserContextProps) {
   }, [auth0User]);
 
   useEffect(() => {
-    console.log("el token se ha recargado", getAccessTokenSilently);
+    const fetchToken = async () => {
+      try {
+        const token = await getAccessTokenSilently();
+        console.log("el token se ha recargado", token);
+      } catch (error) {
+        console.log("error cargando el token", error);
+      }
+    };
+    fetchToken();
   }, [getAccessTokenSilently]);
 
   return (

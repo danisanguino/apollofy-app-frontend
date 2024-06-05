@@ -22,13 +22,13 @@ function App() {
         timeout: 10000,
       }}
     >
-      <SongContextProvider>
-        <UserContextProvider>
+      <UserContextProvider>
+        <SongContextProvider>
           <BrowserRouter>
             <AppRoutes />
           </BrowserRouter>
-        </UserContextProvider>
-      </SongContextProvider>
+        </SongContextProvider>
+      </UserContextProvider>
     </Auth0Provider>
   );
 }

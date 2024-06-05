@@ -56,7 +56,7 @@ export function PlayerBar() {
   const { getAccessTokenSilently } = useUserContext();
 
   const [artists, setArtists] = useState([] as Artist[]);
-  const currentArtist = artists.find((a) => {
+  const currentArtist = artists?.find((a) => {
     if (currentSong.title) {
       return a.id === currentSong.artist[0].artistId;
     }
@@ -101,13 +101,19 @@ export function PlayerBar() {
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.src = currentSong.url;
-      audioRef.current.play();
+      audioRef.current.play().catch((error) => {
+        console.log(error, "error al reproducir");
+      });
     }
   }, [currentSong]);
 
   useEffect(() => {
     if (audioRef.current) {
-      isPlaying ? audioRef.current.play() : audioRef.current.pause();
+      isPlaying
+        ? audioRef.current.play().catch((error) => {
+            console.log(error, "error al reproducir");
+          })
+        : audioRef.current.pause();
     }
   }, [isPlaying]);
 
@@ -199,7 +205,7 @@ export function PlayerBar() {
           </div>
         </section>
       )}
-      <audio ref={audioRef}></audio>
+      <audio muted ref={audioRef}></audio>
     </>
   );
 }

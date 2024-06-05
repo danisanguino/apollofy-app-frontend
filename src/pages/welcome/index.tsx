@@ -38,49 +38,82 @@ export function Welcome() {
       ? userContext.user?.myFavorites.length
       : 3.5;
   const { user: auth0User, isLoading } = useAuth0(); //de aquí he quitado el token
-  console.log(auth0User);
   const { getAccessTokenSilently } = useUserContext();
   console.log(getAccessTokenSilently);
-  const [usersDone, isUsersDone] = useState(false);
 
   useEffect(() => {
     async function setDataAPI() {
       const UsersAPI = await getUsers(getAccessTokenSilently);
       setUsers(UsersAPI.data);
-      isUsersDone(true);
     }
     setDataAPI();
   }, [getAccessTokenSilently]);
 
   useEffect(() => {
-    if (auth0User && usersDone) {
+    if (auth0User) {
       userValidation();
     }
-  }, [users]);
+  }, [users, auth0User]);
 
-  async function userValidation() {
-    const foundUser = await users?.find((u) => {
-      return u.email === auth0User?.email;
-    });
-    console.log({ foundUser });
-    if (foundUser) {
-      console.log("user found", foundUser);
-      localStorage.setItem("user", JSON.stringify(foundUser));
-      userContext.setUser(foundUser);
-    } else {
-      const body = {
-        username: auth0User?.nickname,
-        name: auth0User?.name,
-        email: auth0User?.email,
-        img: auth0User?.picture,
-      };
-      console.log("user not found", { body });
-      const newUser = await createUser(getAccessTokenSilently, body);
-      console.log({ newUser });
-      localStorage.setItem("user", JSON.stringify(newUser));
-      userContext.setUser(newUser);
+  // async function userValidation() {
+  //   const foundUser = await users?.find((u) => {
+  //     console.log(
+  //       "email usuario",
+  //       u?.email,
+  //       "email usuario auth0",
+  //       auth0User?.email
+  //     );
+  //     return u.email === auth0User?.email;
+  //   });
+  //   console.log({ foundUser });
+  //   if (foundUser) {
+  //     console.log("user found", foundUser);
+  //     localStorage.setItem("user", JSON.stringify(foundUser));
+  //     userContext.setUser(foundUser);
+  //   } else {
+  //     const body = {
+  //       username: auth0User?.nickname,
+  //       name: auth0User?.name,
+  //       email: auth0User?.email,
+  //       img: auth0User?.picture,
+  //     };
+  //     console.log("user not found", { body });
+  //     const newUser = await createUser(getAccessTokenSilently, body);
+  //     console.log({ newUser });
+  //     localStorage.setItem("user", JSON.stringify(newUser));
+  //     userContext.setUser(newUser);
+  //   }
+  // }
+
+  const userValidation = async () => {
+    try {
+      const foundUser = users?.find((u) => u.email === auth0User?.email);
+      console.log({ foundUser });
+
+      if (foundUser) {
+        console.log("user found", foundUser);
+        localStorage.setItem("user", JSON.stringify(foundUser));
+        userContext.setUser(foundUser);
+      } else {
+        const body = {
+          username: auth0User?.nickname,
+          name: auth0User?.name,
+          email: auth0User?.email,
+          img: auth0User?.picture,
+        };
+        console.log("user not found", { body });
+
+        const token = await getAccessTokenSilently();
+        const newUser = await createUser(token, body);
+        console.log({ newUser });
+
+        localStorage.setItem("user", JSON.stringify(newUser));
+        userContext.setUser(newUser);
+      }
+    } catch (error) {
+      console.error("Error in user validation:", error);
     }
-  }
+  };
 
   useEffect(() => {
     async function setDataAPI() {
@@ -107,26 +140,27 @@ export function Welcome() {
           <h1 className="welcome-user">{`${userContext.user?.name}!`}</h1>
           <h3 className="newIn">New in this week!</h3>
           <section className="newInSection">
-            {tracks
-              // .filter((track) => track.new)
-              // .slice(0, 6)
-              .map((track) => {
-                const artist = artists.find((a) => {
-                  return a.id === track.artist[0].artistId;
-                });
-                return (
-                  <SquareCard
-                    key={track.id}
-                    handleClick={() => {
-                      setCurrentSong(track);
-                      setIsPlaying(true);
-                    }}
-                    src={track.thumbnail}
-                    text1={artist?.name || ""}
-                    text2={track.title}
-                  />
-                );
-              })}
+            {tracks !== undefined &&
+              tracks
+                // .filter((track) => track.new)
+                // .slice(0, 6)
+                .map((track) => {
+                  const artist = artists.find((a) => {
+                    return a.id === track.artist[0].artistId;
+                  });
+                  return (
+                    <SquareCard
+                      key={track.id}
+                      handleClick={() => {
+                        setCurrentSong(track);
+                        setIsPlaying(true);
+                      }}
+                      src={track.thumbnail}
+                      text1={artist?.name || ""}
+                      text2={track.title}
+                    />
+                  );
+                })}
           </section>
           {userContext.user?.myFavorites !== undefined &&
             userContext.user?.myFavorites.length > 0 && (
