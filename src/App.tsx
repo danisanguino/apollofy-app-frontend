@@ -19,6 +19,7 @@ function App() {
       authorizationParams={{
         redirect_uri: window.location.origin + "/welcome",
         audience: audience,
+        timeout: 10000,
       }}
     >
       <SongContextProvider>
