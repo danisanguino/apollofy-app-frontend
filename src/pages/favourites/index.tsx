@@ -1,20 +1,20 @@
-import './favourites.css';
-import { useEffect, useState } from 'react';
-import Page from '../../components/layout/page';
-import { Track } from '../../utils/interfaces/track';
-import { formatTime, getArtist, getTracks } from '../../utils/functions';
-import { useUserContext } from '../../context/useUserContext';
-import { useSongContext } from '../../context/useSongContext';
-import { SmallCard } from '@/components/global/smallCard';
-import { useAuth0 } from '@auth0/auth0-react';
-import { Artist } from '@/utils/interfaces/artist';
+import "./favourites.css";
+import { useEffect, useState } from "react";
+import Page from "../../components/layout/page";
+import { Track } from "../../utils/interfaces/track";
+import { formatTime, getArtist, getTracks } from "../../utils/functions";
+import { useUserContext } from "../../context/useUserContext";
+import { useSongContext } from "../../context/useSongContext";
+import { SmallCard } from "@/components/global/smallCard";
+// import { useAuth0 } from '@auth0/auth0-react';
+import { Artist } from "@/utils/interfaces/artist";
 
 export function Favourites() {
   const [tracks, setTracks] = useState([] as Track[]);
   const [artists, setArtists] = useState([] as Artist[]);
   const user = useUserContext();
   const { setCurrentSong, setIsPlaying } = useSongContext();
-  const { getAccessTokenSilently } = useAuth0();
+  const { getAccessTokenSilently } = useUserContext();
 
   useEffect(() => {
     async function setTracksAPI() {
@@ -43,11 +43,11 @@ export function Favourites() {
                   setCurrentSong(favTrack);
                   setIsPlaying(true);
                 }}
-                src={favTrack?.thumbnail || ''}
+                src={favTrack?.thumbnail || ""}
                 text1={favTrack?.title}
-                text2={artist?.name || ''}
+                text2={artist?.name || ""}
                 text3={
-                  favTrack?.duration ? formatTime(favTrack.duration) : '2:00'
+                  favTrack?.duration ? formatTime(favTrack.duration) : "2:00"
                 }
               />
             </div>

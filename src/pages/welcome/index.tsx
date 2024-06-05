@@ -36,7 +36,8 @@ export function Welcome() {
     userContext.user?.myFavorites.length < 3
       ? userContext.user?.myFavorites.length
       : 3.5;
-  const { user: auth0User, isLoading, getAccessTokenSilently } = useAuth0();
+  const { user: auth0User, isLoading } = useAuth0(); //de aquí he quitado el token
+  const { getAccessTokenSilently } = useUserContext();
   const [usersDone, isUsersDone] = useState(false);
 
   useEffect(() => {

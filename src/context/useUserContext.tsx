@@ -5,6 +5,7 @@ import { useAuth0, User as userAuth } from "@auth0/auth0-react";
 interface UserContextType {
   user: User | userAuth | undefined;
   setUser: Function;
+  getAccessTokenSilently: () => Promise<string>;
 }
 
 interface IUserContextProps {
@@ -16,11 +17,11 @@ const UserContext = createContext({} as UserContextType);
 
 //Provider, se pone en app abranzando routes
 export function UserContextProvider(props: IUserContextProps) {
-  const { user: auth0User } = useAuth0();
+  const { user: auth0User, getAccessTokenSilently } = useAuth0();
   const [user, setUser] = useState(auth0User);
 
   return (
-    <UserContext.Provider value={{ user, setUser }}>
+    <UserContext.Provider value={{ user, setUser, getAccessTokenSilently }}>
       {props.children}
     </UserContext.Provider>
   );

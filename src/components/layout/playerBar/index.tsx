@@ -1,12 +1,12 @@
-import './playerBar.css';
-import { useEffect, useRef, useState } from 'react';
-import { Link, Outlet } from 'react-router-dom';
-import { useSongContext } from '../../../context/useSongContext';
-import { SmallCard } from '@/components/global/smallCard';
-import { Slider } from '@/components/ui/slider';
-import { formatTime, getArtist } from '@/utils/functions';
-import { Artist } from '@/utils/interfaces/artist';
-import { useAuth0 } from '@auth0/auth0-react';
+import "./playerBar.css";
+import { useEffect, useRef, useState } from "react";
+import { Link, Outlet } from "react-router-dom";
+import { useSongContext } from "../../../context/useSongContext";
+import { SmallCard } from "@/components/global/smallCard";
+import { Slider } from "@/components/ui/slider";
+import { formatTime, getArtist } from "@/utils/functions";
+import { Artist } from "@/utils/interfaces/artist";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Play = () => (
   <svg
@@ -51,7 +51,9 @@ export function PlayerBar() {
   }
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
-  const { getAccessTokenSilently } = useAuth0();
+  // const { getAccessTokenSilently } = useAuth0();
+  const { getAccessTokenSilently } = useSongContext();
+
   const [artists, setArtists] = useState([] as Artist[]);
   const currentArtist = artists.find((a) => {
     if (currentSong.title) {
@@ -68,9 +70,9 @@ export function PlayerBar() {
   }, []);
 
   useEffect(() => {
-    audioRef.current?.addEventListener('timeupdate', handleTimeUpdate);
+    audioRef.current?.addEventListener("timeupdate", handleTimeUpdate);
     return () => {
-      audioRef.current?.removeEventListener('timeupdate', handleTimeUpdate);
+      audioRef.current?.removeEventListener("timeupdate", handleTimeUpdate);
     };
   }, []);
 
@@ -120,11 +122,11 @@ export function PlayerBar() {
       {currentSong.title && (
         <section className="player-bar">
           <div className="song-info">
-            <Link to={'/player'}>
+            <Link to={"/player"}>
               <SmallCard
                 src={currentSong.thumbnail}
                 text1={currentSong.title}
-                text2={currentArtist?.name || ''}
+                text2={currentArtist?.name || ""}
                 class="song"
               />
             </Link>
@@ -140,11 +142,11 @@ export function PlayerBar() {
         <section className="section-bar-laptop">
           <div className="player-bar-laptop">
             <div className="song-info">
-              <Link to={'/player'}>
+              <Link to={"/player"}>
                 <SmallCard
                   src={currentSong.thumbnail}
                   text1={currentSong.title}
-                  text2={currentArtist?.name || ''}
+                  text2={currentArtist?.name || ""}
                   class="song"
                 />
               </Link>

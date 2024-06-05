@@ -1,18 +1,18 @@
-import Page from '../../components/layout/page';
-import './player.css';
-import { useSongContext } from '../../context/useSongContext';
-import { useUserContext } from '../../context/useUserContext';
-import { useEffect, useState } from 'react';
-import { Slider } from '@/components/ui/slider';
-import { Track } from '@/utils/interfaces/track';
+import Page from "../../components/layout/page";
+import "./player.css";
+import { useSongContext } from "../../context/useSongContext";
+import { useUserContext } from "../../context/useUserContext";
+import { useEffect, useState } from "react";
+import { Slider } from "@/components/ui/slider";
+import { Track } from "@/utils/interfaces/track";
 import {
   formatTime,
   getArtist,
   getTracks,
   updateFavorites,
-} from '@/utils/functions';
-import { useAuth0 } from '@auth0/auth0-react';
-import { Artist } from '@/utils/interfaces/artist';
+} from "@/utils/functions";
+// import { useAuth0 } from '@auth0/auth0-react';
+import { Artist } from "@/utils/interfaces/artist";
 
 type Props = {};
 
@@ -26,7 +26,8 @@ export function Player({}: Props) {
   const [isFav, setIsFav] = useState(favUser);
   const [tracks, setTracks] = useState([] as Track[]);
   const [relatedSongs, setRelatedSongs] = useState([] as Track[]);
-  const { getAccessTokenSilently } = useAuth0();
+  // const { getAccessTokenSilently } = useAuth0();
+  const { getAccessTokenSilently } = useSongContext();
   const [artists, setArtists] = useState([] as Artist[]);
   const currentArtist = artists.find((a) => {
     return a.id === currentSong.artist[0].artistId;
@@ -81,13 +82,13 @@ export function Player({}: Props) {
     }
     updating();
     setIsFav(!isFav);
-    localStorage.setItem('user', JSON.stringify(user.user));
+    localStorage.setItem("user", JSON.stringify(user.user));
   }
 
   useEffect(() => {
-    audio?.addEventListener('timeupdate', handleTimeUpdate);
+    audio?.addEventListener("timeupdate", handleTimeUpdate);
     return () => {
-      audio?.removeEventListener('timeupdate', handleTimeUpdate);
+      audio?.removeEventListener("timeupdate", handleTimeUpdate);
     };
   }, []);
 
@@ -113,7 +114,7 @@ export function Player({}: Props) {
           <div className="songInfo">
             <div>
               <h2 className="songInfoTitle">{currentSong.title}</h2>
-              <p className="songInfoArtist">{currentArtist?.name || ''}</p>
+              <p className="songInfoArtist">{currentArtist?.name || ""}</p>
             </div>
             <button onClick={handleHeart}>
               {isFav ? (
@@ -194,7 +195,7 @@ export function Player({}: Props) {
             <div className="songInfoDetail">
               <h2 className="songInfoTitle">{currentSong.title}</h2>
               <span className="songInfoArtist">
-                {currentArtist?.name || ''}{' '}
+                {currentArtist?.name || ""}{" "}
               </span>
               <span className="songInfoDuration">
                 Duration {formatTime(duration)}
