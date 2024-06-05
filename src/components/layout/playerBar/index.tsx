@@ -6,7 +6,7 @@ import { SmallCard } from "@/components/global/smallCard";
 import { Slider } from "@/components/ui/slider";
 import { formatTime, getArtist } from "@/utils/functions";
 import { Artist } from "@/utils/interfaces/artist";
-import { useAuth0 } from "@auth0/auth0-react";
+// import { useAuth0 } from "@auth0/auth0-react";
 
 const Play = () => (
   <svg
