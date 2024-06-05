@@ -27,7 +27,7 @@ export function Player({}: Props) {
   const [tracks, setTracks] = useState([] as Track[]);
   const [relatedSongs, setRelatedSongs] = useState([] as Track[]);
   // const { getAccessTokenSilently } = useAuth0();
-  const { getAccessTokenSilently } = useSongContext();
+  const { getAccessTokenSilently } = useUserContext();
   const [artists, setArtists] = useState([] as Artist[]);
   const currentArtist = artists.find((a) => {
     return a.id === currentSong.artist[0].artistId;

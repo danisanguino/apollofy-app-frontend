@@ -1,6 +1,5 @@
 import { ReactNode, createContext, useContext, useState } from "react";
 import { Track } from "../utils/interfaces/track";
-import { useAuth0 } from "@auth0/auth0-react";
 
 interface SongContextType {
   isPlaying: boolean;
@@ -11,7 +10,6 @@ interface SongContextType {
   setVolume: Function;
   audio: HTMLAudioElement | null;
   setAudio: Function;
-  getAccessTokenSilently: () => Promise<string>;
 }
 
 interface Props {
@@ -27,7 +25,6 @@ export function SongContextProvider(props: Props) {
   const [currentSong, setCurrentSong] = useState({} as Track);
   const [volume, setVolume] = useState(0.6);
   const [audio, setAudio] = useState(null);
-  const { getAccessTokenSilently } = useAuth0();
 
   return (
     <SongContext.Provider
@@ -40,7 +37,6 @@ export function SongContextProvider(props: Props) {
         setVolume,
         audio,
         setAudio,
-        getAccessTokenSilently,
       }}
     >
       {props.children}

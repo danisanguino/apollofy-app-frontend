@@ -6,6 +6,7 @@ import { SmallCard } from "@/components/global/smallCard";
 import { Slider } from "@/components/ui/slider";
 import { formatTime, getArtist } from "@/utils/functions";
 import { Artist } from "@/utils/interfaces/artist";
+import { useUserContext } from "@/context/useUserContext";
 // import { useAuth0 } from "@auth0/auth0-react";
 
 const Play = () => (
@@ -52,7 +53,7 @@ export function PlayerBar() {
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
   // const { getAccessTokenSilently } = useAuth0();
-  const { getAccessTokenSilently } = useSongContext();
+  const { getAccessTokenSilently } = useUserContext();
 
   const [artists, setArtists] = useState([] as Artist[]);
   const currentArtist = artists.find((a) => {
