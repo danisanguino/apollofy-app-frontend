@@ -26,11 +26,11 @@ export function UserContextProvider(props: IUserContextProps) {
   const { user: auth0User, getAccessTokenSilently } = useAuth0();
   const [user, setUser] = useState(auth0User);
 
-  // useEffect(() => {
-  //   if (auth0User) {
-  //     setUser(auth0User);
-  //   }
-  // }, [auth0User]);
+  useEffect(() => {
+    if (auth0User) {
+      setUser(auth0User);
+    }
+  }, [auth0User]);
 
   useEffect(() => {
     console.log("el token se ha recargado", getAccessTokenSilently);
