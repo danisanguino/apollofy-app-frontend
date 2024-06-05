@@ -205,7 +205,7 @@ export function PlayerBar() {
           </div>
         </section>
       )}
-      <audio muted ref={audioRef}></audio>
+      <audio ref={audioRef}></audio>
     </>
   );
 }
