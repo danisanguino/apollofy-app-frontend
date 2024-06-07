@@ -1,10 +1,35 @@
-`#react` `#assembler-institute-of-technology` `#master-in-software-engineering` `#ReactEcommerce` `#ReactTS` `#ReactHooks` `#CustomHooks` `#StyledComponents` `#TypeScript` `#CSS` `#Figma` `#ReactOptimization`
+<h1>🎶 Apollofy 🎧</h1>
 
-# Apollofy Project
+<img src="https://res.cloudinary.com/drp3zy62g/image/upload/v1717759089/Proyecto_nuevo_5_crt0gu.jpg"/>
 
-![Apollofy](public/images/bg_presentacion_proyecto_apollofy_copia.jpg)
+Apollofy is a music playback application designed to provide a smooth and enjoyable user experience. Our application is fully responsive, ensuring you can enjoy your favorite music on any device.
 
-The project consists of creating a web music platform based on Spotify and SoundCloud.
+<h2>Key Features</h2>
+Music Playback: Explore, select, and play songs from our library.
+User Management: Login and authentication system using Auth0.
+Responsive Design: Interface adaptable to any screen size.
+Intuitive Interface: Attractive and functional design developed in Figma.
+Local Storage: Saving user preferences and data in local storage.
+Technologies Used
+<strong>Frontend</strong>
+React: Primary library for building the user interface.
+Vite: Fast and efficient development tool for React.
+CSS: Custom styling for a pleasant visual experience.
+Auth0: User authentication and authorization management.
+<strong>Backend</strong>
+Node.js: Runtime environment for JavaScript on the server.
+Express: Framework for creating web applications and APIs.
+Prisma: ORM (Object-Relational Mapping) for interacting with our database.
+MongoDB: NoSQL database for storing application data.
+Backend Functionalities
+CRUD for Music: Create, read, update, and delete songs in the library.
+Development Tools
+Kanban: Agile methodology for task management and progress tracking.
+Figma: Design tool used to create the layout and user interface.
+CI/CD with Jenkins: Continuous integration and continuous deployment to ensure code quality and rapid delivery of new features.
+Deployment:
+Backend: Deployed on Railway.
+Frontend: Deployed on Netlify.
 
 ## Initializing project
 
