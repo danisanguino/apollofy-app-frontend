@@ -31,6 +31,7 @@ Deployment:
 Backend: Deployed on Railway.
 Frontend: Deployed on Netlify.
 
+
 ## Initializing project
 
 pnpm install
